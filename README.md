@@ -1,5 +1,5 @@
 ### Test automation with WebdriverIO
-####Setup your project
+#### Setup your project
 Before installing dependencies, we need to initialize an empty NPM project (this will allow us to the cli to install needed dependencies to our local project).
 
 To do this, run:
@@ -9,14 +9,14 @@ npm init -y
 ```
 The -y will answer 'yes' to all the prompts, giving us a standard NPM project. Feel free to omit the -y if you'd like to specify your own project details.
 
-####Install WebdriverIO CLI
+#### Install WebdriverIO CLI
 If you want to use WebdriverIO in your project for integration testing we recommend using the test runner because it comes with a lot of useful features that makes your life easier. With WebdriverIO v5 and up, the testrunner has moved into the @wdio/cli NPM package.
 
 Now we need to install the cli. Do that by running:
 ```
 npm i --save-dev @wdio/cli
 ```
-####Generate Configuration File
+#### Generate Configuration File
 We'll next want to generate a configuration file that stores all of our WebdriverIO settings. To do that just run the configuration utility:
 ```
 ./node_modules/.bin/wdio config
@@ -49,7 +49,7 @@ A: http://localhost (just press enter)
 
 That's it! The configurator now installs all required packages for you and creates a config file with the name wdio.conf.js. As we're using Geckodriver, we need to override the default path (which uses the Selenium's default of /wd/hub). Then, we'll be ready to create your first spec file (test file).
 
-####Create Spec Files
+#### Create Spec Files
 Now it's time to create our test file. We're going to store all of our files in a new folder. Create the test folder like this:
 ```
 mkdir -p ./test/specs
@@ -85,9 +85,9 @@ describe('webdriver.io page', () => {
 ```
 Once added, save, then return to your terminal.
 
-####Kick Off Testrunner
+#### Kick Off Testrunner
 The last step is to execute the test runner. To do so just run:
 ```
 ./node_modules/.bin/wdio wdio.conf.js
 ```
-#####Hurray! The test should pass and you can start writing integration tests with WebdriverIO.
+##### Hurray! The test should pass and you can start writing integration tests with WebdriverIO.
