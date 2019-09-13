@@ -4,7 +4,10 @@
   "description": "Super test",
   "main": "index.js",
   "scripts": {
-    "test": "wdio wdio.conf.js"
+    "test": "wdio wdio.conf.js",
+    "test:header": "wdio wdio.conf.js --suite header",
+    "test:mainPage": "wdio wdio.conf.js --suite mainPage",
+    "test:basics": "wdio wdio.conf.js --suite basics"
   },
   "author": "",
   "license": "ISC",
@@ -23,6 +26,8 @@
     "chromedriver": "^76.0.1",
     "wdio-chromedriver-service": "^5.0.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
   "keywords": []
 }
