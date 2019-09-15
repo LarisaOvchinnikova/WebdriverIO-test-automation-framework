@@ -38,18 +38,13 @@ describe('Login page', () => {
     it ("displays roles", () => {
         const element = $('//body/div[@id=\'root\']/div/div/div/div[@class=\'container\']/div[@class=\'row\']/div[@class=\'col\']/div/div[@class=\'row\']/div[@class=\'col\']/span[3]') ;
         const text = element.getText();
-       // const expected = 'student';
-       // expect(text).to.include(expected);
         expect(text).to.have.lengthOf.at.least(1);
     });
     it ("User has admin role", () => {
-        const element = $('//body/div[@id=\'root\']/div/div/div/div[@class=\'container\']/div[@class=\'row\']/div[@class=\'col\']/div/div[@class=\'row\']/div[@class=\'col\']/span[3]') ;
-        const text = element.getText();
+        const selector = $('//body/div[@id=\'root\']/div/div/div/div[@class=\'container\']/div[@class=\'row\']/div[@class=\'col\']/div/div[@class=\'row\']/div[@class=\'col\']/span[3]') ;
+        const actual = selector.getText();
         const expected = 'admin';
-        expect(text).to.include(expected);
+        expect(actual).to.include(expected);
     });
-
-
-    //?/span[@innertext='admin student ']
 
 });
