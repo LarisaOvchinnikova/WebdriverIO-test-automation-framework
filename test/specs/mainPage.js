@@ -1,4 +1,5 @@
 const expect = require('chai').expect;
+const assert = require('chai').assert;
 //import {expect} from 'chai';
 
 describe('Main page', () => {
@@ -34,9 +35,13 @@ describe('Main page', () => {
     });
     it('should have correct year in the footer copywrite line', () => {
         const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
-        const actual = element.getText();
+        const text = element.getText();
         const currentYear = '2019';
-        expect(actual).to.include(currentYear);
+        const isIncludes = text.includes(currentYear);
+        assert.equal(isIncludes, true);
+        expect(text).to.include(currentYear);
+        expect(isIncludes).to.be.true;
+
     });
     it('should have correct text in the footer copywrite line', () => {
         const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
