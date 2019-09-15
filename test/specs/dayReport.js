@@ -29,11 +29,11 @@ describe('Create day report page', () => {
 
     it('should check marks in report', function () {
         for (let i = 0; i < 5; i++) {
-            const selector = $('//input[@id=\'input-['+i+ ']\']');
+            const selector = $('//input[@id=\'input-[' + i + ']\']');
             selector.click();
         }
         browser.pause(10000);
     });
-//input[@id='input-[3]']
+
 
 });
