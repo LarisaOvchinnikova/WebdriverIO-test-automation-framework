@@ -130,9 +130,7 @@ exports.config = {
         timeout: 60000
     },
     suites: {
-       header: ['./test/specs/header.js'],
        mainPage: ['./test/specs/mainPage.js'],
-       basics: ['./test/specs/basics.js']
     },
     //
     // =====
