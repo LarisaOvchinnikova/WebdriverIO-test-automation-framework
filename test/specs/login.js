@@ -47,4 +47,14 @@ describe('Login page', () => {
         expect(actual).to.include(expected);
     });
 
+    it ("should have button Create day report", () => {
+        const selector = $('//a[@class=\'btn btn-secondary\']');
+        selector.click();
+        browser.pause(10000);
+        const header = $('//h1');
+        const actual = header.getText();
+        const expected = 'Create day report';
+        expect(actual).to.equal(expected);
+    })
+
 });

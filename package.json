@@ -6,7 +6,8 @@
   "scripts": {
     "test": "wdio wdio.conf.js --inspect",
     "mainPage": "wdio wdio.conf.js --spec ./test/specs/mainPage.js --inspect",
-    "login": "wdio wdio.conf.js --spec ./test/specs/login.js --inspect"
+    "login": "wdio wdio.conf.js --spec ./test/specs/login.js --inspect",
+    "dayReport": "wdio wdio.conf.js --spec ./test/specs/dayReport.js --inspect"
   },
   "author": "",
   "license": "ISC",
