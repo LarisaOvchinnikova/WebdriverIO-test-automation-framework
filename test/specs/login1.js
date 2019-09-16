@@ -1,20 +1,24 @@
-const { expect } = require('chai');
-const loginAction = require('./loginAction');
+import { expect }  from 'chai';
+//const loginAction = require('./loginAction');
+import loginHelpers from './loginAction';
 
 describe('Login form', () => {
     before (() => {
         browser.url('https://stage.pasv.us/user/login');
     });
 
-    it('should have correct header', () => {
-        const header = $('//h1');
-        const text = header.getText();
-        const expected = 'User Login';
-        expect(text).to.equal(expected);
-    });
+//    it('should have correct header', () => {
+//        const selector = $('//h1');
+//        const element = $(selector);
+//        const actual = element.getText();
+//        const expected = 'User Login';
+//
+//        expect(actual).to.equal(expected);
+//   });
 
     it('should login', () => {
-        loginAction(browser);
+        //loginAction(browser);
+        loginHelpers.login();
     });
 
     it('should have success message', () => {
