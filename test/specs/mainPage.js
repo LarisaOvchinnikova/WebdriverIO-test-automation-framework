@@ -38,6 +38,16 @@ describe('Main page', () => {
         expect(actualSize).to.equal(expectFontSize);
     });
 
+    it('application name should has correct font-weight', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
+        console.log("+++++++++++++++++++++");
+        console.log(actualWeight);
+        console.log("+++++++++++++++++++++");
+        const expectFontWeight = '500';
+        expect(actualWeight).to.equal(expectFontWeight);
+    });
+
     it('appliccation name should has correct font-family ', function () {
         const elem = $('//span[@id="site-name"]');
         const font = elem.getCSSProperty('font-family').parsed.string ;
