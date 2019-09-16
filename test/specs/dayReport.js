@@ -5,23 +5,20 @@ describe('Create day report page', () => {
     before (() => {
             browser.url('https://stage.pasv.us/user/login');
         });
-/*
-    it('should login', () => {
-        const emailField = $('//input[@name="email"]');
-        const passwordField = $('//input[@name="password"]');
-        const button = $('//button[@type="submit"]');
 
-        const EMAIL = 'larisa12345@gmail.com';
-        const PASSWORD = 'qwerty';
-        emailField.setValue(EMAIL);
-        passwordField.setValue(PASSWORD);
-        button.click();
-        browser.pause(10000);
-    });
-*/
     it('should login', () => {
         //loginAction(browser);
         loginHelpers.login();
+    });
+
+    it ("should have button Create day report", () => {
+        const selector = $('//a[@class=\'btn btn-secondary\']');
+        selector.click();
+        browser.pause(10000);
+        const header = $('//h1');
+        const actual = header.getText();
+        const expected = 'Create day report';
+        expect(actual).to.equal(expected);
     });
 
     it ("should click button Create day report", () => {
@@ -50,6 +47,27 @@ describe('Create day report page', () => {
         }
     });
 
+    it('should fill diary field ', function () {
+        const diaryField = $('//textarea[@name=\'description\']');
+        const buttonSave = $('//button[@class=\'btn btn-primary disabled\']');
+        const reportText = 'Today I solved 3 tasks on codewars and watched 2 lectures.';
+        diaryField.setValue(reportText);
+        buttonSave.click();
+        browser.pause(5000);
+    });
 
+    browser.url('https://stage.pasv.us/diary');
+
+    it('should redirect to Day reports page', () => {
+        const h1 = $('//h1').getText();
+        expect(h1).to.equal('Day reports');
+    });
+
+    it('should have active link Diary', function () {
+        const selector = $('//a[@class=\'nav-link active\']');
+        const actual = $(selector).getText();
+        const expected = 'Diary';
+        expect(actual).to.equal(expected);
+    });
 });
 
