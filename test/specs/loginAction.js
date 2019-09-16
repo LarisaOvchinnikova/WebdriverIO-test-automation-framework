@@ -15,7 +15,6 @@ class loginHelpers {                                            //*
         browser.pause(1000);
     };
 }
-
 //module.exports =  {
 //    loginAction
 //};

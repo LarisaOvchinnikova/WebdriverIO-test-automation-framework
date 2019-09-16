@@ -13,10 +13,7 @@ describe('Create day report page', () => {
 
     it ("should have button Create day report", () => {
         const selector = $('//a[@class=\'btn btn-secondary\']');
-        selector.click();
-        browser.pause(10000);
-        const header = $('//h1');
-        const actual = header.getText();
+        const actual = selector.getText();
         const expected = 'Create day report';
         expect(actual).to.equal(expected);
     });
@@ -65,7 +62,7 @@ describe('Create day report page', () => {
 
     it('should have active link Diary', function () {
         const selector = $('//a[@class=\'nav-link active\']');
-        const actual = $(selector).getText();
+        const actual = selector.getText();
         const expected = 'Diary';
         expect(actual).to.equal(expected);
     });
