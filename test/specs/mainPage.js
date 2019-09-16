@@ -21,6 +21,29 @@ describe('Main page', () => {
         expect(actual).to.equal(expected);
     });
 
+    it('application name should has correct color', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualColor = selector.getCSSProperty('color').parsed.hex;
+        const expectColor = '#000000'
+        expect(actualColor).to.equal(expectColor);
+    });
+
+    it('application name should has correct font-size', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualSize = selector.getCSSProperty('font-size').parsed.string;
+        console.log("+++++++++++++++++++++");
+        console.log(actualSize);
+        console.log("+++++++++++++++++++++");
+        const expectFontSize = '20px';
+        expect(actualSize).to.equal(expectFontSize);
+    });
+
+    it('appliccation name should has correct font-family ', function () {
+        const elem = $('//span[@id="site-name"]');
+        const font = elem.getCSSProperty('font-family').parsed.string ;
+        expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
+    });
+
     it('should have Login button', () => {
         const login = $('//a[@class="nav-link"]');
         const actual = login.getText();

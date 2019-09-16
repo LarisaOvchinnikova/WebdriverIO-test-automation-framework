@@ -23,6 +23,7 @@ describe('Login page', () => {
         passwordField.setValue(PASSWORD);
         button.click();
         browser.pause(10000);
+
         const userName = 'Lara Lara';
         const h1 = $('//h1').getText();
         expect(h1).to.equal(userName);

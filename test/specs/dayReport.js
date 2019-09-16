@@ -27,13 +27,14 @@ describe('Create day report page', () => {
         expect(actual).to.equal(expected);
     });
 
-    it('should check marks in report', function () {
-        for (let i = 0; i < 5; i++) {
+    it('should check marks in checkbox', function () {
+        for (let i = 1; i <= 5; i++) {
             const selector = $('//input[@id=\'input-[' + i + ']\']');
             selector.click();
+            browser.pause(1000);
         }
-        browser.pause(10000);
     });
 
 
 });
+
