@@ -7,15 +7,6 @@ describe('Login form', () => {
         browser.url('https://stage.pasv.us/user/login');
     });
 
-//    it('should have correct header', () => {
-//        const selector = $('//h1');
-//        const element = $(selector);
-//        const actual = element.getText();
-//        const expected = 'User Login';
-//
-//        expect(actual).to.equal(expected);
-//   });
-
     it('should login', () => {
         //loginAction(browser);
         loginHelpers.login();

@@ -1,23 +1,6 @@
 import { expect }  from 'chai';
 
-describe('Main page', () => {
-    before(() => {
-        browser.url('https://stage.pasv.us/');
-    });
-
-    it('should have Register button', () => {
-        const reg = $('//a[@class=\'btn btn-outline-primary\']');
-        const actual = reg.getText();
-        const expected = 'Register';
-        expect(actual).to.equal(expected);
-    });
-
-    it('should click Register button', () => {
-        const reg = $('//a[@class=\'btn btn-outline-primary\']');
-        reg.click();
-        browser.pause(20000);
-    });
-
+describe('User Register page', () => {
     before(() => {
         browser.url('https://stage.pasv.us/user/register');
     });
@@ -32,17 +15,43 @@ describe('Main page', () => {
        const actual = selector.getText();
        expect(actual).to.equal('Real name');
     });
-   // const EMAIL = 'larisa12345@gmail.com';
-   // const PASSWORD = 'qwerty';
-   //  emailField.setValue(EMAIL);
-   // passwordField.setValue(PASSWORD);
 
     it('should fill all fields', function () {
-     const realNameField = $('//input[@name=\'name\']');
-     const phoneField = $('//input[@name=\'phone\']');
-     const emailField = $('//input[@name=\'email\']');
-     const passwordField = S('//input[@name=\'password\']');
-     const aboutField = $('//textarea[@placeholder="I\'m ..."]')
+
+       const realNameField = $('//input[@name=\'name\']');
+       const phoneField = $('//input[@name=\'phone\']');
+       const emailField = $('//input[@name=\'email\']');
+       const passwordField = $('//input[@name=\'password\']');
+       const aboutField = $('//textarea[@placeholder="I\'m ..."]');
+       const myGoalsField = $('//textarea[@placeholder=\'1... 2... 3...\']');
+       const englishLevelField = $('//select[contains(@class,\'is-valid form-control\')]');
+       const submitButton = $('//button[contains(@class,\'btn btn-primary disabled\')]');
+
+       const name = 'Alice Moon';
+       const phone = "+19542222222";
+       const email = "alicemoon@gmail.com";
+       const password = 'qwerty';
+       const about = 'Hi, I am student.';
+       const goals = 'I want to become QA tester.';
+       const english = $('//option[contains(text(),\'Beginner\')]');
+
+       realNameField.setValue(name);
+       browser.pause(500);
+       phoneField.setValue(phone);
+       browser.pause(500);
+       emailField.setValue(email);
+       browser.pause(500);
+       passwordField.setValue(password);
+       browser.pause(500);
+       aboutField.setValue(about);
+       browser.pause(500);
+       myGoalsField.setValue(goals);
+       browser.pause(500);
+       englishLevelField.click();
+        browser.pause(10000);
+       english.click()
+       browser.pause(10000);
 
     });
+
 });
