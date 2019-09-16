@@ -27,6 +27,7 @@ describe('Main page', () => {
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
+
     it('application name should have correct color', () => {
         const selector = $('//span[@id="site-name"]');
         const actualColor = selector.getCSSProperty('color').parsed.hex;
@@ -60,6 +61,7 @@ describe('Main page', () => {
         const expected = 'Login';
         expect(actual).to.equal(expected);
     });
+
     it('should have Register button', () => {
         const reg = $('//a[@class=\'btn btn-outline-primary\']');
         const actual = reg.getText();
@@ -74,8 +76,8 @@ describe('Main page', () => {
         assert.equal(isIncludes, true);
         expect(text).to.include(currentYear);
         expect(isIncludes).to.be.true;
-
     });
+
     it('should have correct text in the footer copywrite line', () => {
         const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
         const actual = element.getText();
