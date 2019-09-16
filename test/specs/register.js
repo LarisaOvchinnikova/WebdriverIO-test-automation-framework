@@ -39,7 +39,10 @@ describe('Main page', () => {
 
     it('should fill all fields', function () {
      const realNameField = $('//input[@name=\'name\']');
-     const phoneField = $('');
+     const phoneField = $('//input[@name=\'phone\']');
+     const emailField = $('//input[@name=\'email\']');
+     const passwordField = S('//input[@name=\'password\']');
+     const aboutField = $('//textarea[@placeholder="I\'m ..."]')
 
     });
 });
