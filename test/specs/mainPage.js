@@ -31,7 +31,7 @@ describe('Main page', () => {
     it('application name should have correct color', () => {
         const selector = $('//span[@id="site-name"]');
         const actualColor = selector.getCSSProperty('color').parsed.hex;
-        const expectColor = '#000000'
+        const expectColor = '#000000';
         expect(actualColor).to.equal(expectColor);
     });
 
