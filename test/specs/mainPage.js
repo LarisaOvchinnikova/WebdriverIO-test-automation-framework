@@ -21,34 +21,34 @@ describe('Main page', () => {
         expect(actual).to.equal(expected);
     });
 
-    it('application name should has correct color', () => {
+    it('application name should have correct alignment', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualAlign = selector.getCSSProperty('text-align').parsed.string;
+        const expectAlign = 'left';
+        expect(actualAlign).to.equal(expectAlign);
+    });
+    it('application name should have correct color', () => {
         const selector = $('//span[@id="site-name"]');
         const actualColor = selector.getCSSProperty('color').parsed.hex;
         const expectColor = '#000000'
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('application name should has correct font-size', () => {
+    it('application name should have correct font-size', () => {
         const selector = $('//span[@id="site-name"]');
         const actualSize = selector.getCSSProperty('font-size').parsed.string;
-        console.log("+++++++++++++++++++++");
-        console.log(actualSize);
-        console.log("+++++++++++++++++++++");
         const expectFontSize = '20px';
         expect(actualSize).to.equal(expectFontSize);
     });
 
-    it('application name should has correct font-weight', () => {
+    it('application name should have correct font-weight', () => {
         const selector = $('//span[@id="site-name"]');
         const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
-        console.log("+++++++++++++++++++++");
-        console.log(actualWeight);
-        console.log("+++++++++++++++++++++");
         const expectFontWeight = '500';
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-    it('application name should has correct font-family ', function () {
+    it('application name should have correct font-family ', function () {
         const elem = $('//span[@id="site-name"]');
         const font = elem.getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
