@@ -48,7 +48,7 @@ describe('Main page', () => {
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-    it('appliccation name should has correct font-family ', function () {
+    it('application name should has correct font-family ', function () {
         const elem = $('//span[@id="site-name"]');
         const font = elem.getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
