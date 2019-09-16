@@ -39,6 +39,7 @@ describe('Login form', () => {
         const text = element.getText();
         expect(text).to.have.lengthOf.at.least(1);
     });
+
     it ("User has admin role", () => {
         const selector = $('//body/div[@id=\'root\']/div/div/div/div[@class=\'container\']/div[@class=\'row\']/div[@class=\'col\']/div/div[@class=\'row\']/div[@class=\'col\']/span[3]') ;
         const actual = selector.getText();
