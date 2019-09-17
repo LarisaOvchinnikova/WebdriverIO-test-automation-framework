@@ -24,16 +24,16 @@ describe('User Register page', () => {
        const passwordField = $('//input[@name=\'password\']');
        const aboutField = $('//textarea[@placeholder="I\'m ..."]');
        const myGoalsField = $('//textarea[@placeholder=\'1... 2... 3...\']');
-       const englishLevelField = $('//select[contains(@class,\'is-valid form-control\')]');
+       const englishLevel = $('//option[contains(text(),\'Beginner\')]');
+
        const submitButton = $('//button[contains(@class,\'btn btn-primary disabled\')]');
 
        const name = 'Alice Moon';
-       const phone = "+19542222222";
-       const email = "alicemoon@gmail.com";
+       const phone = '+19542222222';
+       const email = 'alicemoon@gmail.com';
        const password = 'qwerty';
        const about = 'Hi, I am student.';
        const goals = 'I want to become QA tester.';
-       const english = $('//option[contains(text(),\'Beginner\')]');
 
        realNameField.setValue(name);
        browser.pause(500);
@@ -47,11 +47,19 @@ describe('User Register page', () => {
        browser.pause(500);
        myGoalsField.setValue(goals);
        browser.pause(500);
-       englishLevelField.click();
-        browser.pause(10000);
-       english.click()
-       browser.pause(10000);
 
+       englishLevel.click();
+       browser.pause(20000);
+
+       submitButton.click();
+       browser.pause(10000);
     });
 
+
+    it('should check if user was register successfully', function () {
+     //get URL
+       const headerH1 = $('//h1').getText();
+       const expected = 'User Login';
+       expect(headerH1).to.equal(expected);
+    });
 });

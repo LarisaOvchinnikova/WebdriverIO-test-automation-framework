@@ -18,6 +18,8 @@ describe('Main page', () => {
         const selector = $('//span[@id="site-name"]');
         const actual = selector.getText();
         const expected = 'Progress Monitor';
+
+        //browser.debug();
         expect(actual).to.equal(expected);
     });
 
