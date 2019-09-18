@@ -42,4 +42,16 @@ describe('User -- Login Form -- Design', () => {
         expect(actualSize).to.equal(expectFontSize);
     });
 
+    it('should validate h1 has correct font-weight', () => {
+        const selector = $('//h1');
+        const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
+        const expectFontWeight = '500';
+        expect(actualWeight).to.equal(expectFontWeight);
+    });
+
+    it('should validate h1 has correct font-family ', function () {
+        const elem = $('//h1');
+        const font = elem.getCSSProperty('font-family').parsed.string ;
+        expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
+    });
 });
