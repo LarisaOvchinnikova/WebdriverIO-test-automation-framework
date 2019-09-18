@@ -30,7 +30,7 @@ describe('User Register page', () => {
 
        const name = 'Alice Moon';
        const phone = '+19542222222';
-       const email = 'alicemoon@gmail.com';
+       const email = 'alicemoon'+ Math.trunc((Math.random()*1000))+ '@gmail.com';
        const password = 'qwerty';
        const about = 'Hi, I am student.';
        const goals = 'I want to become QA tester.';
@@ -49,17 +49,22 @@ describe('User Register page', () => {
        browser.pause(500);
 
        englishLevel.click();
-       browser.pause(20000);
+       browser.pause(1000);
 
        submitButton.click();
        browser.pause(10000);
+
     });
 
-
-    it('should check if user was register successfully', function () {
-     //get URL
+    it('should check if user was register successfully and redirected to login page', function () {
+        const URLpage = browser.getUrl();
+        const expectedURL = 'https://stage.pasv.us/user/login';
+        expect(URLpage).to.equal(expectedURL);
+    });
+    it('should check that after registration login page was opened', function () {
        const headerH1 = $('//h1').getText();
        const expected = 'User Login';
        expect(headerH1).to.equal(expected);
     });
+
 });
