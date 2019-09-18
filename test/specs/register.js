@@ -1,8 +1,9 @@
 import { expect }  from 'chai';
-
+const eng = ['Zero','Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper intermediate', 'Advanced', 'Proficient', 'Native'];
 describe('User Register page', () => {
     before(() => {
         browser.url('https://stage.pasv.us/user/register');
+        browser.maximizeWindow();
     });
 
     it('should have correct header', function () {
@@ -24,7 +25,10 @@ describe('User Register page', () => {
        const passwordField = $('//input[@name=\'password\']');
        const aboutField = $('//textarea[@placeholder="I\'m ..."]');
        const myGoalsField = $('//textarea[@placeholder=\'1... 2... 3...\']');
-       const englishLevel = $('//option[contains(text(),\'Beginner\')]');
+    //   const englishLevel = $('//option[contains(text(),\'Beginner\')]');
+
+       let randomEngishLevel =  Math.trunc(Math.random()*8);
+       let englishLevel = $(`//option[contains(text(),'${eng[randomEngishLevel]}')]`);
 
        const submitButton = $('//button[contains(@class,\'btn btn-primary disabled\')]');
 
@@ -61,6 +65,7 @@ describe('User Register page', () => {
         const expectedURL = 'https://stage.pasv.us/user/login';
         expect(URLpage).to.equal(expectedURL);
     });
+
     it('should check that after registration login page was opened', function () {
        const headerH1 = $('//h1').getText();
        const expected = 'User Login';
