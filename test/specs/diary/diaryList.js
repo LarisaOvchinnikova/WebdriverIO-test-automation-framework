@@ -7,7 +7,7 @@ describe('Diary List', () => {
         loginHelpers.login();
     });
 
-    it('should have main menu item ', () => {
+    it('should have main menu with item Diary ', () => {
       //  const selector = '//div[@id="site-menu"]//a[text() ="Diary"]';
         const selector = '//a[contains(text(),\'Diary\')]';
         const isDisplayed = $(selector).isDisplayed();
