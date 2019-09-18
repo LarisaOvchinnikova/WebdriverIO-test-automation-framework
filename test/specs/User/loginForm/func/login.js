@@ -1,14 +1,18 @@
 import { expect }  from 'chai';
-//const loginAction = require('./loginAction');
-import loginHelpers from '../../actions/loginAction';
+//const loginAction = require('./../../actions/loginAction'); //
+//import loginAction from "../../../../actions/loginAction";
+
+import loginHelpers from '../../../../actions/loginAction';
+const { baseUrl } = require('../../../../constants'); //
+const url = `${baseUrl}/user/login`;
 
 describe('Login form', () => {
     before (() => {
-        browser.url('https://stage.pasv.us/user/login');
+      browser.url(url);
     });
 
     it('should login', () => {
-        //loginAction(browser);
+//      loginAction(browser);
         loginHelpers.login();
     });
 
@@ -26,7 +30,7 @@ describe('Login form', () => {
     });
 
     it ("displays roles", () => {
-        const element = $('//body/div[@id=\'root\']/div/div/div/div[@class=\'container\']/div[@class=\'row\']/div[@class=\'col\']/div/div[@class=\'row\']/div[@class=\'col\']/span[3]') ;
+        const element = $('#root .col [class=\'ml-4rem\']:nth-of-type(3)');
         const text = element.getText();
         expect(text).to.have.lengthOf.at.least(1);
     });
