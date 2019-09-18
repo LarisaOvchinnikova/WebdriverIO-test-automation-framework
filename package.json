@@ -7,6 +7,7 @@
     "test": "wdio wdio.conf.js --inspect",
     "mainPage": "wdio wdio.conf.js --spec ./test/specs/mainPage.js --inspect",
     "login": "wdio wdio.conf.js --spec test/specs/User/login1.js --inspect",
+    "userloginDesign": "wdio wdio.conf.js --spec test/specs/User/loginForm/design/user_loginForm_design.js --inspect",
     "dayReport": "wdio wdio.conf.js --spec ./test/specs/dayReport.js --inspect",
     "registerPage": "wdio wdio.conf.js --spec ./test/specs/register.js --inspect"
   },

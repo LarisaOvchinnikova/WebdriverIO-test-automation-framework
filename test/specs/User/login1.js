@@ -1,6 +1,6 @@
 import { expect }  from 'chai';
 //const loginAction = require('./loginAction');
-import loginHelpers from '../loginAction';
+import loginHelpers from '../../actions/loginAction';
 
 describe('Login form', () => {
     before (() => {
