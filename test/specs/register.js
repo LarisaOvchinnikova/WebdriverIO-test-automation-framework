@@ -1,5 +1,6 @@
 import { expect }  from 'chai';
 const eng = ['Zero','Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper intermediate', 'Advanced', 'Proficient', 'Native'];
+
 describe('User Register page', () => {
     before(() => {
         browser.url('https://stage.pasv.us/user/register');
