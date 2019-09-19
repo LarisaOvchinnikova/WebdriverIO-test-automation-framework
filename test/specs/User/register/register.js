@@ -33,11 +33,8 @@ describe('User Register page', () => {
     it('should have correct list of english levels in dropdown ', function () {
         const selector = '//label[@for="englishLevel"]/../../select/option';
         const options = $$(selector).map(option => option.getText());
-    //    console.log('+++++++++++++++++++++++++++++++++++++++++');
-    //    console.log(options);
-    //    console.log('+++++++++++++++++++++++++++++++++++++++++');
         const expectedList = ['Zero','Beginner','Elementary','Pre-Intermediate','Intermediate','Upper intermediate','Advanced','Proficient','Native' ];
-        expect(options).to.have.ordered.members(expectedList);
+        expect(options).to.deep.equal(expectedList);
         });
 
     it('should fill all fields', function () {
