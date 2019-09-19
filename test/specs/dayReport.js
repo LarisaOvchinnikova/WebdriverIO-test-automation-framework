@@ -1,13 +1,9 @@
 import { expect }  from 'chai';
 import loginHelpers from '../actions/loginAction';
 
-describe('Create day report page', () => {
-    before (() => {
-            browser.url('https://stage.pasv.us/user/login');
-        });
+describe('Create day report after User Login when click button Create day report', () => {
 
-    it('should login', () => {
-        //loginAction(browser);
+    before (() => {
         loginHelpers.login();
     });
 

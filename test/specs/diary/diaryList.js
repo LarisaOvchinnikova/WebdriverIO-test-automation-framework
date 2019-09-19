@@ -1,6 +1,7 @@
 //import { expect } from 'chai';
 const { expect } = require ('chai');
 import loginHelpers from '../../actions/loginAction';
+const menuDiarySelector = '//a[contains(text(),"Diary")]';
 
 describe('Diary List', () => {
     before (() => {
@@ -8,19 +9,24 @@ describe('Diary List', () => {
     });
 
     it('should have main menu with item Diary ', () => {
-      //  const selector = '//div[@id="site-menu"]//a[text() ="Diary"]';
-        const selector = '//a[contains(text(),\'Diary\')]';
-        const isDisplayed = $(selector).isDisplayed();
+        const isDisplayed = $(menuDiarySelector).isDisplayed();
         expect(isDisplayed).to.be.true;
     });
 
-    it('should redirect to Diary page ', () => {
-        const selector = '//a[contains(text(),\'Diary\')]';
-        $(selector).click();
-
+    it('click to Diary in main menu should redirect to Day reports page ', () => {
+        $(menuDiarySelector).click();
         const actualh1Text = $('//h1').getText();
         const expected = 'Day reports';
 
         expect(actualh1Text).to.equal(expected);
+    });
+
+    it('should have a few records ', function () {
+        browser.pause(1000);
+
+        const selector = '//div[@class ="pb-4 mb-4 border-bottom"]';
+        const element = $(selector);
+        console.log("------------------------------------------------------------")
+        console.log(element);
     });
 });
