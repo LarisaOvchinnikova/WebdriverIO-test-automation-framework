@@ -18,7 +18,7 @@ describe('User Register page', () => {
     });
 
     it('should have Real name field', function () {
-       const selector = $('//label[contains(text(),\'Real name\')]');
+       const selector = $('//label[contains(text(),"Real name")]');
        const actual = selector.getText();
        expect(actual).to.equal('Real name');
     });
@@ -45,7 +45,6 @@ describe('User Register page', () => {
        const passwordField = $('//input[@name=\'password\']');
        const aboutField = $('//textarea[@placeholder="I\'m ..."]');
        const myGoalsField = $('//textarea[@placeholder=\'1... 2... 3...\']');
-    //   const englishLevel = $('//option[contains(text(),\'Beginner\')]');
 
        let randomEngishLevel =  Math.trunc(Math.random()*8);
        let englishLevel = $(`//option[contains(text(),'${eng[randomEngishLevel]}')]`);

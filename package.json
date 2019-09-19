@@ -8,7 +8,7 @@
     "mainPage": "wdio wdio.conf.js --spec ./test/specs/mainPage.js --inspect",
     "login": "wdio wdio.conf.js --spec test/specs/User/loginForm/func/login.js --inspect",
     "userloginFormDesign": "wdio wdio.conf.js --spec test/specs/User/loginForm/design/user_loginForm_design.js --inspect",
-    "dayReport": "wdio wdio.conf.js --spec ./test/specs/dayReport.js --inspect",
+    "dayReport": "wdio wdio.conf.js --spec test/specs/diary/dayReport.js --inspect",
     "registerPage": "wdio wdio.conf.js --spec test/specs/User/register/register.js --inspect",
     "diaryList": "wdio wdio.conf.js --spec ./test/specs/diary/diaryList.js --inspect"
   },
