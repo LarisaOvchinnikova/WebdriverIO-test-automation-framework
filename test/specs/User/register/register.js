@@ -1,9 +1,14 @@
 import { expect }  from 'chai';
 const eng = ['Zero','Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper intermediate', 'Advanced', 'Proficient', 'Native'];
 
+const { baseUrl } = require('./../../../constants');
+
+const url = `${baseUrl}/user/register`;
+
+
 describe('User Register page', () => {
     before(() => {
-        browser.url('https://stage.pasv.us/user/register');
+        browser.url(url);
         browser.maximizeWindow();
     });
 
@@ -16,6 +21,12 @@ describe('User Register page', () => {
        const selector = $('//label[contains(text(),\'Real name\')]');
        const actual = selector.getText();
        expect(actual).to.equal('Real name');
+    });
+
+    it('English level dropdown menu is displayed', function () {
+        const selector = '//label[@for="englishLevel"]/../../select';
+        const element = $(selector);
+        element.isDisplayed();
     });
 
     it('should fill all fields', function () {
