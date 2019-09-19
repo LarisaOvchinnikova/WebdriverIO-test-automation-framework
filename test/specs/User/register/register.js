@@ -23,11 +23,22 @@ describe('User Register page', () => {
        expect(actual).to.equal('Real name');
     });
 
-    it('English level dropdown menu is displayed', function () {
+    it('English level dropdown list is displayed', function () {
         const selector = '//label[@for="englishLevel"]/../../select';
         const element = $(selector);
-        element.isDisplayed();
+        const isDisplayed  = element.isDisplayed();
+        expect(isDisplayed).to.be.true;
     });
+
+    it('should have correct list of english levels in dropdown ', function () {
+        const selector = '//label[@for="englishLevel"]/../../select/option';
+        const options = $$(selector).map(option => option.getText());
+    //    console.log('+++++++++++++++++++++++++++++++++++++++++');
+    //    console.log(options);
+    //    console.log('+++++++++++++++++++++++++++++++++++++++++');
+        const expectedList = ['Zero','Beginner','Elementary','Pre-Intermediate','Intermediate','Upper intermediate','Advanced','Proficient','Native' ];
+        expect(options).to.have.ordered.members(expectedList);
+        });
 
     it('should fill all fields', function () {
 
