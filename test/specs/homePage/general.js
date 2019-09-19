@@ -2,11 +2,27 @@ const expect = require('chai').expect;
 const assert = require('chai').assert;
 //import {expect} from 'chai';
 
-describe('Main page', () => {
+const { baseUrl } = require('./../../constants');
+const url = `${baseUrl}`;
+console.log('--------------------------------------------------------------------------------')
+console.log(url);
+describe('Home page - General', () => {
     before (() => {
-        browser.url('https://stage.pasv.us/');
+        browser.url(url);
     });
 
+    it('should verify URL', function () {
+        const applicationURL = browser.getUrl();
+        const expectedURL = 'https://stage.pasv.us/';
+        expect(applicationURL).to.equal(expectedURL);
+    });
+
+    it('should veryfy that favicon.ico is correct', function () {
+        const selector = '//link[@href="/favicon.ico"]';
+        const faviconIsDisplayed = $(selector).isDisplayed();
+        expect(faviconIsDisplayed).to.be.true;
+
+    });
     it('should have correct title', () => {
         const title = browser.getTitle();
         browser.pause(4000);
@@ -14,7 +30,7 @@ describe('Main page', () => {
         expect(title).to.equal(expected);
     });
 
-    it('should have correct application name', () => {
+    it('verify that main bar contains site name', () => {
         const selector = $('//span[@id="site-name"]');
         const actual = selector.getText();
         const expected = 'Progress Monitor';

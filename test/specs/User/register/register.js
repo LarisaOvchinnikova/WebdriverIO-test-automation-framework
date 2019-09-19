@@ -35,7 +35,7 @@ describe('User Register page', () => {
         const options = $$(selector).map(option => option.getText());
         const expectedList = ['Zero','Beginner','Elementary','Pre-Intermediate','Intermediate','Upper intermediate','Advanced','Proficient','Native' ];
         expect(options).to.deep.equal(expectedList);
-        });
+    });
 
     it('should fill all fields', function () {
 
