@@ -9,7 +9,6 @@ describe('Login form', () => {
     });
 
     it('should login', () => {
-//      loginAction(browser);
         loginHelpers.login();
     });
 
@@ -17,6 +16,14 @@ describe('Login form', () => {
         const userName = 'Lara Lara';
         const h1 = $('//h1').getText();
         expect(h1).to.equal(userName);
+    });
+
+    it('should have correct h1', () => {
+        const selector = '//h1';
+        const element = $(selector);
+        const actual = element.getText();
+        const expected = 'User Login';
+        expect(actual).to.eq(expected);
     });
 
     it ("should have user name in dropdown button", () => {

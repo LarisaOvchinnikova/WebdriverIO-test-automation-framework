@@ -3,6 +3,10 @@ const { baseUrl } = require('./../../../../constants');
 
 const url = `${baseUrl}/user/login`;
 
+const selectors = {
+    h1: '//h1',
+};
+
 describe('User -- Login Form -- Design', () => {
     before(() => {
         browser.url(url);
@@ -16,15 +20,15 @@ describe('User -- Login Form -- Design', () => {
     });
 
     it('should have correct header', () => {
-        const selector = $('//h1');
-        const actual = selector.getText();
+        const element = $(selector.h1);
+        const actual = element.getText();
         const expected = 'User Login';
         expect(actual).to.equal(expected);
     });
 
     it('should validate h1 has correct color', () => {
-        const selector = $('//h1');
-        const actualColor = selector.getCSSProperty('color').parsed.hex;
+        const element = $(selector.h1);
+        const actualColor = element.getCSSProperty('color').parsed.hex;
         const expectColor = '#333333';
         expect(actualColor).to.equal(expectColor);
     });
