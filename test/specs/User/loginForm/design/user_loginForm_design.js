@@ -3,7 +3,7 @@ const { baseUrl } = require('./../../../../constants');
 
 const url = `${baseUrl}/user/login`;
 
-const selectors = {
+const selector = {
     h1: '//h1',
 };
 
@@ -32,6 +32,15 @@ describe('User -- Login Form -- Design', () => {
         const expectColor = '#333333';
         expect(actualColor).to.equal(expectColor);
     });
+
+    it('should have correct border color for empty field', () => {
+        const element = $('//input[@name="email"]');
+        const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
+        const expectedBorderColor = '#ced4da';
+        expect(actualBorderColor).to.equal(expectedBorderColor);
+        browser.pause(6000);
+    });
+
 
     it('should validate h1 has correct alignment', () => {
         const selector = $('//h1');

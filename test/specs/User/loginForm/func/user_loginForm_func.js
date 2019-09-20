@@ -19,9 +19,7 @@ describe('Login form', () => {
     });
 
     it('should have correct h1', () => {
-        const selector = '//h1';
-        const element = $(selector);
-        const actual = element.getText();
+        const actualH1Text = $('//h1').getText();
         const expected = 'User Login';
         expect(actual).to.eq(expected);
     });
