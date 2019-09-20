@@ -3,12 +3,11 @@ import { expect }  from 'chai';
 //import loginAction from "../../../../actions/loginAction";
 
 import loginHelpers from '../../../../actions/loginAction';
-const { baseUrl } = require('../../../../constants'); //
-const url = `${baseUrl}/user/login`;
+const { loginUrl } = require('../../../../constants'); //
 
 describe('Login form', () => {
     before (() => {
-      browser.url(url);
+      browser.url(loginUrl);
     });
 
     it('should login', () => {

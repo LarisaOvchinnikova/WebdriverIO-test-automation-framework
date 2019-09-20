@@ -55,12 +55,12 @@ describe('Home page - General', () => {
      });
 
     it('application has container with functional parts 8 images and  8 blocks', function () {
-
-    //    /html//div[@id='root']/div/div/div/div[@class='container']/div[@class='row']/div[@class='col']//div[@class='row']/div
-   //     ///div[@safeclass~'\bcol-md-8\b.*\boffset-0\b.*\boffset-md-1\b.*\border-1\b.*\border-md-2\b.*\border-sm-1\b']
-
-
-
+      // const selector = '//div[@xpath="2"]';
+        const selector ='//body/div[@id="root"]/div/div/div/div[4]';
+       const container = $(selector);
+        console.log('_________________________________________________________');
+        console.log(container);
+        console.log('_________________________________________________________');
     });
 
     it('application has global footer', function () {
