@@ -75,15 +75,13 @@ describe('Main page', () => {
         const text = element.getText();
         const currentYear = '2019';
         const isIncludes = text.includes(currentYear);
-        assert.equal(isIncludes, true);
-        expect(text).to.include(currentYear);
         expect(isIncludes).to.be.true;
     });
 
     it('should have correct text in the footer copywrite line', () => {
         const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
         const actual = element.getText();
-        const currentText = 'eat(); sleep(); code(); repeat();';
+        const currentText = '© 2019 eat(); sleep(); code(); repeat();';
         expect(actual).to.include(currentText);
     });
 

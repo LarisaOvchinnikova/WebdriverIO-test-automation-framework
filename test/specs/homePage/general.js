@@ -44,16 +44,17 @@ describe('Home page - General', () => {
         expect(actual).to.equal(expected);
     });
 
+    it('application has container with functional parts 8 images and  8 blocks', function () {
+
+
+    });
+
     it('application has global footer', function () {
         const selector = '//footer/div[@class="container"]';
         const footerIsDisplayed = $(selector).isDisplayed();
         expect(footerIsDisplayed).to.be.true;
     });
 
-    it('application has container with functional parts 8 images and  8 blocks', function () {
-
-
-    });
     it('should have correct year in the footer copywrite line', () => {
         const element = $('//small[@class="d-block mb-3 text-muted"]');
         const text = element.getText();
@@ -62,11 +63,6 @@ describe('Home page - General', () => {
         expect(isIncludes).to.be.true;
     });
 
-    it('should have correct text in the footer copywrite line', () => {
-        const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
-        const actual = element.getText();
-        const currentText = 'eat(); sleep(); code(); repeat();';
-        expect(actual).to.include(currentText);
-    });
+
 
 });
