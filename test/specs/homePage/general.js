@@ -44,7 +44,21 @@ describe('Home page - General', () => {
         expect(actual).to.equal(expected);
     });
 
+    it('should verify that container has correct h1', function () {
+        const selector = '//div[@class ="header-title"]'
+        const h1Actual = $(selector).getText();
+        console.log('_________________________________________________________');
+        console.log(h1Actual);
+        console.log('_________________________________________________________');
+        const h1Expected = 'System that considers\nindividual features of\neach student';
+        expect(h1Actual).equal(h1Expected);
+     });
+
     it('application has container with functional parts 8 images and  8 blocks', function () {
+
+    //    /html//div[@id='root']/div/div/div/div[@class='container']/div[@class='row']/div[@class='col']//div[@class='row']/div
+   //     ///div[@safeclass~'\bcol-md-8\b.*\boffset-0\b.*\boffset-md-1\b.*\border-1\b.*\border-md-2\b.*\border-sm-1\b']
+
 
 
     });
