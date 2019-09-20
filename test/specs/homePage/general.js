@@ -16,7 +16,7 @@ describe('Home page - General', () => {
         expect(applicationURL).to.equal(expectedURL);
     });
 
-    it('should veryfy that favicon.ico is correct', function () {
+    it('should veryfy that favicon.ico is existing', function () {
         const selector = '//link[@href="/favicon.ico"]';
         const faviconIsDisplayed = $(selector).isExisting();
         expect(faviconIsDisplayed).to.be.true;
@@ -30,23 +30,24 @@ describe('Home page - General', () => {
         expect(title).to.equal(expected);
     });
 
-    it('verify that application name is displayed', () => {
-        const selector = $('//span[@id="site-name"]');
-        const actual = selector.getText();
+    it('verify that application has global header', () => {
+        const selector = '//div[@id="main-bar"]';
+        const globalHeader = $(selector).isDisplayed();
+        expect(globalHeader).to.be.true;
+    });
+
+    it('verify that header contains application name', () => {
+        const selector = '//span[@id="site-name"]';
+        const actual = $(selector).getText();
         const expected = 'Progress Monitor';
 
         expect(actual).to.equal(expected);
     });
 
-    it('application has global header', () => {
-        const selector = $('//span[@id="site-name"]');
-        const actualAlign = selector.getCSSProperty('text-align').parsed.string;
-        const expectAlign = 'left';
-        expect(actualAlign).to.equal(expectAlign);
-    });
-
     it('application has global footer', function () {
-
+        const selector = '//footer/div[@class="container"]';
+        const footerIsDisplayed = $(selector).isDisplayed();
+        expect(footerIsDisplayed).to.be.true;
     });
 
     it('application has container with functional parts 8 images and  8 blocks', function () {
@@ -54,12 +55,10 @@ describe('Home page - General', () => {
 
     });
     it('should have correct year in the footer copywrite line', () => {
-        const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
+        const element = $('//small[@class="d-block mb-3 text-muted"]');
         const text = element.getText();
         const currentYear = '2019';
         const isIncludes = text.includes(currentYear);
-        assert.equal(isIncludes, true);
-        expect(text).to.include(currentYear);
         expect(isIncludes).to.be.true;
     });
 
