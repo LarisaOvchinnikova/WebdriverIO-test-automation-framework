@@ -19,7 +19,6 @@ describe('Home page - Design', () => {
         const selector = '//span[@id="site-name"]';
         const siteNameIsDisplayed = $(selector).isDisplayed();
         expect(siteNameIsDisplayed).to.be.true;
-
     });
 
     it('verify that application name is "Progress Monitor"', () => {
@@ -70,15 +69,27 @@ describe('Home page - Design', () => {
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
-    it('should have Login button', () => {
+    it('should verify that navigation-bar is displayed', function () {
+        const selector = '//div[@id="user-section"]';
+        const navigationBarIsDisplayed = $(selector).isDisplayed();
+        expect(navigationBarIsDisplayed).to.be.true;
+    });
+
+    it('should verify that navigation-bar is right-aligned', function () {
+        const selector = '//div[@id="user-section"]';
+        const navigationBarIsRightAligned = $(selector).getCSSProperty('text-align').parsed.string;
+        expect(navigationBarIsRightAligned).to.be.true;
+    });
+
+    it('veryfy that navigation bar has Login button', () => {
         const login = $('//a[@class="nav-link"]');
         const actual = login.getText();
         const expected = 'Login';
         expect(actual).to.equal(expected);
     });
 
-    it('should have Register button', () => {
-        const registerButton = $('//a[@class=\'btn btn-outline-primary\']');
+    it('veryfy that navigation bar has Register button', () => {
+        const registerButton = $('//a[@class="btn btn-outline-primary"]');
         const actual = registerButton.getText();
         const expected = 'Register';
         expect(actual).to.equal(expected);
