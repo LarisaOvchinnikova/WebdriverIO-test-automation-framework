@@ -63,13 +63,13 @@ describe('Home page - General', () => {
         expect(imgCount).to.equal(expectedCountOfImages);
     });
 
-    it('verify that container on main page contains 8 blocks', function () {
-        let imgCount = $$('//img').length;
+    it('verify that container on main page contains 7 blocks', function () {
+        let blockCount = $$('//p[@class="intro"]').length;
         console.log('_________________________________________________________');
-        console.log(imgCount);
+        console.log(blockCount);
         console.log('_________________________________________________________');
-        const expectedCountOfImages = 7;
-        expect(imgCount).to.equal(expectedCountOfImages);
+        const expectedCountOfBlocks = 7;
+        expect(blockCount).to.equal(expectedCountOfBlocks);
     });
     it('application has global footer', function () {
         const selector = '//footer/div[@class="container"]';
