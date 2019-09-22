@@ -14,18 +14,18 @@ describe('Home page - footer - design', () => {
     });
 
     it('should verify that first line displays Version', function () {
-        const footer = @('//div[contains(text(),"Version")]');
+        const footer = $('//div[contains(text(),"Version")]');
         const versionIsDisplayed = footer.isDisplayed();
         expect(versionIsDisplayed).to.be.true;
     });
 
     it('should display current version ', function () {
-        const version = @('//span[@class="badge badge-light"]');
+        const version = $('//span[@class="badge badge-light"]');
         const expected ='0.1.74';
         expect(version).equal(expected);
     });
     it('should have correct year in the second line', () => {
-        const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
+        const element = $('//small[@class="d-block mb-3 text-muted"]');
         const text = element.getText();
         const currentYear = '2019';
         const isIncludes = text.includes(currentYear);
@@ -39,17 +39,20 @@ describe('Home page - footer - design', () => {
         expect(actual).to.include(currentText);
     });
 
-    it('application name should have correct alignment', () => {
-        const selector = $('//span[@id="site-name"]');
+    it('text in footer is left-aligned', () => {
+        const selector = $('//div[contains(text(),"Version")]');
         const actualAlign = selector.getCSSProperty('text-align').parsed.string;
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
 
-    it('application name should have correct color', () => {
-        const selector = $('//span[@id="site-name"]');
+    it('text in the footer has correct color', () => {
+        const selector = $('//div[contains(text(),"Version")]');
         const actualColor = selector.getCSSProperty('color').parsed.hex;
-        const expectColor = '#000000';
+        console.log('=====================================================')
+        console.log(actualColor);
+        console.log('=====================================================')
+        const expectColor = '#212529';
         expect(actualColor).to.equal(expectColor);
     });
 
