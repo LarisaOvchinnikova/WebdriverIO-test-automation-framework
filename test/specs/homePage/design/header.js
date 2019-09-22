@@ -94,8 +94,4 @@ describe('Home page - Design', () => {
         const expected = 'Register';
         expect(actual).to.equal(expected);
     });
-
-
-
-
 });
