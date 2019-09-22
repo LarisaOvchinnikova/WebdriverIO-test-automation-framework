@@ -47,27 +47,18 @@ describe('Home page - General', () => {
     it('should verify that h1 header is correct', function () {
         const selector = '//div[@class ="header-title"]'
         const h1Actual = $(selector).getText();
-        console.log('_________________________________________________________');
-        console.log(h1Actual);
-        console.log('_________________________________________________________');
         const h1Expected = 'System that considers\nindividual features of\neach student';
         expect(h1Actual).equal(h1Expected);
      });
 
     it('verify that container on main page contains 7 images', function () {
         let imgCount = $$('//img').length;
-        console.log('_________________________________________________________');
-        console.log(imgCount);
-        console.log('_________________________________________________________');
         const expectedCountOfImages = 7;
         expect(imgCount).to.equal(expectedCountOfImages);
     });
 
     it('verify that container on main page contains 7 blocks', function () {
         let blockCount = $$('//p[@class="intro"]').length;
-        console.log('_________________________________________________________');
-        console.log(blockCount);
-        console.log('_________________________________________________________');
         const expectedCountOfBlocks = 7;
         expect(blockCount).to.equal(expectedCountOfBlocks);
     });
