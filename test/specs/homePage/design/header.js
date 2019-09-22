@@ -16,7 +16,7 @@ describe('Home page - Design', () => {
 
     });
 
-    it('verify that application name is "Progress <onitor"', () => {
+    it('verify that application name is "Progress Monitor"', () => {
         const selector = '//span[@id="site-name"]';
         const siteName = $(selector).getText();
         const expectedSiteName = 'Progress Monitor';
