@@ -36,6 +36,13 @@ describe('Home page - Design', () => {
         expect(actualAlignment).to.equal(expectAlignment);
     });
 
+    it('application name should have correct font-size', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualSize = selector.getCSSProperty('font-size').parsed.string;
+        const expectFontSize = '20px';
+        expect(actualSize).to.equal(expectFontSize);
+    });
+
     it('application name should have correct color', () => {
         const selector = $('//span[@id="site-name"]');
         const actualColor = selector.getCSSProperty('color').parsed.hex;
