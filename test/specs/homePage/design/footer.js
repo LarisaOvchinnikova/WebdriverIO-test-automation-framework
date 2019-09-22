@@ -56,13 +56,13 @@ describe('Home page - footer - design', () => {
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('fist line of footer has font-size 17px', () => {
+    it('number of version in fist line of footer has font-size 12.75px', () => {
         const selector = $('//span[@class="badge badge-light"]');
         const actualSize = selector.getCSSProperty('font-size').parsed.string;
         console.log('=====================================================')
         console.log(actualSize);
         console.log('=====================================================')
-        const expectFontSize = '17px';
+        const expectFontSize = '12.75px';
         expect(actualSize).to.equal(expectFontSize);
     });
 
@@ -73,15 +73,15 @@ describe('Home page - footer - design', () => {
         expect(actualSize).to.equal(expectFontSize);
     });
 
-    it('application name should have correct font-weight', () => {
-        const selector = $('//span[@id="site-name"]');
+    it('text in footer has correct font-weight', () => {
+        const selector = $('//footer/div[@class="container"]');
         const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
-        const expectFontWeight = '500';
+        const expectFontWeight = '400';
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-    it('application name should have correct font-family ', function () {
-        const elem = $('//span[@id="site-name"]');
+    it('text in footer has correct font-family ', function () {
+        const elem = $('//footer/div[@class="container"]');
         const font = elem.getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
