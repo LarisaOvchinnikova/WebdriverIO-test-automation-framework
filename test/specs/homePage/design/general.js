@@ -44,7 +44,7 @@ describe('Home page - General', () => {
         expect(actual).to.equal(expected);
     });
 
-    it('should verify that container has correct h1', function () {
+    it('should verify that h1 header is correct', function () {
         const selector = '//div[@class ="header-title"]'
         const h1Actual = $(selector).getText();
         console.log('_________________________________________________________');
@@ -54,20 +54,27 @@ describe('Home page - General', () => {
         expect(h1Actual).equal(h1Expected);
      });
 
-    it('application has container with functional parts 8 images and  8 blocks', function () {
-      // const selector = '//div[@xpath="2"]';
-       const selector ='//body/div[@id="root"]/div/div/div/div[4]';
-       const container = $(selector);
-       console.log('_________________________________________________________');
-       console.log(container);
-       console.log('_________________________________________________________');
+    it('verify that container on main page contains 7 images', function () {
+        let imgCount = $$('//img').length;
+        console.log('_________________________________________________________');
+        console.log(imgCount);
+        console.log('_________________________________________________________');
+        const expectedCountOfImages = 7;
+        expect(imgCount).to.equal(expectedCountOfImages);
     });
 
+    it('verify that container on main page contains 8 blocks', function () {
+        let imgCount = $$('//img').length;
+        console.log('_________________________________________________________');
+        console.log(imgCount);
+        console.log('_________________________________________________________');
+        const expectedCountOfImages = 7;
+        expect(imgCount).to.equal(expectedCountOfImages);
+    });
     it('application has global footer', function () {
         const selector = '//footer/div[@class="container"]';
         const footerIsDisplayed = $(selector).isDisplayed();
         expect(footerIsDisplayed).to.be.true;
     });
-
 
 });
