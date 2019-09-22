@@ -20,7 +20,7 @@ describe('Home page - footer - design', () => {
     });
 
     it('should display current version ', function () {
-        const version = $('//span[@class="badge badge-light"]');
+        const version = $('//span[@class="badge badge-light"]').getText();
         const expected ='0.1.74';
         expect(version).equal(expected);
     });
