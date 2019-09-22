@@ -9,8 +9,14 @@ describe('Home page - Design', () => {
         browser.url(url);
     });
 
+    it('verify that application has global header', () => {
+        const selector = '//div[@id="main-bar"]';
+        const globalHeader = $(selector).isDisplayed();
+        expect(globalHeader).to.be.true;
+    });
+
     it('should veryfy that application name is displayed', function () {
-        const siteName = '//span[@id="site-name"]';
+        const selector = '//span[@id="site-name"]';
         const siteNameIsDisplayed = $(selector).isDisplayed();
         expect(siteNameIsDisplayed).to.be.true;
 
@@ -22,29 +28,56 @@ describe('Home page - Design', () => {
         const expectedSiteName = 'Progress Monitor';
         expect(siteName).to.equal(expectedSiteName);
     });
-    it('should have correct title', () => {
-        const title = browser.getTitle();
-        browser.pause(4000);
-        const expected = 'Progress Monitor';
-        expect(title).to.equal(expected);
+
+    it('application name is left-aligned', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualAlignment = selector.getCSSProperty('text-align').parsed.string;
+        const expectAlignment = 'left';
+        expect(actualAlignment).to.equal(expectAlignment);
     });
 
-    it('verify that application has global header', () => {
-        const selector = '//div[@id="main-bar"]';
-        const globalHeader = $(selector).isDisplayed();
-        expect(globalHeader).to.be.true;
+    it('application name should have correct color', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualColor = selector.getCSSProperty('color').parsed.hex;
+        const expectColor = '#000000';
+        expect(actualColor).to.equal(expectColor);
+    });
+
+    it('application name should have correct font-size', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualSize = selector.getCSSProperty('font-size').parsed.string;
+        const expectFontSize = '20px';
+        expect(actualSize).to.equal(expectFontSize);
+    });
+
+    it('application name should have correct font-weight', () => {
+        const selector = $('//span[@id="site-name"]');
+        const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
+        const expectFontWeight = '500';
+        expect(actualWeight).to.equal(expectFontWeight);
+    });
+
+    it('application name should have correct font-family ', function () {
+        const elem = $('//span[@id="site-name"]');
+        const font = elem.getCSSProperty('font-family').parsed.string ;
+        expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
+    });
+
+    it('should have Login button', () => {
+        const login = $('//a[@class="nav-link"]');
+        const actual = login.getText();
+        const expected = 'Login';
+        expect(actual).to.equal(expected);
+    });
+
+    it('should have Register button', () => {
+        const registerButton = $('//a[@class=\'btn btn-outline-primary\']');
+        const actual = registerButton.getText();
+        const expected = 'Register';
+        expect(actual).to.equal(expected);
     });
 
 
 
-    it('should verify that h1 header is correct', function () {
-        const selector = '//div[@class ="header-title"]'
-        const h1Actual = $(selector).getText();
-        console.log('_________________________________________________________');
-        console.log(h1Actual);
-        console.log('_________________________________________________________');
-        const h1Expected = 'System that considers\nindividual features of\neach student';
-        expect(h1Actual).equal(h1Expected);
-    });
 
 });
