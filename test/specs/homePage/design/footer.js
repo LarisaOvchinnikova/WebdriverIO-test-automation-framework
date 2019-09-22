@@ -32,8 +32,8 @@ describe('Home page - footer - design', () => {
         expect(isIncludes).to.be.true;
     });
 
-    it('should have correct text in the footer copywrite line', () => {
-        const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
+    it('should have correct text in the second line of footer', () => {
+        const element = $('//small[@class="d-block mb-3 text-muted"]');
         const actual = element.getText();
         const currentText = '© 2019 eat(); sleep(); code(); repeat();';
         expect(actual).to.include(currentText);
@@ -56,10 +56,20 @@ describe('Home page - footer - design', () => {
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('application name should have correct font-size', () => {
-        const selector = $('//span[@id="site-name"]');
+    it('fist line of footer has font-size 17px', () => {
+        const selector = $('//span[@class="badge badge-light"]');
         const actualSize = selector.getCSSProperty('font-size').parsed.string;
-        const expectFontSize = '20px';
+        console.log('=====================================================')
+        console.log(actualSize);
+        console.log('=====================================================')
+        const expectFontSize = '17px';
+        expect(actualSize).to.equal(expectFontSize);
+    });
+
+    it('second line of footer has font-size 13.6px', () => {
+        const selector = $('//small[@class="d-block mb-3 text-muted"]');
+        const actualSize = selector.getCSSProperty('font-size').parsed.string;
+        const expectFontSize = '13.6x';
         expect(actualSize).to.equal(expectFontSize);
     });
 
