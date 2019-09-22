@@ -75,10 +75,14 @@ describe('Home page - Design', () => {
         expect(navigationBarIsDisplayed).to.be.true;
     });
 
-    it('should verify that navigation-bar is right-aligned', function () {
+    it('should verify that navigation-bar has correct alignment', function () {
         const selector = '//div[@id="user-section"]';
-        const navigationBarIsRightAligned = $(selector).getCSSProperty('text-align').parsed.string;
-        expect(navigationBarIsRightAligned).to.be.true;
+        const navigationBarAlignment = $(selector).getCSSProperty('align-items').parsed.string;
+        console.log('-----------------------------------');
+        console.log(navigationBarAlignment);
+        console.log('-----------------------------------');
+        const expectAlign = 'center';
+        expect(navigationBarAlignment).to.equal(expectAlign);
     });
 
     it('veryfy that navigation bar has Login button', () => {
