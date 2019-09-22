@@ -13,17 +13,18 @@ describe('Home page - footer - design', () => {
         expect(footerIsDisplayed).to.be.true;
     });
 
-    it('should verify that first line contains Version', function () {
+    it('should verify that first line displays Version', function () {
         const footer = @('//div[contains(text(),"Version")]');
-
+        const versionIsDisplayed = footer.isDisplayed();
+        expect(versionIsDisplayed).to.be.true;
     });
 
     it('should display current version ', function () {
-        const version = @('//span[@class=\'badge badge-light\']');
+        const version = @('//span[@class="badge badge-light"]');
         const expected ='0.1.74';
         expect(version).equal(expected);
     });
-    it('should have correct year in the footer copywrite line', () => {
+    it('should have correct year in the second line', () => {
         const element = $('//small[@class=\"d-block mb-3 text-muted\"]');
         const text = element.getText();
         const currentYear = '2019';
