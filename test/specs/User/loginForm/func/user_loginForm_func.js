@@ -8,21 +8,23 @@ describe('Login form', () => {
       browser.url(loginUrl);
     });
 
-    it('should login', () => {
-        loginHelpers.login();
-    });
-
-    it('should have success message', () => {
-        const userName = 'Lara Lara';
-        const h1 = $('//h1').getText();
-        expect(h1).to.equal(userName);
-    });
-
     it('should have correct h1', () => {
         const actualH1Text = $('//h1').getText();
         const expected = 'User Login';
         expect(actual).to.eq(expected);
     });
+
+    it('should login', () => {
+        loginHelpers.login();
+    });
+
+    it('should h1 equal to user name', () => {
+        const userName = 'Lara Lara';
+        const h1 = $('//h1').getText();
+        expect(h1).to.equal(userName);
+    });
+
+
 
     it ("should have user name in dropdown button", () => {
        const element = $('//a[@class=\'dropdown-toggle nav-link\']') ;

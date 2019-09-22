@@ -2,7 +2,7 @@ const expect = require('chai').expect;
 const assert = require('chai').assert;
 //import {expect} from 'chai';
 
-const { baseUrl } = require('./../../constants');
+const { baseUrl } = require('../../../constants');
 const url = `${baseUrl}`;
 
 describe('Home page - General', () => {
@@ -56,11 +56,11 @@ describe('Home page - General', () => {
 
     it('application has container with functional parts 8 images and  8 blocks', function () {
       // const selector = '//div[@xpath="2"]';
-        const selector ='//body/div[@id="root"]/div/div/div/div[4]';
+       const selector ='//body/div[@id="root"]/div/div/div/div[4]';
        const container = $(selector);
-        console.log('_________________________________________________________');
-        console.log(container);
-        console.log('_________________________________________________________');
+       console.log('_________________________________________________________');
+       console.log(container);
+       console.log('_________________________________________________________');
     });
 
     it('application has global footer', function () {
@@ -68,15 +68,6 @@ describe('Home page - General', () => {
         const footerIsDisplayed = $(selector).isDisplayed();
         expect(footerIsDisplayed).to.be.true;
     });
-
-    it('should have correct year in the footer copywrite line', () => {
-        const element = $('//small[@class="d-block mb-3 text-muted"]');
-        const text = element.getText();
-        const currentYear = '2019';
-        const isIncludes = text.includes(currentYear);
-        expect(isIncludes).to.be.true;
-    });
-
 
 
 });

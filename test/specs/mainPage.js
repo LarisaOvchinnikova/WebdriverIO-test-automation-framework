@@ -64,8 +64,8 @@ describe('Main page', () => {
     });
 
     it('should have Register button', () => {
-        const reg = $('//a[@class=\'btn btn-outline-primary\']');
-        const actual = reg.getText();
+        const registerButton = $('//a[@class=\'btn btn-outline-primary\']');
+        const actual = registerButton.getText();
         const expected = 'Register';
         expect(actual).to.equal(expected);
     });

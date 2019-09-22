@@ -3,10 +3,6 @@ const { baseUrl } = require('./../../../../constants');
 
 const url = `${baseUrl}/user/login`;
 
-const selector = {
-    h1: '//h1',
-};
-
 describe('User -- Login Form -- Design', () => {
     before(() => {
         browser.url(url);
@@ -20,7 +16,7 @@ describe('User -- Login Form -- Design', () => {
     });
 
     it('should have correct header', () => {
-        const element = $(selector.h1);
+        const element = $('//h1');
         const actual = element.getText();
         const expected = 'User Login';
         expect(actual).to.equal(expected);

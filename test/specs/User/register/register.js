@@ -39,12 +39,12 @@ describe('User Register page', () => {
 
     it('should fill all fields', function () {
 
-       const realNameField = $('//input[@name=\'name\']');
-       const phoneField = $('//input[@name=\'phone\']');
-       const emailField = $('//input[@name=\'email\']');
-       const passwordField = $('//input[@name=\'password\']');
+       const realNameField = $('//input[@name="name"]');
+       const phoneField = $('//input[@name="phone"]');
+       const emailField = $('//input[@name="email"]');
+       const passwordField = $('//input[@name="password"]');
        const aboutField = $('//textarea[@placeholder="I\'m ..."]');
-       const myGoalsField = $('//textarea[@placeholder=\'1... 2... 3...\']');
+       const myGoalsField = $('//textarea[@placeholder="1... 2... 3..."]');
 
        let randomEngishLevel =  Math.trunc(Math.random()*8);
        let englishLevel = $(`//option[contains(text(),'${eng[randomEngishLevel]}')]`);

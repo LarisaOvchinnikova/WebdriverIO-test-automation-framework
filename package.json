@@ -11,7 +11,7 @@
     "dayReport": "wdio wdio.conf.js --spec test/specs/diary/dayReport.js --inspect",
     "registerPage": "wdio wdio.conf.js --spec test/specs/User/register/register.js --inspect",
     "diaryList": "wdio wdio.conf.js --spec ./test/specs/diary/diaryList.js --inspect",
-    "generalHomePage": "wdio wdio.conf.js --spec ./test/specs/homePage/general.js --inspect"
+    "generalHomePage": "wdio wdio.conf.js --spec test/specs/homePage/design/general.js --inspect"
   },
   "author": "",
   "license": "ISC",
