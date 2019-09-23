@@ -14,6 +14,15 @@ describe('Home page - functionality', () => {
         expect(title).to.equal(expected);
     });
 
+    it('should verify that clicking on Progress Monitor from Home Page gets redirected back to Home Page ', function () {
+        const selector = '//span[@id="site-name"]';
+        const element = $(selector).click();
+        const redirectUrl = browser.getUrl();
+        const expected = 'https://stage.pasv.us/';
+
+        expect(redirectUrl).to.equal(expected);
+    });
+
     it('should have Login button', () => {
         const login = $('//a[@class="nav-link"]');
         const actual = login.getText();
