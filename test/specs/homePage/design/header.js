@@ -153,7 +153,7 @@ describe('Home page - Design', () => {
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('verify that Login button has font-size 17px', () => {
+    it('verify that Register button has font-size 17px', () => {
         const selector = $('//a[@class="btn btn-outline-primary"]');
         const actualSize = selector.getCSSProperty('font-size').parsed.string;
         const expectFontSize = '17px';
