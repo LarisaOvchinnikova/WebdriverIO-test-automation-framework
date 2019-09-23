@@ -124,4 +124,19 @@ describe('Home page - Design', () => {
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
+    it('verify that text-align of Login button is left', () => {
+        const selector = $('//a[@class="nav-link"]');
+        const actualAlignment = selector.getCSSProperty('text-align').parsed.string;
+        const expectAlignment = 'left';
+        expect(actualAlignment).to.equal(expectAlignment);
+    });
+
+    it('verify that Login button has correct font-family', () => {
+        const selector = '//a[@class="nav-link"]';
+        const elem = $(selector);
+        const font = elem.getCSSProperty('font-family').parsed.string ;
+        expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
+    });
+
+
 });
