@@ -146,7 +146,7 @@ describe('Home page - Design', () => {
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('verify that Login button has correct background-color', () => {
+    it('verify that Register button has correct background-color', () => {
         const selector = $('//a[@class="btn btn-outline-primary"]');
         const actualColor = selector.getCSSProperty('background-color').parsed.hex;
         const expectColor = '#000000';
