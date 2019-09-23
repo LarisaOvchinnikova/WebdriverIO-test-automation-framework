@@ -69,7 +69,7 @@ describe('Home page - footer - design', () => {
     it('second line of footer has font-size 13.6px', () => {
         const selector = $('//small[@class="d-block mb-3 text-muted"]');
         const actualSize = selector.getCSSProperty('font-size').parsed.string;
-        const expectFontSize = '13.6x';
+        const expectFontSize = '13.6px';
         expect(actualSize).to.equal(expectFontSize);
     });
 

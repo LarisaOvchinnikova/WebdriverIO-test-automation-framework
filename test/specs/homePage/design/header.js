@@ -95,4 +95,12 @@ describe('Home page - Design', () => {
         const expected = 'Register';
         expect(actual).to.equal(expected);
     });
+
+    it('veryfy that Login button has correct text-color', () => {
+        const selector = $('//a[@class="nav-link"]');
+        const actualColor = selector.getCSSProperty('color').parsed.hex;
+        const expectColor = '#333333';
+        expect(actualColor).to.equal(expectColor);
+    });
+
 });
