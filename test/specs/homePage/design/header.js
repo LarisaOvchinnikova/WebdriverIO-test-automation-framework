@@ -77,7 +77,8 @@ describe('Home page - Design', () => {
 
     it('should verify that navigation-bar has correct alignment', function () {
         const selector = '//div[@id="user-section"]';
-        const navigationBarAlignment = $(selector).getCSSProperty('align-items').parsed.string;
+        const element = $(selector);
+        const navigationBarAlignment = element.getCSSProperty('align-items').parsed.string;
         const expectAlign = 'center';
         expect(navigationBarAlignment).to.equal(expectAlign);
     });
@@ -167,19 +168,24 @@ describe('Home page - Design', () => {
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-    it('verify that text-align of Register button is left', () => {
+    it('verify that text-align of Register button is center', () => {
         const selector = $('//a[@class="btn btn-outline-primary"]');
         const actualAlignment = selector.getCSSProperty('text-align').parsed.string;
-        const expectAlignment = 'left';
+        const expectAlignment = 'center';
         expect(actualAlignment).to.equal(expectAlignment);
     });
 
-    it('verify that Login button has correct font-family', () => {
+    it('verify that Register button has correct font-family', () => {
         const selector = '//a[@class="btn btn-outline-primary"]';
         const elem = $(selector);
-        const font = elem.getCSSProperty('font-family').parsed.string ;
+        const font = elem.getCSSProperty('font-family').parsed.string;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
-
+    it('verify that Register button has correct border-color', () => {
+        const selector = '//a[@class="btn btn-outline-primary"]';
+        const elem = $(selector);
+        const borderColor = elem.getCSSProperty('border-color').parsed.hex.toLowerCase();
+        expect(borderColor).to.equal('#0052cc');
+    });
 });
