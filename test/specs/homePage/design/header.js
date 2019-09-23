@@ -82,25 +82,46 @@ describe('Home page - Design', () => {
         expect(navigationBarAlignment).to.equal(expectAlign);
     });
 
-    it('veryfy that navigation bar has Login button', () => {
+    it('verify that navigation bar has Login button', () => {
         const login = $('//a[@class="nav-link"]');
         const actual = login.getText();
         const expected = 'Login';
         expect(actual).to.equal(expected);
     });
 
-    it('veryfy that navigation bar has Register button', () => {
+    it('verify that navigation bar has Register button', () => {
         const registerButton = $('//a[@class="btn btn-outline-primary"]');
         const actual = registerButton.getText();
         const expected = 'Register';
         expect(actual).to.equal(expected);
     });
 
-    it('veryfy that Login button has correct text-color', () => {
+    it('verify that Login button has correct text-color', () => {
         const selector = $('//a[@class="nav-link"]');
         const actualColor = selector.getCSSProperty('color').parsed.hex;
         const expectColor = '#333333';
         expect(actualColor).to.equal(expectColor);
+    });
+
+    it('verify that Login button has correct background-color', () => {
+        const selector = $('//a[@class="nav-link"]');
+        const actualColor = selector.getCSSProperty('background-color').parsed.hex;
+        const expectColor = '#000000';
+        expect(actualColor).to.equal(expectColor);
+    });
+
+    it('verify that Login button has font-size 17px', () => {
+        const selector = $('//a[@class="nav-link"]');
+        const actualSize = selector.getCSSProperty('font-size').parsed.string;
+        const expectFontSize = '17px';
+        expect(actualSize).to.equal(expectFontSize);
+    });
+
+    it('verify that Login button has font-weight 400', () => {
+        const selector = $('//a[@class="nav-link"]');
+        const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
+        const expectFontWeight = '400';
+        expect(actualWeight).to.equal(expectFontWeight);
     });
 
 });
