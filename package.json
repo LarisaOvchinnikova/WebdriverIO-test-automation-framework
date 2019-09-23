@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio wdio.conf.js --inspect",
-    "mainPage": "wdio wdio.conf.js --spec ./test/specs/mainPage.js --inspect",
     "login": "wdio wdio.conf.js --spec test/specs/User/loginForm/func/login.js --inspect",
     "userloginFormDesign": "wdio wdio.conf.js --spec test/specs/User/loginForm/design/user_loginForm_design.js --inspect",
     "dayReport": "wdio wdio.conf.js --spec test/specs/diary/dayReport.js --inspect",
@@ -13,7 +12,8 @@
     "diaryList": "wdio wdio.conf.js --spec ./test/specs/diary/diaryList.js --inspect",
     "generalHomePage": "wdio wdio.conf.js --spec test/specs/homePage/design/general.js --inspect",
     "HomePageHeader": "wdio wdio.conf.js --spec test/specs/homePage/design/header.js --inspect",
-    "HomePageFooter": "wdio wdio.conf.js --spec test/specs/homePage/design/footer.js --inspect"
+    "HomePageFooter": "wdio wdio.conf.js --spec test/specs/homePage/design/footer.js --inspect",
+    "homePage_func": "wdio wdio.conf.js --spec test/specs/homePage/func/homePage_func.js --inspect"
   },
   "author": "",
   "license": "ISC",

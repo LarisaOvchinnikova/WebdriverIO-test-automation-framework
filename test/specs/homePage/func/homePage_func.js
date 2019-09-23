@@ -1,0 +1,32 @@
+const expect = require('chai').expect;
+const assert = require('chai').assert;
+//import {expect} from 'chai';
+
+describe('Home page - functionality', () => {
+    before (() => {
+        browser.url('https://stage.pasv.us/');
+    });
+
+    it('should have correct title', () => {
+        const title = browser.getTitle();
+        browser.pause(4000);
+        const expected = 'Progress Monitor';
+        expect(title).to.equal(expected);
+    });
+
+    it('should have Login button', () => {
+        const login = $('//a[@class="nav-link"]');
+        const actual = login.getText();
+        const expected = 'Login';
+        expect(actual).to.equal(expected);
+    });
+
+    it('should have Register button', () => {
+        const registerButton = $('//a[@class=\'btn btn-outline-primary\']');
+        const actual = registerButton.getText();
+        const expected = 'Register';
+        expect(actual).to.equal(expected);
+    });
+
+
+});
