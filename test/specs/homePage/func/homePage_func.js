@@ -30,6 +30,16 @@ describe('Home page - functionality', () => {
         expect(actual).to.equal(expected);
     });
 
+    it('should verify that clicking on Login button from Home Page gets redirected to Login Page ', function () {
+        const selector = '//a[@class="nav-link"]';
+        const element = $(selector).click();
+        browser.pause(1000);
+        const redirectUrl = browser.getUrl();
+        const expected = 'https://stage.pasv.us/user/login';
+
+        expect(redirectUrl).to.equal(expected);
+    });
+
     it('should have Register button', () => {
         const registerButton = $('//a[@class=\'btn btn-outline-primary\']');
         const actual = registerButton.getText();
