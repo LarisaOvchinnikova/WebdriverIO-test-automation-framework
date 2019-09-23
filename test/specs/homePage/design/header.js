@@ -160,14 +160,14 @@ describe('Home page - Design', () => {
         expect(actualSize).to.equal(expectFontSize);
     });
 
-    it('verify that Login button has font-weight 400', () => {
+    it('verify that Register button has font-weight 400', () => {
         const selector = $('//a[@class="btn btn-outline-primary"]');
         const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
         const expectFontWeight = '400';
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-    it('verify that text-align of Login button is left', () => {
+    it('verify that text-align of Register button is left', () => {
         const selector = $('//a[@class="btn btn-outline-primary"]');
         const actualAlignment = selector.getCSSProperty('text-align').parsed.string;
         const expectAlignment = 'left';
