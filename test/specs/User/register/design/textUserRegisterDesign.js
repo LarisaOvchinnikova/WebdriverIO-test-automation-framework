@@ -1,10 +1,6 @@
 import { expect }  from 'chai';
-const eng = ['Zero','Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper intermediate', 'Advanced', 'Proficient', 'Native'];
-
 const { baseUrl } = require('./../../../../constants');
-
 const url = `${baseUrl}/user/register`;
-
 
 describe('User Register page - Text User Register', () => {
     before(() => {
