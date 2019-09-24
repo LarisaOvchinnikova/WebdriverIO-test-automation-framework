@@ -31,11 +31,19 @@ describe('User Register page - design', () => {
         expect(actualColor).to.equal(expectColor);
     });
 
+    it('should validate that text `User Register` has correct font-size', () => {
+        const selector = $('//h1');
+        const actualSize = selector.getCSSProperty('font-size').parsed.string;
+        const expectFontSize = '42.5px';
+        expect(actualSize).to.equal(expectFontSize);
+    });
+
     it('should have `Real name` text above input field', function () {
         const selector = $('//label[contains(text(),"Real name")]');
         const actual = selector.getText();
         expect(actual).to.equal('Real name');
     });
+
 
     it('should verify that input name field is displayed ', function () {
         const selector = '//input[@name="name"]';
