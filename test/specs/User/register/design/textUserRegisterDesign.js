@@ -51,32 +51,4 @@ describe('User Register page - Text User Register', () => {
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
-    it('should have `Real name` text above input field', function () {
-        const selector = $('//label[contains(text(),"Real name")]');
-        const actual = selector.getText();
-        expect(actual).to.equal('Real name');
-    });
-
-
-    it('should verify that input name field is displayed ', function () {
-        const selector = '//input[@name="name"]';
-        const isDisplayed = $(selector).isDisplayed();
-        expect (isDisplayed).to.be.true;
-    });
-
-
-    it('English level dropdown list is displayed', function () {
-        const selector = '//label[@for="englishLevel"]/../../select';
-        const element = $(selector);
-        const isDisplayed  = element.isDisplayed();
-        expect(isDisplayed).to.be.true;
-    });
-
-    it('should have correct list of english levels in dropdown ', function () {
-        const selector = '//label[@for="englishLevel"]/../../select/option';
-        const options = $$(selector).map(option => option.getText());
-        const expectedList = ['Zero','Beginner','Elementary','Pre-Intermediate','Intermediate','Upper intermediate','Advanced','Proficient','Native' ];
-        expect(options).to.deep.equal(expectedList);
-    });
-
 });
