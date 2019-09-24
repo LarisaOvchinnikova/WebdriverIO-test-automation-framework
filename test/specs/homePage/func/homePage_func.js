@@ -43,12 +43,14 @@ describe('Home page - functionality', () => {
         expect(redirectUrl).to.equal(expected);
     });
 
-    it('should have Register button', () => {
-        const registerButton = $('//a[@class=\'btn btn-outline-primary\']');
-        const actual = registerButton.getText();
-        const expected = 'Register';
-        expect(actual).to.equal(expected);
-    });
+    it('should verify that clicking on Register button from Home Page gets redirected to Register Page ', function () {
+        const selector = '//a[@class="btn btn-outline-primary"]';
+        const element = $(selector).click();
+        browser.pause(1000);
+        const redirectUrl = browser.getUrl();
+        const expected = 'https://stage.pasv.us/user/register';
 
+        expect(redirectUrl).to.equal(expected);
+    });
 
 });
