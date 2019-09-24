@@ -45,7 +45,11 @@ describe('User Register page - design', () => {
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-
+    it('should validate that text `User Register` has correct font-family ', function () {
+        const elem = $('//h1');
+        const font = elem.getCSSProperty('font-family').parsed.string ;
+        expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
+    });
 
     it('should have `Real name` text above input field', function () {
         const selector = $('//label[contains(text(),"Real name")]');
