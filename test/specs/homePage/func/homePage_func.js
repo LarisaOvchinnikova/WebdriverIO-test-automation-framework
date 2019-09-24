@@ -14,7 +14,7 @@ describe('Home page - functionality', () => {
         expect(title).to.equal(expected);
     });
 
-    it('should verify that clicking on Progress Monitor from Home Page gets redirected back to Home Page ', function () {
+    it('should verify that clicking on `Progress Monitor` from Home Page gets redirected back to Home Page ', function () {
         const selector = '//span[@id="site-name"]';
         const element = $(selector).click();
         const redirectUrl = browser.getUrl();
@@ -33,7 +33,7 @@ describe('Home page - functionality', () => {
         expect(redirectUrl).to.equal(expected);
     });
 
-    it('should verify that clicking on Progress Monitor from Login Page gets redirected back to Home Page ', function () {
+    it('should verify that clicking on `Progress Monitor` from Login Page gets redirected back to Home Page ', function () {
         const selector = '//span[@id="site-name"]';
         const element = $(selector).click();
         browser.pause(1000);
@@ -53,4 +53,14 @@ describe('Home page - functionality', () => {
         expect(redirectUrl).to.equal(expected);
     });
 
+    it('should verify that clicking on `Progress Monitor` from Register Page gets redirected back to Home Page ', function () {
+        const selector = '//span[@id="site-name"]';
+        const element = $(selector).click();
+        browser.pause(1000);
+        const redirectUrl = browser.getUrl();
+        const expected = 'https://stage.pasv.us/';
+
+        expect(redirectUrl).to.equal(expected);
+    });
+    browser.pause(2000);
 });
