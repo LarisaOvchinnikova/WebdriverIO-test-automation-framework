@@ -8,6 +8,7 @@
     "login": "wdio wdio.conf.js --spec test/specs/User/loginForm/func/login.js --inspect",
     "userloginFormDesign": "wdio wdio.conf.js --spec test/specs/User/loginForm/design/user_loginForm_design.js --inspect",
     "dayReport": "wdio wdio.conf.js --spec test/specs/diary/dayReport.js --inspect",
+    "realNameFieldDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/realNameFieldDesign.js --inspect",
     "textUserRegisterDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/textUserRegisterDesign.js --inspect",
     "diaryList": "wdio wdio.conf.js --spec ./test/specs/diary/diaryList.js --inspect",
     "generalHomePage": "wdio wdio.conf.js --spec test/specs/homePage/design/general.js --inspect",

@@ -52,6 +52,13 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualAlign).to.equal(expectAlign);
     });
 
+    it('should verify that Real name description text is displayed under Real name input field', function () {
+        const element = $('//small[contains(text(),"Please enter your real name and surname.")]');
+        const elementIsDisplayed = element.isDisplayed();
+        expect(elementIsDisplayed).to.be.true;
+    });
+
+
     it('should verify that input name field is displayed ', function () {
         const selector = '//input[@name="name"]';
         const isDisplayed = $(selector).isDisplayed();
