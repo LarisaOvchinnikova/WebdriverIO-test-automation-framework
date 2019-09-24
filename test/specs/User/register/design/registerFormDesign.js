@@ -38,6 +38,15 @@ describe('User Register page - design', () => {
         expect(actualSize).to.equal(expectFontSize);
     });
 
+    it('should validate that text `User Register` has correct font-weight', () => {
+        const selector = $('//h1');
+        const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
+        const expectFontWeight = '500';
+        expect(actualWeight).to.equal(expectFontWeight);
+    });
+
+
+
     it('should have `Real name` text above input field', function () {
         const selector = $('//label[contains(text(),"Real name")]');
         const actual = selector.getText();
