@@ -6,13 +6,13 @@ const { baseUrl } = require('./../../../../constants');
 const url = `${baseUrl}/user/register`;
 
 
-describe('User Register page', () => {
+describe('User Register page - design', () => {
     before(() => {
         browser.url(url);
         browser.maximizeWindow();
     });
 
-    it('should have correct header', function () {
+    it('should have text User Register above registration form', function () {
         const h1 = $('//h1').getText();
         expect(h1).to.equal('User Register');
     });
@@ -23,6 +23,7 @@ describe('User Register page', () => {
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
+
     it('should have `Real name` text above input field', function () {
         const selector = $('//label[contains(text(),"Real name")]');
         const actual = selector.getText();
