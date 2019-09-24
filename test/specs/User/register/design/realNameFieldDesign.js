@@ -88,10 +88,28 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualAlign).to.equal(expectAlign);
     });
 
-    it('should verify that input name field is displayed ', function () {
+    it('should verify that Real name input name field is displayed ', function () {
         const element = $('//input[@name="name"]');
         const isDisplayed = element.isDisplayed();
         expect (isDisplayed).to.be.true;
+    });
+
+    it('should verify that input name field has correct border color for empty field', () => {
+        const element = $('//input[@name="name"]');
+        const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
+        const expectedBorderColor = '#ced4da';
+        expect(actualBorderColor).to.equal(expectedBorderColor);
+        browser.pause(6000);
+    });
+
+    it('should verify that once user puts a cursor to the input name field border color ', () => {
+        const element = $('//input[@name="name"]');
+        element.click()
+        browser.pause(6000);
+        const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
+        const expectedBorderColor = '#4d94ff';
+        expect(actualBorderColor).to.equal(expectedBorderColor);
+        browser.pause(6000);
     });
 
 
