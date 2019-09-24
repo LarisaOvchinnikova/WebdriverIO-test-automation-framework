@@ -6,7 +6,7 @@ const { baseUrl } = require('./../../../../constants');
 const url = `${baseUrl}/user/register`;
 
 
-describe('User Register page - design', () => {
+describe('User Register page - Text User Register', () => {
     before(() => {
         browser.url(url);
         browser.maximizeWindow();
