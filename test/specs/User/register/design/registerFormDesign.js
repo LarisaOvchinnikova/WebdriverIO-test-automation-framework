@@ -17,6 +17,12 @@ describe('User Register page', () => {
         expect(h1).to.equal('User Register');
     });
 
+    it('should verify that text User Register is left-aligned', function () {
+        const element = $('//h1');
+        const actualAlign = element.getCSSProperty('text-align').parsed.string
+        const expectAlign = 'left';
+        expect(actualAlign).to.equal(expectAlign);
+    });
     it('should have `Real name` text above input field', function () {
         const selector = $('//label[contains(text(),"Real name")]');
         const actual = selector.getText();
