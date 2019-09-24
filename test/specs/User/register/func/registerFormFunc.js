@@ -11,15 +11,21 @@ describe('User Register page - Design', () => {
         browser.maximizeWindow();
     });
 
-    it('should have correct header', function () {
+    it('should have text User Register above registration form', function () {
         const h1 = $('//h1').getText();
         expect(h1).to.equal('User Register');
     });
 
-    it('should have Real name field', function () {
+    it('should have `Real name` text above input field', function () {
         const selector = $('//label[contains(text(),"Real name")]');
         const actual = selector.getText();
         expect(actual).to.equal('Real name');
+    });
+
+    it('should verify that input name field is displayed ', function () {
+        const selector = '//input[@name="name"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
     });
 
     it('English level dropdown list is displayed', function () {
@@ -28,7 +34,6 @@ describe('User Register page - Design', () => {
         const isDisplayed  = element.isDisplayed();
         expect(isDisplayed).to.be.true;
     });
-
     it('should have correct list of english levels in dropdown ', function () {
         const selector = '//label[@for="englishLevel"]/../../select/option';
         const options = $$(selector).map(option => option.getText());
@@ -89,5 +94,6 @@ describe('User Register page - Design', () => {
         const expected = 'User Login';
         expect(headerH1).to.equal(expected);
     });
+
 
 });
