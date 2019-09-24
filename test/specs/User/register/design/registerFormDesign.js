@@ -12,16 +12,23 @@ describe('User Register page - design', () => {
         browser.maximizeWindow();
     });
 
-    it('should have text User Register above registration form', function () {
+    it('should have text `User Register` above registration form', function () {
         const h1 = $('//h1').getText();
         expect(h1).to.equal('User Register');
     });
 
-    it('should verify that text User Register is left-aligned', function () {
+    it('should verify that text `User Register` is left-aligned', function () {
         const element = $('//h1');
         const actualAlign = element.getCSSProperty('text-align').parsed.string
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
+    });
+
+    it('should validate that text `User Register` has correct color', () => {
+        const element = $('//h1');
+        const actualColor = element.getCSSProperty('color').parsed.hex;
+        const expectColor = '#333333';
+        expect(actualColor).to.equal(expectColor);
     });
 
     it('should have `Real name` text above input field', function () {
