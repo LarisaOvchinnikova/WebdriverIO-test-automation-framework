@@ -17,11 +17,18 @@ describe('User Register page', () => {
         expect(h1).to.equal('User Register');
     });
 
-    it('should have Real name field', function () {
+    it('should have `Real name` text above input field', function () {
         const selector = $('//label[contains(text(),"Real name")]');
         const actual = selector.getText();
         expect(actual).to.equal('Real name');
     });
+
+    it('should verify that input name field is displayed ', function () {
+        const selector = '//input[@name="name"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
+
 
     it('English level dropdown list is displayed', function () {
         const selector = '//label[@for="englishLevel"]/../../select';
