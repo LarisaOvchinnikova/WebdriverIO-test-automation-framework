@@ -1,7 +1,8 @@
 import { expect }  from 'chai';
 import loginHelpers from '../../../../actions/loginAction';
 const { loginUrl } = require('../../../../constants');
-
+const user.admin.id = '5d6dc5f8af023b00386c5f3b';
+const user.admin.name = 'Lara Lara';
 
 describe('Login form', () => {
     before (() => {
@@ -18,8 +19,14 @@ describe('Login form', () => {
         loginHelpers.login();
     });
 
+    it('should redirected to user profile page', () => {
+        const currentUrl = browser.getUrl();
+        const profileUrl = `${baseUrl}/user/${user.admin.id}`;
+        expect(currentUrl).eq(profileUrl);
+    });
+
     it('should h1 equal to user name', () => {
-        const userName = 'Lara Lara';
+        const userName = user.admin.name;
         const h1 = $('//h1').getText();
         expect(h1).to.equal(userName);
     });
