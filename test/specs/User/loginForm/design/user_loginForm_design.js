@@ -45,8 +45,23 @@ describe('User -- Login Form -- Design', () => {
 
         const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
         console.log(actualBorderColor);
+
         const expectedBorderColor = '#24c88b';
         expect(actualBorderColor).to.eq(expectedBorderColor);
+    });
+
+    it('should have correct color for incorrect email field', () => {
+        const element = $('//input[@name="email"]');
+        element.setValue('qw......easd.asd');
+        browser.keys('Tab');
+        browser.pause(300);
+
+        const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
+        console.log(actualBorderColor);
+
+        const expectedBorderColor = '#ff4465';
+        expect(actualBorderColor).to.eq(expectedBorderColor);
+        browser.pause(5000);
     });
 
     it('should validate h1 has correct alignment', () => {
