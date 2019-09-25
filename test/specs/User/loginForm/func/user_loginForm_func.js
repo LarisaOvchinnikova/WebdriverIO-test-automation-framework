@@ -28,7 +28,7 @@ describe('User - Login form - Functionality', () => {
         expect(actualUrl).equal(expectedUrl);
     });
 
-    it('should h1 equal to user name', () => {
+    it('should have success h1 - contains user name', () => {
         const h1 = $('//h1').getText();
         expect(h1).to.equal(userAdminName);
     });

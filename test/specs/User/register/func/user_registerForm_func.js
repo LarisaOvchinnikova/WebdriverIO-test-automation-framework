@@ -1,21 +1,19 @@
 import { expect }  from 'chai';
-const eng = ['Zero','Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper intermediate', 'Advanced', 'Proficient', 'Native'];
-
 const { baseUrl } = require('./../../../../constants');
 
 const url = `${baseUrl}/user/register`;
 
-describe('User Register page - functionality', () => {
+describe('User Register Form page - Func - Form is displayed', () => {
     before(() => {
-        browser.url(url);
+        browser.url(baseUrl);
         browser.maximizeWindow();
     });
 
-    it('should have correct url', function () {
-        const actualUrl = browser.getUrl();
-        const expectedUrl = url;
-        expect(actualUrl).equal(expectedUrl);
+    it('should validate Register button is displayed on the top on Home page', () => {
+        const element = $(elements.registerButton.selector);
+        expect(element.isDisplayed()).true;
     });
+
     it('should have text User Register above registration form', function () {
         const h1 = $('//h1').getText();
         expect(h1).to.equal('User Register');
