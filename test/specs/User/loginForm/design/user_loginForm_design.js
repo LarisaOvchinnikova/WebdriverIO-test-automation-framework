@@ -15,7 +15,7 @@ describe('User -- Login Form -- Design', () => {
         expect(isDisplayed).to.be.true;
     });
 
-    it('should have correct header', () => {
+    it('should validate h1 is correct ', () => {
         const element = $('//h1');
         const actual = element.getText();
         const expected = 'User Login';
@@ -23,13 +23,13 @@ describe('User -- Login Form -- Design', () => {
     });
 
     it('should validate h1 has correct color', () => {
-        const element = $(selector.h1);
+        const element = $('//h1');
         const actualColor = element.getCSSProperty('color').parsed.hex;
         const expectColor = '#333333';
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('should have correct border color for empty field', () => {
+    it('should have correct border color for empty email field', () => {
         const element = $('//input[@name="email"]');
         const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
         const expectedBorderColor = '#ced4da';
@@ -37,6 +37,17 @@ describe('User -- Login Form -- Design', () => {
         browser.pause(6000);
     });
 
+    it('should have correct color for correct email field', () => {
+        const element = $('//input[@name="email"]');
+        element.setValue('larisa12345@gmail.com');
+        browser.keys('Tab');
+        browser.pause(300);
+
+        const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
+        console.log(actualBorderColor);
+        const expectedBorderColor = '#24c88b';
+        expect(actualBorderColor).to.eq(expectedBorderColor);
+    });
 
     it('should validate h1 has correct alignment', () => {
         const selector = $('//h1');
