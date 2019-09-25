@@ -1,16 +1,17 @@
 import { expect }  from 'chai';
 import loginHelpers from '../../../../actions/loginAction';
+const { baseUrl } = require('../../../../constants');
 const { loginUrl } = require('../../../../constants');
-const user.admin.id = '5d6dc5f8af023b00386c5f3b';
-const user.admin.name = 'Lara Lara';
+const userAdminId = '5d6dc5f8af023b00386c5f3b';
+const userAdminName = 'Lara Lara';
 
-describe('Login form', () => {
+describe('User - Login form - Functionality', () => {
     before (() => {
       browser.url(loginUrl);
     });
 
     it('should have correct h1', () => {
-        const actualH1Text = $('//h1').getText();
+        const actual = $('//h1').getText();
         const expected = 'User Login';
         expect(actual).to.eq(expected);
     });
@@ -18,25 +19,24 @@ describe('Login form', () => {
     it('should login', () => {
         loginHelpers.login();
     });
+    browser.pause(10000);
 
     it('should redirected to user profile page', () => {
-        const currentUrl = browser.getUrl();
-        const profileUrl = `${baseUrl}/user/${user.admin.id}`;
-        expect(currentUrl).eq(profileUrl);
+        const actualUrl = browser.getUrl();
+    //  const expectedUrl = 'https://stage.pasv.us/user/5d6dc5f8af023b00386c5f3b';
+        const expectedUrl = `${baseUrl}/user/${userAdminId}`;
+        expect(actualUrl).equal(expectedUrl);
     });
 
     it('should h1 equal to user name', () => {
-        const userName = user.admin.name;
         const h1 = $('//h1').getText();
-        expect(h1).to.equal(userName);
+        expect(h1).to.equal(userAdminName);
     });
-
-
 
     it ("should have user name in dropdown button", () => {
        const element = $('//a[@class=\'dropdown-toggle nav-link\']') ;
        const text = element.getText();
-       const expected = 'Lara Lara';
+       const expected = userAdminName;
        expect(text).to.equal(expected);
     });
 
