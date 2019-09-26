@@ -16,6 +16,7 @@ describe('User Register page - functionality', () => {
         const expectedUrl = url;
         expect(actualUrl).equal(expectedUrl);
     });
+
     it('should have text User Register above registration form', function () {
         const h1 = $('//h1').getText();
         expect(h1).to.equal('User Register');
