@@ -27,4 +27,5 @@ describe('Cell Phone Number input field', () => {
         const expectedFontColor = '#495057';
         expect(actualFontColor).equal(expectedFontColor);
     });
+
 });
