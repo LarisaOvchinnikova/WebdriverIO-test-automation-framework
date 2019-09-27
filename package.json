@@ -12,6 +12,7 @@
     "realNameFieldDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/realNameFieldDesign.js --inspect",
     "textUserRegisterDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/textUserRegisterDesign.js --inspect",
     "registerFormFunc": "wdio wdio.conf.js --spec test/specs/User/register/func/registerFormFunc.js --inspect",
+    "realNameFieldFunc": "wdio wdio.conf.js --spec test/specs/User/register/func/realNameFieldFunc.js --inspect",
     "diaryList": "wdio wdio.conf.js --spec ./test/specs/diary/diaryList.js --inspect",
     "generalHomePage": "wdio wdio.conf.js --spec test/specs/homePage/design/general.js --inspect",
     "HomePageHeader": "wdio wdio.conf.js --spec test/specs/homePage/design/header.js --inspect",
