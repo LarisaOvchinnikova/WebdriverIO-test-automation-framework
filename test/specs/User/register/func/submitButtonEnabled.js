@@ -27,7 +27,12 @@ describe('User Register page - submit button enabled after filling all fields co
 
     });
 
+    it('Should check that submit button is enabled when all fields filled correct', () => {
+        const submitButton = $('//button[@type="submit"]');
+        const isEnabled = submitButton.isEnabled();
 
+        expect(isEnabled).equal(true);
+    });
 
 
 
