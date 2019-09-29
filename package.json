@@ -19,7 +19,8 @@
     "generalHomePage": "wdio wdio.conf.js --spec test/specs/homePage/design/general.js --inspect",
     "HomePageHeader": "wdio wdio.conf.js --spec test/specs/homePage/design/header.js --inspect",
     "HomePageFooter": "wdio wdio.conf.js --spec test/specs/homePage/design/footer.js --inspect",
-    "homePage_func": "wdio wdio.conf.js --spec test/specs/homePage/func/homePage_func.js --inspect"
+    "homePage_func": "wdio wdio.conf.js --spec test/specs/homePage/func/homePage_func.js --inspect",
+    "registration_redirect": "wdio wdio.conf.js --spec test/specs/registration/redirect.js --inspect"
   },
   "author": "",
   "license": "ISC",

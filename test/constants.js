@@ -3,4 +3,7 @@ const baseUrl = 'https://stage.pasv.us';
 
 const loginUrl = 'https://stage.pasv.us/user/login';
 
-module.exports = { baseUrl, loginUrl };
+const registerUrl = 'https://stage.pasv.us/user/register';
+
+
+module.exports = { baseUrl, loginUrl, registerUrl };

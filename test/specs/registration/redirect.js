@@ -1,10 +1,14 @@
-const expect = require('chai').expect;
-const assert = require('chai').assert;
-//import {expect} from 'chai';
+import {expect} from 'chai';
+//const { baseUrl } = require('./../../constants');
 
-describe('Home page - functionality', () => {
+//const url = `${baseUrl}/user/register`;
+import { baseUrl, registerUrl } from '../../constants';
+
+//const url = `${baseUrl}`;
+
+describe('Registration -- Redirect', () => {
     before(() => {
-        browser.url('https://stage.pasv.us/');
+        browser.url(baseUrl);
     });
 
     it('should verify that clicking on Register button from Home Page gets redirected to Register Page ', function () {
@@ -12,7 +16,7 @@ describe('Home page - functionality', () => {
         const element = $(selector).click();
         browser.pause(1000);
         const redirectUrl = browser.getUrl();
-        const expected = 'https://stage.pasv.us/user/register';
+        const expected = registerUrl;
 
         expect(redirectUrl).to.equal(expected);
     });
