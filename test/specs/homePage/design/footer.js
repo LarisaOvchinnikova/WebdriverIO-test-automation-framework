@@ -5,7 +5,6 @@ const footer = '//footer[@class="pt-5 pb-5"]';
 describe('Home page - Footer - design', () => {
     before (() => {
         browser.url('https://stage.pasv.us/');
-
     });
 
     it('footer is displayed',  () => {
@@ -15,6 +14,9 @@ describe('Home page - Footer - design', () => {
 
     it('should verify that word `Version` is displayed',  () => {
         const textOfFooter = $(footer).getText();
+        console.log('-------------------------------------------------------')
+        console.log(textOfFooter);
+        console.log('-------------------------------------------------------')
         const version = textOfFooter.includes('Version');
         expect(version).to.be.true;
     });
@@ -38,10 +40,9 @@ describe('Home page - Footer - design', () => {
     });
 
     it('should have correct text in the second line of footer', () => {
-      //  const element = $('//small[@class="d-block mb-3 text-muted"]');
         const actualText = $(footer).getText();
-        const currentText = 'eat(); sleep(); code(); repeat();';
-        expect(actualText).to.include(currentText);
+        const expectedText = 'eat(); sleep(); code(); repeat();';
+        expect(actualText).to.include(expectedText);
     });
 
     it('text in footer is left-aligned', () => {
@@ -56,12 +57,16 @@ describe('Home page - Footer - design', () => {
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('number of version in fist line of footer has font-size 12.75px', () => {
-        const selector = $('//span[@class="badge badge-light"]');
-        const actualSize = selector.getCSSProperty('font-size').parsed.string;
-        console.log('=====================================================')
+    it('should verify that word `Version` (inherited from body) has font-size 17px',  () => {
+        const actualSize = $(footer).getCSSProperty('font-size').parsed.string;
         console.log(actualSize);
-        console.log('=====================================================')
+        const expectFontSize = '17px';
+        expect(actualSize).to.equal(expectFontSize);
+    });
+
+    it('number of version in fist line of footer has font-size 12.75px', () => {
+        const versionText = $('//span[@class="badge badge-light"]');
+        const actualSize = versionText.getCSSProperty('font-size').parsed.string;
         const expectFontSize = '12.75px';
         expect(actualSize).to.equal(expectFontSize);
     });
@@ -74,15 +79,13 @@ describe('Home page - Footer - design', () => {
     });
 
     it('text in footer has correct font-weight', () => {
-        const selector = $('//footer/div[@class="container"]');
-        const actualWeight = selector.getCSSProperty('font-weight').parsed.string;
+        const actualWeight = $(footer).getCSSProperty('font-weight').parsed.string;
         const expectFontWeight = '400';
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
     it('text in footer has correct font-family ',  () => {
-        const elem = $('//footer/div[@class="container"]');
-        const font = elem.getCSSProperty('font-family').parsed.string ;
+        const font = $(footer).getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
