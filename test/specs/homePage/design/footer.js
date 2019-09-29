@@ -1,5 +1,4 @@
 import {expect} from 'chai';
-//const footer = '//div[contains(text(),"Version")]';
 const footer = '//footer[@class="pt-5 pb-5"]';
 
 describe('Home page - Footer - design', () => {
@@ -14,9 +13,6 @@ describe('Home page - Footer - design', () => {
 
     it('should verify that word `Version` is displayed',  () => {
         const textOfFooter = $(footer).getText();
-        console.log('-------------------------------------------------------')
-        console.log(textOfFooter);
-        console.log('-------------------------------------------------------')
         const version = textOfFooter.includes('Version');
         expect(version).to.be.true;
     });
@@ -27,7 +23,7 @@ describe('Home page - Footer - design', () => {
         expect(actualVersion).equal(expectedVersion);
     });
 
-    it('should have sign `copyright` © in the second line of footer', () => {
+    it('should have  `copyright sign` © in the second line of footer', () => {
         const actualText = $(footer).getText();
         expect(actualText).to.include('©');
     });
