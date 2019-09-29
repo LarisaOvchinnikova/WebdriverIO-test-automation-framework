@@ -1,33 +1,35 @@
-const expect = require('chai').expect;
-const assert = require('chai').assert;
-//import {expect} from 'chai';
+import {expect} from 'chai';
+//const footer = '//div[contains(text(),"Version")]';
+const footer = '//footer[@class="pt-5 pb-5"]';
 
-describe('Home page - footer - design', () => {
+describe('Home page - Footer - design', () => {
     before (() => {
         browser.url('https://stage.pasv.us/');
+
     });
 
-    it('footer is displayed', function () {
-        const selector = '//footer/div[@class="container"]';
-        const footerIsDisplayed = $(selector).isDisplayed();
+    it('footer is displayed',  () => {
+        const footerIsDisplayed = $(footer).isDisplayed();;
         expect(footerIsDisplayed).to.be.true;
     });
 
-    it('should verify that first line displays Version', function () {
-        const footer = $('//div[contains(text(),"Version")]');
-        const versionIsDisplayed = footer.isDisplayed();
-        expect(versionIsDisplayed).to.be.true;
+    it('should verify that word `Version` is displayed',  () => {
+        const textOfFooter = $(footer).getText();
+        const version = textOfFooter.includes('Version');
+        expect(version).to.be.true;
     });
 
-    it('should display current version ', function () {
-        const version = $('//span[@class="badge badge-light"]').getText();
-        const expected ='0.1.74';
-        expect(version).equal(expected);
+    it('should  verify that displayed version is current ',  () =>{
+        const actualVersion = $('//span[@class="badge badge-light"]').getText();
+        const expectedVersion = '0.1.74';
+        expect(actualVersion).equal(expectedVersion);
     });
-    it('should have correct year in the second line', () => {
+
+    it('should have current year in the second line', () => {
         const element = $('//small[@class="d-block mb-3 text-muted"]');
         const text = element.getText();
-        const currentYear = '2019';
+    //    const currentYear = '2019';
+        let currentYear = new Date().getFullYear()+'';
         const isIncludes = text.includes(currentYear);
         expect(isIncludes).to.be.true;
     });
@@ -80,13 +82,10 @@ describe('Home page - footer - design', () => {
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-    it('text in footer has correct font-family ', function () {
+    it('text in footer has correct font-family ',  () => {
         const elem = $('//footer/div[@class="container"]');
         const font = elem.getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
-
-
-
 
 });
