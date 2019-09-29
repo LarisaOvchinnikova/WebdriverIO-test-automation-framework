@@ -32,4 +32,9 @@ describe('Registration -- Redirect', () => {
         expect (isDisplayed).to.be.true;
     });
 
+    it('should verify that email field is displayed ', function () {
+        const selector = '//input[@name="email"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
 });
