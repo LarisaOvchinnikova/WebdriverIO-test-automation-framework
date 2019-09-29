@@ -1,10 +1,6 @@
 import {expect} from 'chai';
-//const { baseUrl } = require('./../../constants');
-
-//const url = `${baseUrl}/user/register`;
 import { baseUrl, registerUrl } from '../../constants';
-
-//const url = `${baseUrl}`;
+const registerButton = '//div[@id="user-section"]//a[text()="Register"]'
 
 describe('Registration -- Redirect', () => {
     before(() => {
@@ -12,13 +8,11 @@ describe('Registration -- Redirect', () => {
     });
 
     it('should verify that clicking on Register button from Home Page gets redirected to Register Page ', function () {
-        const selector = '//a[@class="btn btn-outline-primary"]';
-        const element = $(selector).click();
+        $(registerButton).click();
         browser.pause(1000);
         const redirectUrl = browser.getUrl();
-        const expected = registerUrl;
 
-        expect(redirectUrl).to.equal(expected);
+        expect(redirectUrl).to.equal(registerUrl);
     });
 
 });
