@@ -15,4 +15,8 @@ describe('Registration -- Redirect', () => {
         expect(redirectUrl).to.equal(registerUrl);
     });
 
+    it('should  verify that h1 is correct', function () {
+        const h1 = $('//h1').getText();
+        expect(h1).to.equal('User Register');
+    });
 });
