@@ -9,7 +9,7 @@ describe('Home page - Footer - design', () => {
     });
 
     it('footer is displayed',  () => {
-        const footerIsDisplayed = $(footer).isDisplayed();;
+        const footerIsDisplayed = $(footer).isDisplayed();
         expect(footerIsDisplayed).to.be.true;
     });
 
@@ -19,41 +19,39 @@ describe('Home page - Footer - design', () => {
         expect(version).to.be.true;
     });
 
-    it('should  verify that displayed version is current ',  () =>{
+    it('should  verify that current version is displayed',  () =>{
         const actualVersion = $('//span[@class="badge badge-light"]').getText();
         const expectedVersion = '0.1.74';
         expect(actualVersion).equal(expectedVersion);
     });
 
+    it('should have sign `copyright` © in the second line of footer', () => {
+        const actualText = $(footer).getText();
+        expect(actualText).to.include('©');
+    });
+
     it('should have current year in the second line', () => {
-        const element = $('//small[@class="d-block mb-3 text-muted"]');
-        const text = element.getText();
-    //    const currentYear = '2019';
-        let currentYear = new Date().getFullYear()+'';
+        const text = $(footer).getText();
+        let currentYear = new Date().getFullYear();
         const isIncludes = text.includes(currentYear);
         expect(isIncludes).to.be.true;
     });
 
     it('should have correct text in the second line of footer', () => {
-        const element = $('//small[@class="d-block mb-3 text-muted"]');
-        const actual = element.getText();
-        const currentText = '© 2019 eat(); sleep(); code(); repeat();';
-        expect(actual).to.include(currentText);
+      //  const element = $('//small[@class="d-block mb-3 text-muted"]');
+        const actualText = $(footer).getText();
+        const currentText = 'eat(); sleep(); code(); repeat();';
+        expect(actualText).to.include(currentText);
     });
 
     it('text in footer is left-aligned', () => {
-        const selector = $('//div[contains(text(),"Version")]');
-        const actualAlign = selector.getCSSProperty('text-align').parsed.string;
+        const actualAlign = $(footer).getCSSProperty('text-align').parsed.string;
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
 
     it('text in the footer has correct color', () => {
-        const selector = $('//div[contains(text(),"Version")]');
-        const actualColor = selector.getCSSProperty('color').parsed.hex;
-        console.log('=====================================================')
-        console.log(actualColor);
-        console.log('=====================================================')
+        const actualColor = $(footer).getCSSProperty('color').parsed.hex;
         const expectColor = '#212529';
         expect(actualColor).to.equal(expectColor);
     });
