@@ -19,4 +19,17 @@ describe('Registration -- Redirect', () => {
         const h1 = $('//h1').getText();
         expect(h1).to.equal('User Register');
     });
+
+    it('should verify that input name field is displayed ', function () {
+        const selector = '//input[@name="name"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
+
+    it('should verify that phone field is displayed ', function () {
+        const selector = '//input[@name="phone"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
+
 });
