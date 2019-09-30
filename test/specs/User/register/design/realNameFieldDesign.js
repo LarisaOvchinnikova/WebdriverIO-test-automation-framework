@@ -3,6 +3,7 @@ import { baseUrl, registerUrl } from './../../../../constants';
 
 const nameField = '//input[@name="name"]';
 const label = '//label[text()="Real name"]';
+const description = '//small[contains(text(),"Please enter your real name")]';
 
 describe('User Register page - Real Name field - design', () => {
     before(() => {
@@ -50,41 +51,41 @@ describe('User Register page - Real Name field - design', () => {
     });
 
     it('should verify that Real name description text is displayed under Real name input field', function () {
-        const element = $('//small[contains(text(),"Please enter your real name and surname.")]');
-        const elementIsDisplayed = element.isDisplayed();
+        const elementIsDisplayed = $(description).isDisplayed();
         expect(elementIsDisplayed).to.be.true;
     });
 
+    it('should verify that Real name description text is correct', function () {
+        const actualText = $(description).getText();
+        const expectedText = 'Please enter your real name and surname. Example: John Smith';
+        expect(actualText).to.equal(expectedText);
+    });
+
     it('should validate that Real name description text has correct font-family ', function () {
-        const element = $('//small[contains(text(),"Please enter your real name and surname.")]');
-        const font = element.getCSSProperty('font-family').parsed.string ;
+        const font = $(description).getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
     it('should validate that Real name description text has correct font-size', () => {
-        const element = $('//small[contains(text(),"Please enter your real name and surname.")]');
-        const actualSize = element.getCSSProperty('font-size').parsed.string;
+        const actualSize = $(description).getCSSProperty('font-size').parsed.string;
         const expectFontSize = '13.6px';
         expect(actualSize).to.equal(expectFontSize);
     });
 
     it('should validate that Real name description text has correct color', () => {
-        const element = $('//small[contains(text(),"Please enter your real name and surname.")]');
-        const actualColor = element.getCSSProperty('color').parsed.hex;
+        const actualColor = $(description).getCSSProperty('color').parsed.hex;
         const expectColor = '#6c757d';
         expect(actualColor).to.equal(expectColor);
     });
 
     it('should validate that Real name description text has correct font-weight', () => {
-        const element = $('//small[contains(text(),"Please enter your real name and surname.")]');
-        const actualWeight = element.getCSSProperty('font-weight').parsed.string;
+        const actualWeight = $(description).getCSSProperty('font-weight').parsed.string;
         const expectFontWeight = '400';
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
     it('should verify that Real name description text is left-aligned', function () {
-        const element = $('//small[contains(text(),"Please enter your real name and surname.")]');
-        const actualAlign = element.getCSSProperty('text-align').parsed.string
+        const actualAlign = $(description).getCSSProperty('text-align').parsed.string
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
