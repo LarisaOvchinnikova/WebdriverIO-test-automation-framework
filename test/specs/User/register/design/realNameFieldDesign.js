@@ -1,5 +1,6 @@
 import { expect }  from 'chai';
 import { baseUrl, registerUrl } from './../../../../constants';
+import { admin } from './../../userConstants';
 
 const nameField = '//input[@name="name"]';
 const label = '//label[text()="Real name"]';
@@ -95,7 +96,7 @@ describe('User Register page - Real Name field - design', () => {
         expect (isDisplayed).to.be.true;
     });
 
-    it('should verify that input name field has correct border color for empty field', () => {
+    it('should check border color for empty field', () => {
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex.toLowerCase();
         const expectedBorderColor = '#ced4da';
         expect(actualBorderColor).to.equal(expectedBorderColor);
@@ -103,7 +104,7 @@ describe('User Register page - Real Name field - design', () => {
 
     it('should verify that when user puts a cursor to the `Real name` input field, focus border-color is correct ', () => {
         $(nameField).click();
-        browser.pause(6000);
+        browser.pause(300);
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex.toLowerCase();
         const expectedBorderColor = '#4d94ff';
         expect(actualBorderColor).to.equal(expectedBorderColor);
@@ -112,9 +113,9 @@ describe('User Register page - Real Name field - design', () => {
     it('should verify that when user puts a cursor to the `Real name` input field, focus highlight color is correct ', () => {
         $(nameField).click();
         browser.pause(100);
-        const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
-        const expectedBorderColor = '#0052cc';
-        expect(actualBorderColor).to.equal(expectedBorderColor);
+        const actualFocusHightLightColor = $(nameField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
+        const expectedFocusHightLightColor = '#0052cc';
+        expect(actualFocusHightLightColor).to.equal(expectedFocusHightLightColor);
     });
 
     it('should verify that when user enters first symbol to the `Real name` input field, font-color  is correct', () => {
@@ -145,6 +146,14 @@ describe('User Register page - Real Name field - design', () => {
         const actualFontWeight = $(nameField).getCSSProperty('font-weight').parsed.string;
         const expectedFontWeight = '400';
         expect(actualFontWeight).to.equal(expectedFontWeight);
+    });
+
+    it('should check border color when name is validated:', function () {
+        $(nameField).setValue(admin.name);
+        browser.pause(300);
+        const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex;
+        const expectedBorderColor = '#24c88b';
+        expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
 });
