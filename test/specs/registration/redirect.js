@@ -55,4 +55,12 @@ describe('Registration -- Redirect', () => {
         const isDisplayed = $(selector).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
+
+    it('should verify that `English level` field is displayed ', function () {
+        const selector = '//label[@for="englishLevel"]/../../select';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
+
+
 });
