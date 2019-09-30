@@ -1,49 +1,50 @@
 import { expect }  from 'chai';
-const { baseUrl } = require('./../../../../constants');
-const url = `${baseUrl}/user/register`;
+import { baseUrl, registerUrl } from './../../../../constants';
+
+const nameField = '//input[@name="name"]';
+const label = '//label[text()="Real name"]';
 
 describe('User Register page - Real Name field - design', () => {
     before(() => {
-        browser.url(url);
+        browser.url(registerUrl);
         browser.maximizeWindow();
     });
 
-    it('should have label `Real name` above user name input field', function () {
-        const element = $('//label[contains(text(),"Real name")]');
-        const actual = element.getText();
+    it('should verify that label `Real name` above user name input field is displayed', function () {
+        const isDisplayed = $(label).isDisplayed();
+        expect(isDisplayed).to.be.true;
+    });
+
+    it('should verify that label above user name input field contains text `Real name`', function () {
+        const actual = $(label).getText();
         expect(actual).to.equal('Real name');
     });
 
     it('should validate that label `Real name` has correct font-family ', function () {
-        const element = $('//label[contains(text(),"Real name")]');
-        const font = element.getCSSProperty('font-family').parsed.string ;
+        const font = $(label).getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
     it('should validate that label `Real name` has correct font-size', () => {
-        const element = $('//label[contains(text(),"Real name")]');
-        const actualSize = element.getCSSProperty('font-size').parsed.string;
+        const actualSize = $(label).getCSSProperty('font-size').parsed.string;
         const expectFontSize = '17px';
         expect(actualSize).to.equal(expectFontSize);
     });
 
     it('should validate that label `Real name` has correct color', () => {
-        const element = $('//label[contains(text(),"Real name")]');
-        const actualColor = element.getCSSProperty('color').parsed.hex;
+        const actualColor = $(label).getCSSProperty('color').parsed.hex;
         const expectColor = '#212529';
         expect(actualColor).to.equal(expectColor);
     });
 
     it('should validate that label `Real name` has correct font-weight', () => {
-        const element = $('//label[contains(text(),"Real name")]');
-        const actualWeight = element.getCSSProperty('font-weight').parsed.string;
+        const actualWeight = $(label).getCSSProperty('font-weight').parsed.string;
         const expectFontWeight = '400';
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
     it('should verify that label `Real name` is left-aligned', function () {
-        const element = $('//label[contains(text(),"Real name")]');
-        const actualAlign = element.getCSSProperty('text-align').parsed.string
+        const actualAlign = $(label).getCSSProperty('text-align').parsed.string
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
