@@ -118,14 +118,17 @@ describe('User Register page - Real Name field - design', () => {
     });
 
     it('should verify that when user enters first symbol to the field, font-color  is correct', () => {
-        $(nameField).click();
         $(nameField).setValue('L');
-        browser.pause(1000);
         const actualFontColor = $(nameField).getCSSProperty('color').parsed.hex.toLowerCase();
         const expectedFontColor = '#495057';
         expect(actualFontColor).to.equal(expectedFontColor);
     });
 
+    it('should verify that when user enters first symbol to the field, background-color  is correct', () => {
+        const actualBackgroundColor = $(nameField).getCSSProperty('background-color').parsed.hex.toLowerCase();
+        const expectedBackgroundColor = '#ffffff';
+        expect(actualBackgroundColor).to.equal(expectedBackgroundColor);
+    });
 
 
 
