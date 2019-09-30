@@ -62,5 +62,17 @@ describe('Registration -- Redirect', () => {
         expect (isDisplayed).to.be.true;
     });
 
+    it('should verify that `Submit` button is displayed', () => {
+        const submitButton = '//button[@type="submit"]';
+        const isDisplayed = $(submitButton).isDisplayed();
+        expect(isDisplayed).to.be.true;
+    });
+
+    it('should verify that `Submit` button is disabled', () => {
+        const submitButton = $('//button[@type="submit"]');
+        const isEnabled = submitButton.isEnabled();
+
+        expect(isEnabled).equal(false);
+    });
 
 });
