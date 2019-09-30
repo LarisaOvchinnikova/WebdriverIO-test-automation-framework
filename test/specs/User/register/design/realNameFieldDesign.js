@@ -140,4 +140,11 @@ describe('User Register page - Real Name field - design', () => {
         const actualFontFamily = $(nameField).getCSSProperty('font-family').parsed.string;
         expect(actualFontFamily).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
+
+    it('should verify that when user enters first symbol to the `Real name` input field, font-weight  is correct', () => {
+        const actualFontWeight = $(nameField).getCSSProperty('font-weight').parsed.string;
+        const expectedFontWeight = '400';
+        expect(actualFontWeight).to.equal(expectedFontWeight);
+    });
+
 });
