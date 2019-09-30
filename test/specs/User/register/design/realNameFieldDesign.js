@@ -111,7 +111,7 @@ describe('User Register page - Real Name field - design', () => {
 
     it('should verify that when user puts a cursor to the `Real name` input field, focus highlight color is correct ', () => {
         $(nameField).click();
-        browser.pause(1000);
+        browser.pause(100);
         const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
         const expectedBorderColor = '#0052cc';
         expect(actualBorderColor).to.equal(expectedBorderColor);
@@ -136,4 +136,8 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualAlign).to.equal(expectedAlign);
     });
 
+    it('should verify that when user enters first symbol to the `Real name` input field, font-family is correct', () => {
+        const actualFontFamily = $(nameField).getCSSProperty('font-family').parsed.string;
+        expect(actualFontFamily).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
+    });
 });
