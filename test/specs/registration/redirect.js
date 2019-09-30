@@ -44,6 +44,10 @@ describe('Registration -- Redirect', () => {
         expect (isDisplayed).to.be.true;
     });
 
-
+    it('should verify that `About` field is displayed ', function () {
+        const selector = '//input[@name="about"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
     
 });
