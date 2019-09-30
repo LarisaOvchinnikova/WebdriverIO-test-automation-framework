@@ -101,7 +101,7 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user puts a cursor to the field, border color is correct ', () => {
+    it('should verify that when user puts a cursor to the field, focus border-color is correct ', () => {
         $(nameField).click();
         browser.pause(6000);
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex.toLowerCase();
@@ -109,6 +109,13 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
+    it('should verify that when user puts a cursor to the field, focus highlight color is correct ', () => {
+        $(nameField).click();
+        browser.pause(6000);
+        const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
+        const expectedBorderColor = '#0052cc';
+        expect(actualBorderColor).to.equal(expectedBorderColor);
+    });
 
 
 
