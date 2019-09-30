@@ -49,5 +49,10 @@ describe('Registration -- Redirect', () => {
         const isDisplayed = $(selector).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
-    
+
+    it('should verify that `My goals` field is displayed ', function () {
+        const selector = '//input[@name="goals"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
 });
