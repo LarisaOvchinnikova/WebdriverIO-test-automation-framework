@@ -45,13 +45,13 @@ describe('Registration -- Redirect', () => {
     });
 
     it('should verify that `About` field is displayed ', function () {
-        const selector = '//input[@name="about"]';
+        const selector = '//textarea[@name="about"]';
         const isDisplayed = $(selector).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
 
     it('should verify that `My goals` field is displayed ', function () {
-        const selector = '//input[@name="goals"]';
+        const selector = '//textarea[@name="goals"]';
         const isDisplayed = $(selector).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
