@@ -20,21 +20,30 @@ describe('Registration -- Redirect', () => {
         expect(h1).to.equal('User Register');
     });
 
-    it('should verify that input name field is displayed ', function () {
+    it('should verify that `Real name` field is displayed ', function () {
         const selector = '//input[@name="name"]';
         const isDisplayed = $(selector).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
 
-    it('should verify that phone field is displayed ', function () {
+    it('should verify that `Cell phone number` field is displayed ', function () {
         const selector = '//input[@name="phone"]';
         const isDisplayed = $(selector).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
 
-    it('should verify that email field is displayed ', function () {
+    it('should verify that `Email` field is displayed ', function () {
         const selector = '//input[@name="email"]';
         const isDisplayed = $(selector).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
+
+    it('should verify that `Password` field is displayed ', function () {
+        const selector = '//input[@name="password"]';
+        const isDisplayed = $(selector).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
+
+
+    
 });
