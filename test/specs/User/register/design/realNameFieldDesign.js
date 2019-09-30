@@ -101,7 +101,7 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user puts a cursor to the field, focus border-color is correct ', () => {
+    it('should verify that when user puts a cursor to the `Real name` input field, focus border-color is correct ', () => {
         $(nameField).click();
         browser.pause(6000);
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex.toLowerCase();
@@ -109,7 +109,7 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user puts a cursor to the field, focus highlight color is correct ', () => {
+    it('should verify that when user puts a cursor to the `Real name` input field, focus highlight color is correct ', () => {
         $(nameField).click();
         browser.pause(1000);
         const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
@@ -117,19 +117,23 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user enters first symbol to the field, font-color  is correct', () => {
+    it('should verify that when user enters first symbol to the `Real name` input field, font-color  is correct', () => {
         $(nameField).setValue('L');
         const actualFontColor = $(nameField).getCSSProperty('color').parsed.hex.toLowerCase();
         const expectedFontColor = '#495057';
         expect(actualFontColor).to.equal(expectedFontColor);
     });
 
-    it('should verify that when user enters first symbol to the field, background-color  is correct', () => {
+    it('should verify that when user enters first symbol to the `Real name` input field, background-color  is correct', () => {
         const actualBackgroundColor = $(nameField).getCSSProperty('background-color').parsed.hex.toLowerCase();
         const expectedBackgroundColor = '#ffffff';
         expect(actualBackgroundColor).to.equal(expectedBackgroundColor);
     });
 
-
+    it('should verify that when user enters first symbol to the `Real name` input field, text-align is `start`', () => {
+        const actualAlign = $(nameField).getCSSProperty('text-align').parsed.string.toLowerCase();
+        const expectedAlign = 'start';
+        expect(actualAlign).to.equal(expectedAlign);
+    });
 
 });
