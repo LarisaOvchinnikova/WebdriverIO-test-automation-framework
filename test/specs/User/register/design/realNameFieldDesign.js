@@ -101,11 +101,10 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that once user puts a cursor to the input name field border color ', () => {
-        const element = $('//input[@name="name"]');
-        element.click();
+    it('should verify that when user puts a cursor to the field, border color is correct ', () => {
+        $(nameField).click();
         browser.pause(6000);
-        const actualBorderColor = element.getCSSProperty('border-color').parsed.hex.toLowerCase();
+        const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex.toLowerCase();
         const expectedBorderColor = '#4d94ff';
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
