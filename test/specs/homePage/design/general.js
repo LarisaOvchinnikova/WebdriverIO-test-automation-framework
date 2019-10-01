@@ -4,18 +4,17 @@ import {expect} from 'chai';
 import { baseUrl } from '../../../constants';
 
 
-describe('Home page - General', () => {
+describe('Home page - General - Design', () => {
     before (() => {
-        browser.url(baseUrlrl);
+        browser.url(baseUrl);
     });
 
     it('should verify URL', function () {
-        const applicationURL = browser.getUrl();
-        const expectedURL = 'https://stage.pasv.us/';
-        expect(applicationURL).to.equal(expectedURL);
+        const actualURL = browser.getUrl();
+        expect(actualURL).to.equal(baseUrl+'/');
     });
 
-    it('should veryfy that favicon.ico is existing', function () {
+    it('should verify that favicon.ico is existing', function () {
         const selector = '//link[@href="/favicon.ico"]';
         const faviconIsDisplayed = $(selector).isExisting();
         expect(faviconIsDisplayed).to.be.true;
@@ -24,7 +23,6 @@ describe('Home page - General', () => {
 
     it('should have correct title', () => {
         const title = browser.getTitle();
-        browser.pause(4000);
         const expected = 'Progress Monitor';
         expect(title).to.equal(expected);
     });
@@ -44,7 +42,7 @@ describe('Home page - General', () => {
     });
 
     it('should verify that h1 header is correct', function () {
-        const selector = '//div[@class ="header-title"]'
+        const selector = '//div[@class ="header-title"]';
         const h1Actual = $(selector).getText();
         const h1Expected = 'System that considers\nindividual features of\neach student';
         expect(h1Actual).equal(h1Expected);
