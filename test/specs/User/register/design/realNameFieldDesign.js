@@ -156,4 +156,20 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
+    it('should check focus highlight color when name is validated:', function () {
+        $(nameField).setValue(admin.name);
+        browser.pause(300);
+        const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex;
+        const expectedBorderColor = '#24c88b';
+        expect(actualBorderColor).to.equal(expectedBorderColor);
+    });
+
+    it('should check that check mark is displayed when name is validated:', function () {
+        $(nameField).setValue(admin.name);
+        browser.pause(300);
+        const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex;
+        const expectedBorderColor = '#24c88b';
+        expect(actualBorderColor).to.equal(expectedBorderColor);
+    });
+
 });

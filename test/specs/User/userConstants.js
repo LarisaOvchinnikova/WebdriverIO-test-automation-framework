@@ -7,8 +7,8 @@ const admin = {
    phone: '+19541111111',
    email: 'larisa12345@gmail.com',
    password: 'qwerty',
-   about: 'Hi, I am admin. I will teach you.',
-   goals: 'To find new job.',
+   about: 'Hello, I am admin!',
+   goals: 'To find new job in QA.',
 };
 
 module.exports = { admin };
