@@ -1,13 +1,12 @@
-const expect = require('chai').expect;
-const assert = require('chai').assert;
-//import {expect} from 'chai';
+//const expect = require('chai').expect;
+//const assert = require('chai').assert;
+import {expect} from 'chai';
+import { baseUrl } from '../../../constants';
 
-const { baseUrl } = require('../../../constants');
-const url = `${baseUrl}`;
 
 describe('Home page - General', () => {
     before (() => {
-        browser.url(url);
+        browser.url(baseUrlrl);
     });
 
     it('should verify URL', function () {
