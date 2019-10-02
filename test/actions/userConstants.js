@@ -3,7 +3,7 @@
 //const loginUrl = 'https://stage.pasv.us/user/login';
 
 const user = {
-   admin = {
+   admin: {
       name: 'Lara Lara',
       phone: '+19541111111',
       email: 'larisa12345@gmail.com',
@@ -11,7 +11,7 @@ const user = {
       about: 'Hello, I am admin!',
       goals: 'To find new job in QA.',
    },
-   student = {
+   student: {
       name: 'Vasya Pupkin',
       phone: '+19541111111',
       email: 'vasya@gmail.com',

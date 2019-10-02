@@ -1,7 +1,7 @@
 import { expect }  from 'chai';
 import loginHelpers from '../../../../actions/loginAction';
-const { baseUrl } = require('../../../../constants');
-const { loginUrl } = require('../../../../constants');
+const { baseUrl } = require('../../../../actions/constants');
+const { loginUrl } = require('../../../../actions/constants');
 const userAdminId = '5d6dc5f8af023b00386c5f3b';
 const userAdminName = 'Lara Lara';
 

@@ -1,7 +1,7 @@
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 
-const { baseUrl } = require('../../../constants');
+const { baseUrl } = require('../../../actions/constants');
 const url = `${baseUrl}`;
 
 const siteName = '//span[@id="site-name"]';

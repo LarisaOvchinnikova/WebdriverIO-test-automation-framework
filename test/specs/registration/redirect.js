@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import { baseUrl, registerUrl } from '../../constants';
+import { baseUrl, registerUrl } from '../../actions/constants';
 
 const registerButton = '//div[@id="user-section"]//a[text()="Register"]'
 const globalHeader = '//div[@id="main-bar"]';

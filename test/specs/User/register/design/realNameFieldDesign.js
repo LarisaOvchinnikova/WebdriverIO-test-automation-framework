@@ -1,6 +1,6 @@
 import { expect }  from 'chai';
-import { baseUrl, registerUrl } from './../../../../constants';
-import { admin } from './../../userConstants';
+import { baseUrl, registerUrl } from '../../../../actions/constants';
+import { admin } from '../../../../actions/userConstants';
 
 const nameField = '//input[@name="name"]';
 const label = '//label[text()="Real name"]';

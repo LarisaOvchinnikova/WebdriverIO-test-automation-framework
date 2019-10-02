@@ -1,6 +1,6 @@
 //Tanya
 import { expect }  from 'chai';
-import { baseUrl } from './../../../../constants';
+import { baseUrl } from '../../../../actions/constants';
 
 const url = `${baseUrl}/user/register`;
 const inputFieldPhone = '//input[@name="phone"]';

@@ -1,7 +1,7 @@
 import { expect }  from 'chai';
 const eng = ['Zero','Beginner', 'Elementary', 'Pre-Intermediate', 'Intermediate', 'Upper intermediate', 'Advanced', 'Proficient', 'Native'];
 
-const { baseUrl } = require('./../../../../constants');
+const { baseUrl } = require('../../../../actions/constants');
 
 const url = `${baseUrl}/user/register`;
 

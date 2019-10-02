@@ -1,7 +1,7 @@
 //import {expect} from 'chai';
 const expect = require('chai').expect;
-import { baseUrl } from './../../../../constants';
-import { admin } from './../../userConstants';
+import { baseUrl } from '../../../../actions/constants';
+import { admin } from '../../../../actions/userConstants';
 const url = `${baseUrl}/user/register`;
 
 describe('User Register page - submit button enabled after filling all fields correctly - functionality', () => {

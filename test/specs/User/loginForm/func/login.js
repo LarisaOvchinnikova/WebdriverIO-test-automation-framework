@@ -1,6 +1,6 @@
 import { expect }  from 'chai';
 import loginHelpers from '../../../../actions/loginAction';
-const { loginUrl } = require('../../../../constants');
+const { loginUrl } = require('../../../../actions/constants');
 
 
 describe('Login form', () => {

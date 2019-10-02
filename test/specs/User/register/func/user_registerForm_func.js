@@ -1,5 +1,5 @@
 import { expect }  from 'chai';
-const { baseUrl } = require('./../../../../constants');
+const { baseUrl } = require('../../../../actions/constants');
 
 const url = `${baseUrl}/user/register`;
 

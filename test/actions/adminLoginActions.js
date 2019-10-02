@@ -1,5 +1,5 @@
-import { url } from '../constants';
-import { user } from './../specs/User/userConstants';
+import { url } from './constants';
+import { user } from './userConstants';
 
 export default function loginAction(browser) {
     browser.url(url.loginUrl);

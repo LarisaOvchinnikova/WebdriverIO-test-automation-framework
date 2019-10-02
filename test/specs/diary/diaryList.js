@@ -1,7 +1,9 @@
-//import { expect } from 'chai';
 const { expect } = require ('chai');
-import loginHelpers from '../../actions/loginAction';
+const loginAction = require('../../actions/adminLoginActions');
+
+//import loginHelpers from '../../actions/loginAction';
 const menuDiarySelector = '//a[contains(text(),"Diary")]';
+
 
 describe('Diary List', () => {
     before (() => {

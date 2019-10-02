@@ -1,5 +1,5 @@
 import { expect }  from 'chai';
-const { baseUrl, registerUrl } = require('./../../../../constants');
+const { baseUrl, registerUrl } = require('../../../../actions/constants');
 const header = '//h1';
 
 describe('User Register page - Text `User Register` - design', () => {
