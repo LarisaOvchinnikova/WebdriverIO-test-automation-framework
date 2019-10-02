@@ -1,6 +1,10 @@
 import {expect} from 'chai';
 import { baseUrl, registerUrl } from '../../constants';
+
 const registerButton = '//div[@id="user-section"]//a[text()="Register"]'
+const globalHeader = '//div[@id="main-bar"]';
+const header = '//h1';
+const footer = '//footer[@class="pt-5 pb-5"]';
 
 describe('Registration -- Redirect', () => {
     before(() => {
@@ -9,14 +13,17 @@ describe('Registration -- Redirect', () => {
 
     it('should verify that clicking on Register button from Home Page gets redirected to Register Page ', function () {
         $(registerButton).click();
-        browser.pause(1000);
         const redirectUrl = browser.getUrl();
-
         expect(redirectUrl).to.equal(registerUrl);
     });
 
+    it('should verify that Global header is displayed', () => {
+        const actualGlobalHeader = $(globalHeader).isDisplayed();
+        expect(actualGlobalHeader).to.be.true;
+    });
+
     it('should  verify that h1 is correct', function () {
-        const h1 = $('//h1').getText();
+        const h1 = $(header).getText();
         expect(h1).to.equal('User Register');
     });
 
@@ -75,4 +82,8 @@ describe('Registration -- Redirect', () => {
         expect(isEnabled).equal(false);
     });
 
+    it('should verify that global footer is displayed', function () {
+        const footerIsDisplayed = $(footer).isDisplayed();
+        expect(footerIsDisplayed).to.be.true;
+    });
 });
