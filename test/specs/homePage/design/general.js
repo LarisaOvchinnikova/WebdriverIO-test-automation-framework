@@ -9,16 +9,15 @@ describe('Home page - General - Design', () => {
         browser.url(baseUrl);
     });
 
-    it('should verify URL', function () {
+    it('should verify URL',  () => {
         const actualURL = browser.getUrl();
         expect(actualURL).to.equal(baseUrl+'/');
     });
 
-    it('should verify that favicon.ico is existing', function () {
+    it('should verify that favicon.ico is existing',  () => {
         const selector = '//link[@href="/favicon.ico"]';
         const faviconIsDisplayed = $(selector).isExisting();
         expect(faviconIsDisplayed).to.be.true;
-
     });
 
     it('should have correct title', () => {
@@ -37,24 +36,23 @@ describe('Home page - General - Design', () => {
         const selector = '//span[@id="site-name"]';
         const actual = $(selector).getText();
         const expected = 'Progress Monitor';
-
         expect(actual).to.equal(expected);
     });
 
-    it('should verify that h1 header is correct', function () {
+    it('should verify that h1 header is correct',  () => {
         const selector = '//div[@class ="header-title"]';
         const h1Actual = $(selector).getText();
         const h1Expected = 'System that considers\nindividual features of\neach student';
         expect(h1Actual).equal(h1Expected);
      });
 
-    it('verify that container on main page contains 7 images', function () {
+    it('verify that container on main page contains 7 images', () => {
         let imgCount = $$('//img').length;
         const expectedCountOfImages = 7;
         expect(imgCount).to.equal(expectedCountOfImages);
     });
 
-    it('verify that container on main page contains 7 blocks', function () {
+    it('verify that container on main page contains 7 blocks',  () => {
         let blockCount = $$('//p[@class="intro"]').length;
         const expectedCountOfBlocks = 7;
         expect(blockCount).to.equal(expectedCountOfBlocks);
