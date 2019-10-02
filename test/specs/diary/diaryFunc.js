@@ -7,9 +7,13 @@ const menuDiarySelector = '//div[@id="site-menu"]//a[text() = "Diary"]';
 const headerSelector = '//h1';
 const diaryRecordSelector = '//div[@class="mt-2"]';
 const createDayReportButtonSelector = '//a[text()="Create day report"]';
+const saveButtonSelector = '//button[@type="submit"]';
+const checkBoxSelector = '//input[@type="checkbox"]';
+const descriptionFieldSelector = '//textarea[@name="description"]';
 
 const diaryH1 = 'Day reports';
 const createDiaryH1 = 'Create day report';
+const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars. Also I wrote tests.'
 
 describe('Diary - Func', () => {
     before (() => {
@@ -48,4 +52,21 @@ describe('Diary - Func', () => {
         const actualh1Text = $(headerSelector).getText();
         expect(actualh1Text).to.equal(createDiaryH1);
     });
+    it('should veryfy that there are checkboxes on `Create day report` page', function () {
+        const countOfCheckBoxes = $$(checkBoxSelector).length;
+        expect(countOfCheckBoxes>1).to.be.true;
+    });
+
+    it('should verify that `Save` button is disabled when there is no report', function () {
+        const isEnabled = $(saveButtonSelector).isEnabled();
+        expect(isEnabled).to.be.false;
+    });
+
+    it('should verify that `Save` button is disabled when there is report, but there are no checkmarks', function () {
+        $(descriptionFieldSelector).setValue(dayReportText);
+        const isEnabled = $(saveButtonSelector).isEnabled();
+        expect(isEnabled).to.be.false;
+    });
+
+
 });

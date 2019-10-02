@@ -1,7 +1,3 @@
-//const baseUrl = 'https://stage.pasv.us';
-
-//const loginUrl = 'https://stage.pasv.us/user/login';
-
 const user = {
    admin: {
       name: 'Lara Lara',
