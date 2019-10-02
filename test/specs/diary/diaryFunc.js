@@ -62,6 +62,16 @@ describe('Diary - Func', () => {
         expect(isEnabled).to.be.false;
     });
 
+    it('should verify that `Save` button is disabled when there is no report, but there are only checkmarks', function () {
+        for (let i = 0; i <= 6; i++) {
+            const selector = $('//input[@id=\'input-[' + i + ']\']');
+            selector.click();
+            browser.pause(500);
+        }
+        const isEnabled = $(saveButtonSelector).isEnabled();
+        expect(isEnabled).to.be.false;
+    });
+
     it('should verify that `Save` button is disabled when there is report, but there are no checkmarks', function () {
         $(descriptionFieldSelector).setValue(dayReportText);
         const isEnabled = $(saveButtonSelector).isEnabled();
