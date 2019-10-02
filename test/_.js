@@ -1,6 +1,6 @@
 import { expect }  from 'chai';
 //const loginAction = require('./../../actions/loginAction');
-import loginHelpers from './actions/loginAction';
+import loginHelpers from './examples/loginAction';
 const { baseUrl } = require('./actions/constants');
 
 const url = `${baseUrl}/user/login`;

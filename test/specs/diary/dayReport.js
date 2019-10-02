@@ -1,5 +1,5 @@
 import { expect }  from 'chai';
-import loginHelpers from '../../actions/loginAction';
+import loginHelpers from '../../examples/loginAction';
 
 describe('Create day report after User Login when click button Create day report', () => {
 

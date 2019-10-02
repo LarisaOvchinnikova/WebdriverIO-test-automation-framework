@@ -1,5 +1,5 @@
 import { expect }  from 'chai';
-import loginHelpers from '../../../../actions/loginAction';
+import loginHelpers from '../../../../examples/loginAction';
 const { loginUrl } = require('../../../../actions/constants');
 
 

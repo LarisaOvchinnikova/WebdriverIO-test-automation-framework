@@ -1,5 +1,5 @@
 import { expect }  from 'chai';
-import loginHelpers from '../../../../actions/loginAction';
+import loginHelpers from '../../../../examples/loginAction';
 const { baseUrl } = require('../../../../actions/constants');
 const { loginUrl } = require('../../../../actions/constants');
 const userAdminId = '5d6dc5f8af023b00386c5f3b';

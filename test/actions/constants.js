@@ -1,9 +1,8 @@
+export const url = {
+    baseUrl: 'https://stage.pasv.us',
+    loginUrl: 'https://stage.pasv.us/user/login',
+    registerUrl: 'https://stage.pasv.us/user/register',
+    diaryUrl: 'https://stage.pasv.us/diary',
+    serverUrl: 'https://server-stage.pasv.us',
+};
 
-const baseUrl = 'https://stage.pasv.us';
-
-const loginUrl = 'https://stage.pasv.us/user/login';
-
-const registerUrl = 'https://stage.pasv.us/user/register';
-
-
-module.exports = { baseUrl, loginUrl, registerUrl };
