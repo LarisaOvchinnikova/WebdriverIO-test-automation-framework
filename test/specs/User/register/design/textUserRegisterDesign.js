@@ -1,6 +1,6 @@
 import { expect }  from 'chai';
 const { baseUrl, registerUrl } = require('./../../../../constants');
-const h1Header = '//h1';
+const header = '//h1';
 
 describe('User Register page - Text User Register', () => {
     before(() => {
@@ -9,37 +9,37 @@ describe('User Register page - Text User Register', () => {
     });
 
     it('should have text `User Register` above registration form', function () {
-        const h1 = $(h1Header).getText();
-        expect(h1).to.equal('User Register');
+        const actualHeader = $(header).getText();
+        expect(actualHeader).to.equal('User Register');
     });
 
     it('should verify that text `User Register` is left-aligned', function () {
-        const actualAlign = $(h1Header).getCSSProperty('text-align').parsed.string
-        const expectAlign = 'left';
-        expect(actualAlign).to.equal(expectAlign);
+        const actualAlign = $(header).getCSSProperty('text-align').parsed.string;
+        const expectedAlign = 'left';
+        expect(actualAlign).to.equal(expectedAlign);
     });
 
-    it('should validate that text `User Register` has correct color', () => {
-        const actualColor = $(h1Header).getCSSProperty('color').parsed.hex;
-        const expectColor = '#333333';
-        expect(actualColor).to.equal(expectColor);
+    it('should verify that text `User Register` has correct color', () => {
+        const actualColor = $(header).getCSSProperty('color').parsed.hex;
+        const expectedColor = '#333333';
+        expect(actualColor).to.equal(expectedColor);
     });
 
     it('should validate that text `User Register` has correct font-size', () => {
-        const actualSize = $(h1Header).getCSSProperty('font-size').parsed.string;
-        const expectFontSize = '42.5px';
-        expect(actualSize).to.equal(expectFontSize);
+        const actualFontSize = $(header).getCSSProperty('font-size').parsed.string;
+        const expectedFontSize = '42.5px';
+        expect(actualFontSize).to.equal(expectedFontSize);
     });
 
     it('should validate that text `User Register` has correct font-weight', () => {
-        const actualWeight = $(h1Header).getCSSProperty('font-weight').parsed.string;
-        const expectFontWeight = '500';
-        expect(actualWeight).to.equal(expectFontWeight);
+        const actualFontWeight = $(header).getCSSProperty('font-weight').parsed.string;
+        const expectedFontWeight = '500';
+        expect(actualFontWeight).to.equal(expectedFontWeight);
     });
 
     it('should validate that text `User Register` has correct font-family ', function () {
-        const font = $(h1Header).getCSSProperty('font-family').parsed.string ;
-        expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
+        const actualFontFamily = $(header).getCSSProperty('font-family').parsed.string ;
+        expect(actualFontFamily).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
 });

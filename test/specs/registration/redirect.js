@@ -82,7 +82,7 @@ describe('Registration -- Redirect', () => {
         expect(isEnabled).equal(false);
     });
 
-    it('should verify that global footer is displayed', function () {
+    it('should verify that Global footer is displayed', function () {
         const footerIsDisplayed = $(footer).isDisplayed();
         expect(footerIsDisplayed).to.be.true;
     });
