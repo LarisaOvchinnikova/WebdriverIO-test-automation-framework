@@ -1,8 +1,10 @@
-//const expect = require('chai').expect;
-//const assert = require('chai').assert;
 import {expect} from 'chai';
 import { baseUrl } from '../../../constants';
 
+const favicon = '//link[@href="/favicon.ico"]';
+const globalHeader = '//div[@id="main-bar"]';
+const header = '//h1';
+const footer = '//footer[@class="pt-5 pb-5"]';
 
 describe('Home page - General - Design', () => {
     before (() => {
@@ -10,56 +12,51 @@ describe('Home page - General - Design', () => {
     });
 
     it('should verify URL',  () => {
-        const actualURL = browser.getUrl();
-        expect(actualURL).to.equal(baseUrl+'/');
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).to.equal(baseUrl+'/');
     });
 
     it('should verify that favicon.ico is existing',  () => {
-        const selector = '//link[@href="/favicon.ico"]';
-        const faviconIsDisplayed = $(selector).isExisting();
-        expect(faviconIsDisplayed).to.be.true;
+       const faviconIsDisplayed = $(favicon).isExisting();
+       expect(faviconIsDisplayed).to.be.true;
     });
 
-    it('should have correct title', () => {
-        const title = browser.getTitle();
-        const expected = 'Progress Monitor';
-        expect(title).to.equal(expected);
+    it('should verify that home page has correct title', () => {
+        const actualTitle = browser.getTitle();
+        const expectedTitle = 'Progress Monitor';
+        expect(actualTitle).to.equal(expectedTitle);
     });
 
-    it('verify that application has global header', () => {
-        const selector = '//div[@id="main-bar"]';
-        const globalHeader = $(selector).isDisplayed();
-        expect(globalHeader).to.be.true;
+    it('should verify that home page has Global header', () => {
+        const actualGlobalHeader = $(globalHeader).isDisplayed();
+        expect(actualGlobalHeader).to.be.true;
     });
 
-    it('verify that header contains application name', () => {
-        const selector = '//span[@id="site-name"]';
-        const actual = $(selector).getText();
-        const expected = 'Progress Monitor';
-        expect(actual).to.equal(expected);
+    it('should verify that Global header contains application name', () => {
+        const textOfGlobalHeader = $(globalHeader).getText().includes('Progress Monitor');
+        expect(textOfGlobalHeader).to.be.true;
     });
 
-    it('should verify that h1 header is correct',  () => {
-        const selector = '//div[@class ="header-title"]';
-        const h1Actual = $(selector).getText();
+    it('should verify that home page contains correct h1',  () => {
+        const h1Actual = $(header).getText();
         const h1Expected = 'System that considers\nindividual features of\neach student';
         expect(h1Actual).equal(h1Expected);
      });
 
-    it('verify that container on main page contains 7 images', () => {
-        let imgCount = $$('//img').length;
-        const expectedCountOfImages = 7;
-        expect(imgCount).to.equal(expectedCountOfImages);
+    it('should verify that home page contains 7 images', () => {
+        const actualImgCount = $$('//img').length;
+        const expectedImgCount = 7;
+        expect(actualImgCount).to.equal(expectedImgCount);
     });
 
-    it('verify that container on main page contains 7 blocks',  () => {
-        let blockCount = $$('//p[@class="intro"]').length;
-        const expectedCountOfBlocks = 7;
-        expect(blockCount).to.equal(expectedCountOfBlocks);
+    it('should verify that home page contains 7 text blocks',  () => {
+        const actualBlockCount = $$('//p[@class="intro"]').length;
+        const expectedBlockCount = 7;
+        expect(actualBlockCount).to.equal(expectedBlockCount);
     });
-    it('application has global footer', function () {
-        const selector = '//footer/div[@class="container"]';
-        const footerIsDisplayed = $(selector).isDisplayed();
+
+    it('should verify that home page has global footer', function () {
+        const footerIsDisplayed = $(footer).isDisplayed();
         expect(footerIsDisplayed).to.be.true;
     });
 
