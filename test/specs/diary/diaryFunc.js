@@ -18,8 +18,8 @@ const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars
 
 describe('Diary - Func', () => {
     before (() => {
+        browser.maximizeWindow();
         loginAction(browser);
-        browser.pause(1000);
     });
 
     it('should verify that `Diary` is displayed in main menu', () => {
@@ -91,7 +91,7 @@ describe('Diary - Func', () => {
         expect(isEnabled).to.be.false;
     });
 
-    it('should verify that description area is-invalid when day report length < 30', function () {
+    it('should verify that description area is-invalid when day report length < 30', () => {
         const descriptionArea = $(descriptionFieldSelector);
         descriptionArea.setValue(dayReportShortText);
         expect(descriptionArea.getAttribute('class')).includes('is-invalid');
@@ -104,10 +104,18 @@ describe('Diary - Func', () => {
         expect(isEnabled).to.be.true;
     });
 
-    it('should verify that description area is-valid when day report length >= 30', function () {
+    it('should verify that description area is-valid when day report length >= 30', () => {
         const descriptionArea = $(descriptionFieldSelector);
         descriptionArea.setValue(dayReportText);
         expect(descriptionArea.getAttribute('class')).includes('is-valid');
+    });
+
+    it('should verify that click to `Save` button should redirect to `Day reports` page', () => {
+        const saveButton = $(saveButtonSelector);
+        saveButton.click();
+        browser.pause(1000);
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).to.equal(url.diaryUrl);
     });
 
 
