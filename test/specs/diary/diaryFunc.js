@@ -13,6 +13,7 @@ const descriptionFieldSelector = '//textarea[@name="description"]';
 
 const diaryH1 = 'Day reports';
 const createDiaryH1 = 'Create day report';
+const dayReportShortText = 'Today I wrote tests.'
 const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars. Also I wrote tests.'
 
 describe('Diary - Func', () => {
@@ -69,6 +70,12 @@ describe('Diary - Func', () => {
             const selector = $('//input[@id="input-[' + i + ']"]');
             selector.click();
         }
+        const isEnabled = $(saveButtonSelector).isEnabled();
+        expect(isEnabled).to.be.false;
+    });
+
+    it('should verify that `Save` button is disabled when there are checkmarks, but day report is < 30 characters', () => {
+        $(descriptionFieldSelector).setValue(dayReportShortText);
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.false;
     });
