@@ -18,7 +18,7 @@ const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars
 describe('Diary - Func', () => {
     before (() => {
         loginAction(browser);
-        browser.pause(600);
+        browser.pause(1000);
     });
 
     it('should verify that `Diary` is displayed in main menu', () => {
@@ -37,7 +37,7 @@ describe('Diary - Func', () => {
         expect(actualh1Text).to.equal(diaryH1);
     });
 
-    it('should verify that `Day reports` page has at least one record', function () {
+    it('should verify that `Day reports` page has at least one record',  () => {
         browser.pause(1000);
         const countOfRecords = $$(diaryRecordSelector).length;
         expect(countOfRecords > 0).to.be.true;
@@ -53,50 +53,45 @@ describe('Diary - Func', () => {
         const actualh1Text = $(headerSelector).getText();
         expect(actualh1Text).to.equal(createDiaryH1);
     });
-    it('should veryfy that there are checkboxes on `Create day report` page', function () {
+    it('should veryfy that there are checkboxes on `Create day report` page',  () => {
         const countOfCheckBoxes = $$(checkBoxSelector).length;
         expect(countOfCheckBoxes>1).to.be.true;
     });
 
-    it('should verify that `Save` button is disabled when there is no report', function () {
+    it('should verify that `Save` button is disabled', () => {
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.false;
     });
 
-    it('should verify that `Save` button is disabled when there are checkmarks, but there is no day report', function () {
+    it('should verify that `Save` button is disabled when there are checkmarks, but there is no day report', () => {
         //check marks
         for (let i = 0; i <= 6; i++) {
-            const selector = $('//input[@id=\'input-[' + i + ']\']');
+            const selector = $('//input[@id="input-[' + i + ']"]');
             selector.click();
-            browser.pause(100);
         }
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.false;
     });
 
-    it('should verify that `Save` button is disabled when there is the day report, but there are no checkmarks', function () {
+    it('should verify that `Save` button is disabled when there is the day report, but there are no checkmarks', () => {
         //uncheck marks
         for (let i = 0; i <= 6; i++) {
-            const selector = $('//input[@id=\'input-[' + i + ']\']');
+            const selector = $('//input[@id="input-[' + i + ']"]');
             selector.click();
-            browser.pause(100);
         }
         $(descriptionFieldSelector).setValue(dayReportText);
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.false;
     });
 
-    it('should verify that `Save` button is enabled when there is the day report and checkmarks', function () {
+    it('should verify that `Save` button is enabled when there is the day report and checkmarks',  () => {
         //check marks
         for (let i = 0; i <= 6; i++) {
-            const selector = $('//input[@id=\'input-[' + i + ']\']');
+            const selector = $('//input[@id="input-[' + i + ']"]');
             selector.click();
-            browser.pause(100);
-    }
+        };
         $(descriptionFieldSelector).setValue(dayReportText);
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.true;
     });
-
-
 });
