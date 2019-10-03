@@ -18,6 +18,7 @@ const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars
 describe('Diary - Func', () => {
     before (() => {
         loginAction(browser);
+        browser.pause(600);
     });
 
     it('should verify that `Diary` is displayed in main menu', () => {
@@ -62,20 +63,39 @@ describe('Diary - Func', () => {
         expect(isEnabled).to.be.false;
     });
 
-    it('should verify that `Save` button is disabled when there is no report, but there are only checkmarks', function () {
+    it('should verify that `Save` button is disabled when there are checkmarks, but there is no day report', function () {
+        //check marks
         for (let i = 0; i <= 6; i++) {
             const selector = $('//input[@id=\'input-[' + i + ']\']');
             selector.click();
-            browser.pause(500);
+            browser.pause(100);
         }
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.false;
     });
 
-    it('should verify that `Save` button is disabled when there is report, but there are no checkmarks', function () {
+    it('should verify that `Save` button is disabled when there is the day report, but there are no checkmarks', function () {
+        //uncheck marks
+        for (let i = 0; i <= 6; i++) {
+            const selector = $('//input[@id=\'input-[' + i + ']\']');
+            selector.click();
+            browser.pause(100);
+        }
         $(descriptionFieldSelector).setValue(dayReportText);
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.false;
+    });
+
+    it('should verify that `Save` button is enabled when there is the day report and checkmarks', function () {
+        //check marks
+        for (let i = 0; i <= 6; i++) {
+            const selector = $('//input[@id=\'input-[' + i + ']\']');
+            selector.click();
+            browser.pause(100);
+    }
+        $(descriptionFieldSelector).setValue(dayReportText);
+        const isEnabled = $(saveButtonSelector).isEnabled();
+        expect(isEnabled).to.be.true;
     });
 
 
