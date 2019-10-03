@@ -64,12 +64,22 @@ describe('Diary - Func', () => {
         expect(isEnabled).to.be.false;
     });
 
+    it('should verify that `Save` button is disabled when there is the day report, but there are no checkmarks', () => {
+
+        const descriptionArea = $(descriptionFieldSelector);
+        descriptionArea.setValue(dayReportText);
+        const isEnabled = $(saveButtonSelector).isEnabled();
+        expect(isEnabled).to.be.false;
+    });
+
     it('should verify that `Save` button is disabled when there are checkmarks, but there is no day report', () => {
         //check marks
         for (let i = 0; i <= 6; i++) {
             const selector = $('//input[@id="input-[' + i + ']"]');
             selector.click();
         }
+        const descriptionArea = $(descriptionFieldSelector);
+        descriptionArea.setValue('');
         const isEnabled = $(saveButtonSelector).isEnabled();
         expect(isEnabled).to.be.false;
     });
@@ -87,24 +97,7 @@ describe('Diary - Func', () => {
         expect(descriptionArea.getAttribute('class')).includes('is-invalid');
     });
 
-    it('should verify that `Save` button is disabled when there is the day report, but there are no checkmarks', () => {
-        //uncheck marks
-        for (let i = 0; i <= 6; i++) {
-            const selector = $('//input[@id="input-[' + i + ']"]');
-            selector.click();
-        }
-        const descriptionArea = $(descriptionFieldSelector);
-        descriptionArea.setValue(dayReportText);
-        const isEnabled = $(saveButtonSelector).isEnabled();
-        expect(isEnabled).to.be.false;
-    });
-
     it('should verify that `Save` button is enabled when there is a correct report and checkmarks',  () => {
-        //check marks
-        for (let i = 0; i <= 6; i++) {
-            const selector = $('//input[@id="input-[' + i + ']"]');
-            selector.click();
-        }
         const descriptionArea = $(descriptionFieldSelector);
         descriptionArea.setValue(dayReportText);
         const isEnabled = $(saveButtonSelector).isEnabled();
