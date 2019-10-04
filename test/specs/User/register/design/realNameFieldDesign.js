@@ -2,55 +2,56 @@ import { expect }  from 'chai';
 import { url } from '../../../../actions/constants';
 import { admin } from '../../../../actions/userConstants';
 
-const nameField = '//input[@name="name"]';
-const label = '//label[text()="Real name"]';
-const description = '//small[contains(text(),"Please enter your real name")]';
+const nameField = '//input[@name="firstName"]';
+const label = '//label[text()="First Name"]';
+const expectedLabelText = 'First Name';
+//const description = '//small[contains(text(),"Please enter your real name")]';
 
-describe('User Register page - Real Name field - design', () => {
+describe('User Register page - First Name field - design', () => {
     before(() => {
         browser.url(url.registerUrl);
         browser.maximizeWindow();
     });
 
-    it('should verify that label `Real name` above user name input field is displayed', function () {
+    it('should verify that label above user name input field is displayed', function () {
         const isDisplayed = $(label).isDisplayed();
         expect(isDisplayed).to.be.true;
     });
 
-    it('should verify that label above user name input field contains text `Real name`', function () {
-        const actual = $(label).getText();
-        expect(actual).to.equal('Real name');
+    it('should verify that label above field contains correct text', function () {
+        const actualLabelText = $(label).getText();
+        expect(actual).to.equal(expectedLabelText);
     });
 
-    it('should validate that label `Real name` has correct font-family ', function () {
+    it('should validate that label has correct font-family ', function () {
         const font = $(label).getCSSProperty('font-family').parsed.string ;
         expect(font).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
-    it('should validate that label `Real name` has correct font-size', () => {
+    it('should validate that label has correct font-size', () => {
         const actualSize = $(label).getCSSProperty('font-size').parsed.string;
         const expectFontSize = '17px';
         expect(actualSize).to.equal(expectFontSize);
     });
 
-    it('should validate that label `Real name` has correct color', () => {
+    it('should validate that label has correct color', () => {
         const actualColor = $(label).getCSSProperty('color').parsed.hex;
         const expectColor = '#212529';
         expect(actualColor).to.equal(expectColor);
     });
 
-    it('should validate that label `Real name` has correct font-weight', () => {
+    it('should validate that label has correct font-weight', () => {
         const actualWeight = $(label).getCSSProperty('font-weight').parsed.string;
         const expectFontWeight = '400';
         expect(actualWeight).to.equal(expectFontWeight);
     });
 
-    it('should verify that label `Real name` is left-aligned', function () {
+    it('should verify that label is left-aligned', function () {
         const actualAlign = $(label).getCSSProperty('text-align').parsed.string
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
-
+/*
     it('should verify that Real name description text is displayed under Real name input field', function () {
         const elementIsDisplayed = $(description).isDisplayed();
         expect(elementIsDisplayed).to.be.true;
@@ -90,8 +91,8 @@ describe('User Register page - Real Name field - design', () => {
         const expectAlign = 'left';
         expect(actualAlign).to.equal(expectAlign);
     });
-
-    it('should verify that `Real name` input field is displayed ', function () {
+*/
+    it('should verify that input field is displayed ', function () {
         const isDisplayed = $(nameField).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
@@ -102,7 +103,7 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user puts a cursor to the `Real name` input field, focus border-color is correct ', () => {
+    it('should verify that when user puts a cursor to the input field, focus border-color is correct ', () => {
         $(nameField).click();
         browser.pause(300);
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex.toLowerCase();
@@ -110,7 +111,7 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user puts a cursor to the `Real name` input field, focus highlight color is correct ', () => {
+    it('should verify that when user puts a cursor to the input field, focus highlight color is correct ', () => {
         $(nameField).click();
         browser.pause(100);
         const actualFocusHightLightColor = $(nameField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
@@ -118,31 +119,31 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualFocusHightLightColor).to.equal(expectedFocusHightLightColor);
     });
 
-    it('should verify that when user enters first symbol to the `Real name` input field, font-color  is correct', () => {
+    it('should verify that when user enters first symbol to the input field, font-color  is correct', () => {
         $(nameField).setValue('L');
         const actualFontColor = $(nameField).getCSSProperty('color').parsed.hex.toLowerCase();
         const expectedFontColor = '#495057';
         expect(actualFontColor).to.equal(expectedFontColor);
     });
 
-    it('should verify that when user enters first symbol to the `Real name` input field, background-color  is correct', () => {
+    it('should verify that when user enters first symbol to the input field, background-color  is correct', () => {
         const actualBackgroundColor = $(nameField).getCSSProperty('background-color').parsed.hex.toLowerCase();
         const expectedBackgroundColor = '#ffffff';
         expect(actualBackgroundColor).to.equal(expectedBackgroundColor);
     });
 
-    it('should verify that when user enters first symbol to the `Real name` input field, text-align is `start`', () => {
+    it('should verify that when user enters first symbol to the input field, text-align is `start`', () => {
         const actualAlign = $(nameField).getCSSProperty('text-align').parsed.string.toLowerCase();
         const expectedAlign = 'start';
         expect(actualAlign).to.equal(expectedAlign);
     });
 
-    it('should verify that when user enters first symbol to the `Real name` input field, font-family is correct', () => {
+    it('should verify that when user enters first symbol to the input field, font-family is correct', () => {
         const actualFontFamily = $(nameField).getCSSProperty('font-family').parsed.string;
         expect(actualFontFamily).to.equal('"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
     });
 
-    it('should verify that when user enters first symbol to the `Real name` input field, font-weight  is correct', () => {
+    it('should verify that when user enters first symbol to the input field, font-weight  is correct', () => {
         const actualFontWeight = $(nameField).getCSSProperty('font-weight').parsed.string;
         const expectedFontWeight = '400';
         expect(actualFontWeight).to.equal(expectedFontWeight);
