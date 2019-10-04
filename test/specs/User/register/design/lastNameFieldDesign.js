@@ -7,16 +7,12 @@ const label = '//label[@for="lastName"]';
 const expectedLabelText = 'Last Name';
 //const description = '//small[contains(text(),"Please enter your real name")]';
 
-describe('User Register page - First Name field - design', () => {
+describe('User Register page - Last Name field - design', () => {
     before(() => {
-        browser.url('https://stage.pasv.us/user/register');
-        //   driver.navigate().refresh();
-        browser.refresh();
-        //     browser.maximizeWindow();
-        //     browser.url(url.registerUrl);
+        browser.url(url.registerUrl);
     });
 
-    it('should verify that label above user name input field is displayed', function () {
+    it('should verify that label above input field is displayed', function () {
         const isDisplayed = $(label).isDisplayed();
         expect(isDisplayed).to.be.true;
     });
@@ -106,7 +102,7 @@ describe('User Register page - First Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user puts a cursor to the input field, focus border-color is correct ', () => {
+    it('should verify that when user puts a cursor to the field, focus border-color is correct ', () => {
         $(nameField).click();
         browser.pause(300);
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex.toLowerCase();
@@ -114,7 +110,7 @@ describe('User Register page - First Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should verify that when user puts a cursor to the input field, focus highlight color is correct ', () => {
+    it('should verify that when user puts a cursor to the field, focus highlight color is correct ', () => {
         $(nameField).click();
         browser.pause(100);
         const actualFocusHightLightColor = $(nameField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
@@ -122,20 +118,20 @@ describe('User Register page - First Name field - design', () => {
         expect(actualFocusHightLightColor).to.equal(expectedFocusHightLightColor);
     });
 
-    it('should verify that when user enters first symbol to the input field, font-color  is correct', () => {
-        $(nameField).setValue('L');
+    it('should verify that when user enters first symbol to the field, font-color  is correct', () => {
+        $(nameField).setValue('T');
         const actualFontColor = $(nameField).getCSSProperty('color').parsed.hex.toLowerCase();
         const expectedFontColor = '#495057';
         expect(actualFontColor).to.equal(expectedFontColor);
     });
 
-    it('should verify that when user enters first symbol to the input field, background-color  is correct', () => {
+    it('should verify that when user enters first symbol to the field, background-color  is correct', () => {
         const actualBackgroundColor = $(nameField).getCSSProperty('background-color').parsed.hex.toLowerCase();
         const expectedBackgroundColor = '#ffffff';
         expect(actualBackgroundColor).to.equal(expectedBackgroundColor);
     });
 
-    it('should verify that when user enters first symbol to the input field, text-align is `start`', () => {
+    it('should verify that when user enters first symbol to the field, text-align is `start`', () => {
         const actualAlign = $(nameField).getCSSProperty('text-align').parsed.string.toLowerCase();
         const expectedAlign = 'start';
         expect(actualAlign).to.equal(expectedAlign);
@@ -153,7 +149,7 @@ describe('User Register page - First Name field - design', () => {
     });
 
     it('should check border color when name is validated:', function () {
-        $(nameField).setValue(user.admin.firstName);
+        $(nameField).setValue(user.admin.lastName);
         browser.pause(300);
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex;
         const expectedBorderColor = '#24c88b';
@@ -161,18 +157,12 @@ describe('User Register page - First Name field - design', () => {
     });
 
     it('should check focus highlight color when name is validated:', function () {
-        //   $(nameField).setValue(admin.name);
-        //   browser.keys('Tab');
-        browser.pause(300);
         const actualHighlightColor = $(nameField).getCSSProperty('box-shadow').parsed.hex;
         const expectedHighlightColor = '#24c88b';
         expect(actualHighlightColor).to.equal(expectedHighlightColor);
     });
 
-    it('should check that `First Name` field is valid when entered correct name:', function () {
-        // $(nameField).setValue(admin.name);
-        // browser.keys('Tab');
-        browser.pause(300);
+    it('should check that `Last Name` field is valid when entered correct name:', function () {
         expect($(nameField).getAttribute('class')).includes('is-valid');
     });
 
