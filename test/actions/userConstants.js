@@ -1,6 +1,7 @@
 const user = {
    admin: {
-      name: 'Lara Lara',
+      firstName: 'Lara',
+      lastName: 'Test',
       phone: '+19541111111',
       email: 'larisa12345@gmail.com',
       password: 'qwerty',
@@ -8,7 +9,8 @@ const user = {
       goals: 'To find new job in QA.',
    },
    student: {
-      name: 'Vasya Pupkin',
+      firstName: 'Vasya',
+      lastName: 'Pupkin',
       phone: '+19541111111',
       email: 'vasya@gmail.com',
       password: '12345',

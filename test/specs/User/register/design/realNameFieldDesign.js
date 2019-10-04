@@ -1,16 +1,19 @@
 import { expect }  from 'chai';
 import { url } from '../../../../actions/constants';
-import { admin } from '../../../../actions/userConstants';
+import { user } from '../../../../actions/userConstants';
 
 const nameField = '//input[@name="firstName"]';
-const label = '//label[text()="First Name"]';
+const label = '//label[@for="firstName"]';
 const expectedLabelText = 'First Name';
 //const description = '//small[contains(text(),"Please enter your real name")]';
 
 describe('User Register page - First Name field - design', () => {
     before(() => {
-        browser.url(url.registerUrl);
-        browser.maximizeWindow();
+        browser.url('https://stage.pasv.us/user/register');
+     //   driver.navigate().refresh();
+       browser.refresh();
+   //     browser.maximizeWindow();
+   //     browser.url(url.registerUrl);
     });
 
     it('should verify that label above user name input field is displayed', function () {
@@ -20,7 +23,7 @@ describe('User Register page - First Name field - design', () => {
 
     it('should verify that label above field contains correct text', function () {
         const actualLabelText = $(label).getText();
-        expect(actual).to.equal(expectedLabelText);
+        expect(actualLabelText).to.equal(expectedLabelText);
     });
 
     it('should validate that label has correct font-family ', function () {
@@ -150,7 +153,7 @@ describe('User Register page - First Name field - design', () => {
     });
 
     it('should check border color when name is validated:', function () {
-        $(nameField).setValue(admin.name);
+        $(nameField).setValue(user.admin.firstName);
         browser.pause(300);
         const actualBorderColor = $(nameField).getCSSProperty('border-color').parsed.hex;
         const expectedBorderColor = '#24c88b';
@@ -158,17 +161,18 @@ describe('User Register page - First Name field - design', () => {
     });
 
     it('should check focus highlight color when name is validated:', function () {
-        $(nameField).setValue(admin.name);
+     //   $(nameField).setValue(admin.name);
+     //   browser.keys('Tab');
         browser.pause(300);
-        const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex;
-        const expectedBorderColor = '#24c88b';
-        expect(actualBorderColor).to.equal(expectedBorderColor);
+        const actualHighlightColor = $(nameField).getCSSProperty('box-shadow').parsed.hex;
+        const expectedHighlightColor = '#24c88b';
+        expect(actualHighlightColor).to.equal(expectedHighlightColor);
     });
 
-    it('should check that `Real name` field is valid when name is validated:', function () {
-        $(nameField).setValue(admin.name);
+    it('should check that `First Name` field is valid when entered correct name:', function () {
+       // $(nameField).setValue(admin.name);
+       // browser.keys('Tab');
         browser.pause(300);
-        const descriptionArea = $(selector.descriptionField);
         expect($(nameField).getAttribute('class')).includes('is-valid');
     });
 
