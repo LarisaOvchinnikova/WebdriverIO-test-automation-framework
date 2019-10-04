@@ -9,7 +9,7 @@
     "userloginForm_func": "wdio wdio.conf.js --spec test/specs/User/loginForm/func/user_loginForm_func.js --inspect",
     "userloginFormDesign": "wdio wdio.conf.js --spec test/specs/User/loginForm/design/user_loginForm_design.js --inspect",
     "dayReport": "wdio wdio.conf.js --spec test/specs/diary/dayReport.js --inspect",
-    "realNameFieldDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/realNameFieldDesign.js --inspect",
+    "firstNameFieldDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/firstNameFieldDesign.js --inspect",
     "cellPhoneNumberDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/cellPhoneNumberDesign.js --inspect",
     "textUserRegisterDesign": "wdio wdio.conf.js --spec test/specs/User/register/design/textUserRegisterDesign.js --inspect",
     "registerFormFunc": "wdio wdio.conf.js --spec test/specs/User/register/func/registerFormFunc.js --inspect",
