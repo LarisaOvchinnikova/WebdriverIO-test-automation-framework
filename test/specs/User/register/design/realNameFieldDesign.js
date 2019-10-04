@@ -1,5 +1,5 @@
 import { expect }  from 'chai';
-import { baseUrl, registerUrl } from '../../../../actions/constants';
+import { url } from '../../../../actions/constants';
 import { admin } from '../../../../actions/userConstants';
 
 const nameField = '//input[@name="name"]';
@@ -8,7 +8,7 @@ const description = '//small[contains(text(),"Please enter your real name")]';
 
 describe('User Register page - Real Name field - design', () => {
     before(() => {
-        browser.url(registerUrl);
+        browser.url(url.registerUrl);
         browser.maximizeWindow();
     });
 
@@ -164,12 +164,11 @@ describe('User Register page - Real Name field - design', () => {
         expect(actualBorderColor).to.equal(expectedBorderColor);
     });
 
-    it('should check that check mark is displayed when name is validated:', function () {
+    it('should check that `Real name` field is valid when name is validated:', function () {
         $(nameField).setValue(admin.name);
         browser.pause(300);
-        const actualBorderColor = $(nameField).getCSSProperty('box-shadow').parsed.hex;
-        const expectedBorderColor = '#24c88b';
-        expect(actualBorderColor).to.equal(expectedBorderColor);
+        const descriptionArea = $(selector.descriptionField);
+        expect($(nameField).getAttribute('class')).includes('is-valid');
     });
 
 });
