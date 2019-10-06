@@ -1,31 +1,31 @@
-//Tanya
 import { expect }  from 'chai';
-import { baseUrl } from '../../../../actions/constants';
+import { url } from '../../../../actions/constants';
 
-const url = `${baseUrl}/user/register`;
 const inputFieldPhone = '//input[@name="phone"]';
 
-describe('Cell Phone Number input field', () => {
+const expectedBorderColor = '#ced4da';
+const expectedFontColor = '#495057';
+
+
+describe('Register - Cell Phone Number - Design', () => {
     before(() => {
-        browser.url(url);
+        browser.url(url.registerUrl);
     });
 
     it('should check that “Cell phone number” input field is displayed', () => {
-        const actualInputFieldPhone = $(inputFieldPhone).isDisplayed();
-        expect(actualInputFieldPhone).to.be.true;
+        expect($(inputFieldPhone).isDisplayed()).to.be.true;
     });
 
     it('should check border-color of "Cell phone number" input field ', () => {
-        const actualBorder = $(inputFieldPhone).getCSSProperty('border-top-color').parsed.hex;
-        const expectedBorder = '#ced4da';
-        expect(actualBorder).equal(expectedBorder);
+        const actualBorderColor = $(inputFieldPhone).getCSSProperty('border-top-color').parsed.hex;
+        expect(actualBorderColor).equal(expectedBorderColor);
     });
 
     it('should check font-color of "Cell phone number" input field when user enters first symbol', () => {
-        $(inputFieldPhone).setValue('+');
+        $(inputFieldPhone).setValue('1');
         const actualFontColor = $(inputFieldPhone).getCSSProperty('color').parsed.hex;
-        const expectedFontColor = '#495057';
         expect(actualFontColor).equal(expectedFontColor);
     });
+
 
 });
