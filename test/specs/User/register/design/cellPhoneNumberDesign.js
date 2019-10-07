@@ -4,6 +4,7 @@ import { user } from '../../../../actions/userConstants';
 
 const phoneField = '//input[@name="phone"]';
 const label = '//label[@for="phone"]';
+const descrText = '//small[contains(text(),"Format 17775551122 or 380653332244")]';
 
 const expectedBorderColor = '#ced4da';
 const expectedFontColor = '#495057';
@@ -16,6 +17,15 @@ const expectedFontWeight = '400';
 const expectedBorderColorValid = '#24c88b';
 const expectedHighlightColorValid = '#24c88b';
 const expectedlabelText = 'Cell phone number';
+const expectedLabelFontSize = '17px';
+const expectedLabelColor = '#212529';
+const expectedLabelFontWeight = '400';
+const expectedLabelTextAlign = 'left';
+const expectedDescrText = 'Format 17775551122 or 380653332244';
+const expectedDescrFontSize = '13.6px';
+const expectedDescrColor = '#6c757d';
+const expectedDescrFontWeight = '400';
+const expectedDescrAlign = 'left';
 
 describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
@@ -59,7 +69,7 @@ describe('Register - Cell Phone Number field when user enters first symbol - Des
         expect(actualTextAlign).equal(expectedTextAlign);
     });
 
-    it('should verify text-align', () => {
+    it('should verify font-family', () => {
         const actualFontFamily = $(phoneField).getCSSProperty('font-family').parsed.string;
         expect(actualFontFamily).to.equal(expectedFontFamily);
     });
@@ -101,8 +111,75 @@ describe('Register - Cell Phone Number - Label - Design', () => {
     it('should verify that label is displayed', function () {
       expect($(label).isDisplayed()).to.be.true;
     });
+
     it('should verify that label has correct text', function () {
         const actualLabelText = $(label).getText();
         expect(actualLabelText).to.equal(expectedlabelText);
     });
+
+    it('should verify font-family', () => {
+        const actualFontFamily = $(label).getCSSProperty('font-family').parsed.string;
+        expect(actualFontFamily).to.equal(expectedFontFamily);
+    });
+
+    it('should verify font-size', () => {
+        const actualLabelFontSize = $(label).getCSSProperty('font-size').parsed.string;
+        expect(actualLabelFontSize).to.equal(expectedLabelFontSize);
+    });
+
+    it('should verify font-color', () => {
+        const actualLabelColor = $(label).getCSSProperty('color').parsed.hex;
+        expect(actualLabelColor).to.equal(expectedLabelColor);
+    });
+
+    it('should verify font-weight', () => {
+        const actualLabelFontWeight = $(label).getCSSProperty('font-weight').parsed.string;
+        expect(actualLabelFontWeight).to.equal(expectedLabelFontWeight);
+    });
+
+    it('should verify text-align', () => {
+        const actualLabelTextAlign = $(label).getCSSProperty('text-align').parsed.string;
+        expect(actualLabelTextAlign).to.equal(expectedLabelTextAlign);
+    });
+});
+
+describe('Register - Cell Phone Number - Description Text - Design', () => {
+    before(() => {
+        browser.url(url.registerUrl);
+    });
+
+    it('should verify that description text is displayed', function () {
+        expect($(descrText).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that decription text is correct', function () {
+        const actualDescrText = $(descrText).getText();
+        expect(actualDescrText).to.equal(expectedDescrText);
+    });
+
+    it('should verify font-family', () => {
+        const actualFontFamily = $(descrText).getCSSProperty('font-family').parsed.string;
+        expect(actualFontFamily).to.equal(expectedFontFamily);
+    });
+
+    it('should verify font-size', () => {
+        const actualDescrFontSize = $(descrText).getCSSProperty('font-size').parsed.string;
+        expect(actualDescrFontSize).to.equal(expectedDescrFontSize);
+    });
+
+    it('should verify font-color', () => {
+        const actualDescrColor = $(descrText).getCSSProperty('color').parsed.hex;
+        expect(actualDescrColor).to.equal(expectedDescrColor);
+    });
+
+    it('should verify font-weight', () => {
+        const actualDescrFontWeight = $(descrText).getCSSProperty('font-weight').parsed.string;
+        expect(actualDescrFontWeight).to.equal(expectedDescrFontWeight);
+    });
+
+    it('should verify text-align', () => {
+        const actualDescrAlign = $(descrText).getCSSProperty('text-align').parsed.string;
+        expect(actualDescrAlign).to.equal(expectedDescrAlign);
+    });
+
 });
