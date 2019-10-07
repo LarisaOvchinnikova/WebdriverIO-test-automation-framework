@@ -1,10 +1,10 @@
 import { expect }  from 'chai';
-const { baseUrl, registerUrl } = require('../../../../actions/constants');
+import { url } from './../../../../actions/constants';
 const header = '//h1';
 
 describe('User Register page - Text `User Register` - design', () => {
     before(() => {
-        browser.url(registerUrl);
+        browser.url(url.registerUrl);
         browser.maximizeWindow();
     });
 

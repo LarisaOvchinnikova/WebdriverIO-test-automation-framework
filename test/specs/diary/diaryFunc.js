@@ -13,8 +13,9 @@ const descriptionFieldSelector = '//textarea[@name="description"]';
 
 const diaryH1 = 'Day reports';
 const createDiaryH1 = 'Create day report';
-const dayReportShortText = 'Today I wrote tests.'
-const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars. Also I wrote tests.'
+const dayReportShortText = 'Today I wrote tests.';
+const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars. Also I wrote tests.';
+
 
 describe('Diary - Func', () => {
     before (() => {
@@ -22,7 +23,7 @@ describe('Diary - Func', () => {
         loginAction(browser);
     });
 
-    it('should verify that `Diary` is displayed in main menu', () => {
+    it('should verify that `Diary`item is displayed in main menu', () => {
       const diaryIsDisplayed = $(menuDiarySelector).isDisplayed();
       expect(diaryIsDisplayed).to.be.true;
     });
@@ -34,8 +35,8 @@ describe('Diary - Func', () => {
     });
 
     it('should verify that `Day reports` page has correct h1', () => {
-        const actualh1Text = $(headerSelector).getText();
-        expect(actualh1Text).to.equal(diaryH1);
+        const actualH1Text = $(headerSelector).getText();
+        expect(actualH1Text).to.equal(diaryH1);
     });
 
     it('should verify that `Day reports` page has at least one record',  () => {
@@ -54,9 +55,10 @@ describe('Diary - Func', () => {
         const actualh1Text = $(headerSelector).getText();
         expect(actualh1Text).to.equal(createDiaryH1);
     });
-    it('should veryfy that there are checkboxes on `Create day report` page',  () => {
+
+    it('should verify that there are checkboxes on `Create day report` page',  () => {
         const countOfCheckBoxes = $$(checkBoxSelector).length;
-        expect(countOfCheckBoxes>1).to.be.true;
+        expect(countOfCheckBoxes).equal(12);
     });
 
     it('should verify that `Save` button is disabled', () => {
@@ -65,7 +67,6 @@ describe('Diary - Func', () => {
     });
 
     it('should verify that `Save` button is disabled when there is the day report, but there are no checkmarks', () => {
-
         const descriptionArea = $(descriptionFieldSelector);
         descriptionArea.setValue(dayReportText);
         const isEnabled = $(saveButtonSelector).isEnabled();
@@ -93,7 +94,6 @@ describe('Diary - Func', () => {
 
     it('should verify that description area is-invalid when day report length < 30', () => {
         const descriptionArea = $(descriptionFieldSelector);
-        descriptionArea.setValue(dayReportShortText);
         expect(descriptionArea.getAttribute('class')).includes('is-invalid');
     });
 
@@ -106,7 +106,6 @@ describe('Diary - Func', () => {
 
     it('should verify that description area is-valid when day report length >= 30', () => {
         const descriptionArea = $(descriptionFieldSelector);
-        descriptionArea.setValue(dayReportText);
         expect(descriptionArea.getAttribute('class')).includes('is-valid');
     });
 
@@ -118,5 +117,9 @@ describe('Diary - Func', () => {
         expect(actualUrl).to.equal(url.diaryUrl);
     });
 
-
+    it('should verify that day report appeared on `Day reports` page', function () {
+       // const dataMinutesNew = new Date().getMinutes();
+        const lastDiaryRecord = $$(diaryRecordSelector)[0].getText();
+        expect(lastDiaryRecord).to.equal(dayReportText)
+    });
 });
