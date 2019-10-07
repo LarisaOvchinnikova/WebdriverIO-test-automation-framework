@@ -18,6 +18,7 @@ const expectedHighlightColorValid = '#24c88b';
 const expectedlabelText = 'Cell phone number';
 const expectedLabelFontSize = '17px';
 const expectedLabelFontWeight = '400';
+const expectedLabelTextAlign = 'left';
 
 describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
@@ -123,4 +124,10 @@ describe('Register - Cell Phone Number - Label - Design', () => {
         const actualLabelFontWeight = $(label).getCSSProperty('font-weight').parsed.string;
         expect(actualLabelFontWeight).to.equal(expectedLabelFontWeight);
     });
+
+    it('should verify text-align', () => {
+        const actualLabelTextAlign = $(label).getCSSProperty('text-align').parsed.string;
+        expect(actualLabelTextAlign).to.equal(expectedLabelTextAlign);
+    });
+
 });
