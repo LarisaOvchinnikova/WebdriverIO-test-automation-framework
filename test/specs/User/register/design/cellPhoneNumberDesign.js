@@ -18,10 +18,12 @@ const expectedBorderColorValid = '#24c88b';
 const expectedHighlightColorValid = '#24c88b';
 const expectedlabelText = 'Cell phone number';
 const expectedLabelFontSize = '17px';
+const expectedLabelColor = '#212529';
 const expectedLabelFontWeight = '400';
 const expectedLabelTextAlign = 'left';
 const expectedDescrText = 'Format 17775551122 or 380653332244';
 const expectedDescrFontSize = '13.6px';
+const expectedDescrColor = '#6c757d';
 const expectedDescrFontWeight = '400';
 const expectedDescrAlign = 'left';
 
@@ -125,6 +127,11 @@ describe('Register - Cell Phone Number - Label - Design', () => {
         expect(actualLabelFontSize).to.equal(expectedLabelFontSize);
     });
 
+    it('should verify font-color', () => {
+        const actualLabelColor = $(label).getCSSProperty('color').parsed.hex;
+        expect(actualLabelColor).to.equal(expectedLabelColor);
+    });
+
     it('should verify font-weight', () => {
         const actualLabelFontWeight = $(label).getCSSProperty('font-weight').parsed.string;
         expect(actualLabelFontWeight).to.equal(expectedLabelFontWeight);
@@ -158,6 +165,11 @@ describe('Register - Cell Phone Number - Description Text - Design', () => {
     it('should verify font-size', () => {
         const actualDescrFontSize = $(descrText).getCSSProperty('font-size').parsed.string;
         expect(actualDescrFontSize).to.equal(expectedDescrFontSize);
+    });
+
+    it('should verify font-color', () => {
+        const actualDescrColor = $(descrText).getCSSProperty('color').parsed.hex;
+        expect(actualDescrColor).to.equal(expectedDescrColor);
     });
 
     it('should verify font-weight', () => {
