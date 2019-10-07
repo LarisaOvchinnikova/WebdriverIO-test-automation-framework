@@ -1,5 +1,6 @@
 import { expect }  from 'chai';
 import { url } from '../../../../actions/constants';
+import { user } from '../../../../actions/userConstants';
 
 const phoneField = '//input[@name="phone"]';
 
@@ -11,6 +12,8 @@ const expectedBackgroundColor = '#ffffff';
 const expectedTextAlign = 'start';
 const expectedFontFamily = '"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif';
 const expectedFontWeight = '400';
+
+const expectedBorderColorValid = '#24c88b';
 
 describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
@@ -63,5 +66,18 @@ describe('Register - Cell Phone Number field when user enters first symbol - Des
         const actualFontWeight = $(phoneField).getCSSProperty('font-weight').parsed.string;
         expect(actualFontWeight).to.equal(expectedFontWeight);
     });
+});
+describe('Register - Cell Phone Number field when user enters valid phone number - Design', () => {
+    before(() => {
+        browser.url(url.registerUrl);
+        $(phoneField).setValue(user.admin.phone);
+        browser.keys('Tab');
+        browser.pause(500);
 
+    });
+
+    it('should verify border-color of field ', () => {
+        const actualBorderColorValid = $(phoneField).getCSSProperty('border-color').parsed.hex;
+        expect(actualBorderColorValid).equal(expectedBorderColorValid);
+    });
 });
