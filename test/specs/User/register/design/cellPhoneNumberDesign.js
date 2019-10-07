@@ -5,25 +5,35 @@ const phoneField = '//input[@name="phone"]';
 
 const expectedBorderColor = '#ced4da';
 const expectedFontColor = '#495057';
-const expectedHighlightColor = '#4d94ff';
+const expectedFocusBorderColor = '#495057';
+const expectedHighlightColor = '#0052cc';
 const expectedBackgroundColor = '#ffffff';
+const expectedTextAlign = 'start';
+const expectedFontFamily = '"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
 
-describe('Register - Cell Phone Number - Design', () => {
+
+describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
         browser.url(url.registerUrl);
     });
 
-    it('should check that “Cell phone number” input field is displayed', () => {
+    it('should verify that “Cell phone number” input field is displayed', () => {
         expect($(phoneField).isDisplayed()).to.be.true;
     });
 
-    it('should check border-color of "Cell phone number" input field ', () => {
+    it('should verify border-color of field ', () => {
         const actualBorderColor = $(phoneField).getCSSProperty('border-top-color').parsed.hex;
         expect(actualBorderColor).equal(expectedBorderColor);
     });
+});
 
-    it('should check font-color of "Cell phone number" input field when user enters first symbol', () => {
+describe('Register - Cell Phone Number field when user enters first symbol - Design', () => {
+    before(() => {
+        browser.url(url.registerUrl);
         $(phoneField).setValue('1');
+    });
+
+    it('should check font-color', () => {
         const actualFontColor = $(phoneField).getCSSProperty('color').parsed.hex;
         expect(actualFontColor).equal(expectedFontColor);
     });
@@ -33,10 +43,20 @@ describe('Register - Cell Phone Number - Design', () => {
         expect(actualHighlightColor).equal(expectedHighlightColor);
     });
 
-    it('should check background-color of "Cell phone number" input field when user enters first symbol', () => {
+    it('should verify background-color', () => {
         $(phoneField).setValue('1');
         const actualBackgroundColor = $(phoneField).getCSSProperty('background-color').parsed.hex;
         expect(actualBackgroundColor).equal(expectedBackgroundColor);
+    });
+
+    it('should verify text-align', () => {
+        const actualTextAlign = $(phoneField).getCSSProperty('text-align').parsed.string;
+        expect(actualTextAlign).equal(expectedTextAlign);
+    });
+
+    it('should verify text-align', () => {
+        const actualFontFamily = $(phoneField).getCSSProperty('font-family').parsed.string;
+        expect(actualFontFamily).to.equal(expectedFontFamily);
     });
 
 
