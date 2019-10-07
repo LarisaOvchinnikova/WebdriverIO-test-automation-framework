@@ -3,6 +3,7 @@ import { url } from '../../../../actions/constants';
 import { user } from '../../../../actions/userConstants';
 
 const phoneField = '//input[@name="phone"]';
+const label = '//label[@for="phone"]';
 
 const expectedBorderColor = '#ced4da';
 const expectedFontColor = '#495057';
@@ -12,9 +13,9 @@ const expectedBackgroundColor = '#ffffff';
 const expectedTextAlign = 'start';
 const expectedFontFamily = '"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif';
 const expectedFontWeight = '400';
-
 const expectedBorderColorValid = '#24c88b';
 const expectedHighlightColorValid = '#24c88b';
+const expectedlabelText = 'Cell phone number';
 
 describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
@@ -89,5 +90,19 @@ describe('Register - Cell Phone Number field when user enters valid phone number
 
     it('should verify that field is valid', () => {
         expect($(phoneField).getAttribute('class')).includes('is-valid');
+    });
+});
+
+describe('Register - Cell Phone Number - Label - Design', () => {
+    before(() => {
+        browser.url(url.registerUrl);
+    });
+
+    it('should verify that label is displayed', function () {
+      expect($(label).isDisplayed()).to.be.true;
+    });
+    it('should verify that label has correct text', function () {
+        const actualLabelText = $(label).getText();
+        expect(actualLabelText).to.equal(expectedlabelText);
     });
 });
