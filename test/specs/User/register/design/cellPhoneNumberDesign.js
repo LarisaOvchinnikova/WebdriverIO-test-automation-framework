@@ -14,6 +14,7 @@ const expectedFontFamily = '"sf pro display", "sf pro icons", "helvetica neue", 
 const expectedFontWeight = '400';
 
 const expectedBorderColorValid = '#24c88b';
+const expectedHighlightColorValid = '#24c88b';
 
 describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
@@ -73,11 +74,20 @@ describe('Register - Cell Phone Number field when user enters valid phone number
         $(phoneField).setValue(user.admin.phone);
         browser.keys('Tab');
         browser.pause(500);
-
     });
 
     it('should verify border-color of field ', () => {
         const actualBorderColorValid = $(phoneField).getCSSProperty('border-color').parsed.hex;
         expect(actualBorderColorValid).equal(expectedBorderColorValid);
+    });
+
+    it('should verify focus highlight color', function () {
+        $(phoneField).click();
+        const actualHighlightColorValid = $(phoneField).getCSSProperty('box-shadow').parsed.hex.toLowerCase();
+        expect(actualHighlightColorValid).equal(expectedHighlightColorValid);
+    });
+
+    it('should verify that field is valid', () => {
+        expect($(phoneField).getAttribute('class')).includes('is-valid');
     });
 });
