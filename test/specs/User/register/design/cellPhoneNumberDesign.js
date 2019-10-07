@@ -9,8 +9,8 @@ const expectedFocusBorderColor = '#495057';
 const expectedHighlightColor = '#0052cc';
 const expectedBackgroundColor = '#ffffff';
 const expectedTextAlign = 'start';
-const expectedFontFamily = '"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif');
-
+const expectedFontFamily = '"sf pro display", "sf pro icons", "helvetica neue", helvetica, arial, sans-serif';
+const expectedFontWeight = '400';
 
 describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
@@ -59,6 +59,9 @@ describe('Register - Cell Phone Number field when user enters first symbol - Des
         expect(actualFontFamily).to.equal(expectedFontFamily);
     });
 
-
+    it('should verify font-weight', () => {
+        const actualFontWeight = $(phoneField).getCSSProperty('font-weight').parsed.string;
+        expect(actualFontWeight).to.equal(expectedFontWeight);
+    });
 
 });
