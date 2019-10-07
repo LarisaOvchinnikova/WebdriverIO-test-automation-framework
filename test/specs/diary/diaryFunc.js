@@ -3,15 +3,15 @@ import { user } from './../../actions/userConstants';
 import { url } from './../../actions/constants';
 import loginAction from '../../actions/loginActions';
 
-const menuDiarySelector = '//div[@id="site-menu"]//a[text() = "Diary"]';
+const menuDiarySelector = '//li/a[@qa="diary-link"]';
 const headerSelector = '//h1';
-const diaryRecordSelector = '//div[@class="mt-2"]';
+const diaryRecordSelector = '//div[@qa="description"]';
 const createDayReportButtonSelector = '//a[text()="Create day report"]';
 const saveButtonSelector = '//button[@type="submit"]';
 const checkBoxSelector = '//input[@type="checkbox"]';
 const descriptionFieldSelector = '//textarea[@name="description"]';
 
-const diaryH1 = 'Day reports';
+const diaryH1 = 'Daily reports';
 const createDiaryH1 = 'Create day report';
 const dayReportShortText = 'Today I wrote tests.';
 const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars. Also I wrote tests.';
@@ -28,13 +28,13 @@ describe('Diary - Func', () => {
       expect(diaryIsDisplayed).to.be.true;
     });
 
-    it('should verify that click to `Diary` in main menu should redirect to Diary page', () => {
+    it('should verify that click to `Diary` in main menu should redirect to `Daily reports` page', () => {
         $(menuDiarySelector).click();
         const actualUrl = browser.getUrl();
         expect(actualUrl).to.equal(url.diaryUrl);
     });
 
-    it('should verify that `Day reports` page has correct h1', () => {
+    it('should verify that `Daily reports` page has correct h1', () => {
         const actualH1Text = $(headerSelector).getText();
         expect(actualH1Text).to.equal(diaryH1);
     });

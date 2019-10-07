@@ -61,7 +61,6 @@ describe('Register - Cell Phone Number field when user enters first symbol - Des
     });
 
     it('should verify background-color', () => {
-        $(phoneField).setValue('1');
         const actualBackgroundColor = $(phoneField).getCSSProperty('background-color').parsed.hex;
         expect(actualBackgroundColor).equal(expectedBackgroundColor);
     });

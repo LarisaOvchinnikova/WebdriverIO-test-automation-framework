@@ -1,12 +1,13 @@
 const user = {
    admin: {
       firstName: 'Lara',
-      lastName: 'Test',
+      lastName: 'Lara',
       phone: '19541111111',
       email: 'larisa12345@gmail.com',
       password: 'qwerty',
       about: 'Hello, I am admin!',
       goals: 'To find new job in QA.',
+      id: '5d6dc5f8af023b00386c5f3b',
    },
    student: {
       firstName: 'Vasya',
