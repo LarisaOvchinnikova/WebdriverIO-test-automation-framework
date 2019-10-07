@@ -16,11 +16,13 @@ const expectedFontFamily = '"sf pro display", "sf pro icons", "helvetica neue", 
 const expectedFontWeight = '400';
 const expectedBorderColorValid = '#24c88b';
 const expectedHighlightColorValid = '#24c88b';
+
 const expectedlabelText = 'Cell phone number';
 const expectedLabelFontSize = '17px';
 const expectedLabelColor = '#212529';
 const expectedLabelFontWeight = '400';
 const expectedLabelTextAlign = 'left';
+
 const expectedDescrText = 'Format 17775551122 or 380653332244';
 const expectedDescrFontSize = '13.6px';
 const expectedDescrColor = '#6c757d';
