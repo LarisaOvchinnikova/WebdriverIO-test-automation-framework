@@ -59,7 +59,7 @@ describe('Register - Cell Phone Number field when user enters first symbol - Des
         expect(actualTextAlign).equal(expectedTextAlign);
     });
 
-    it('should verify text-align', () => {
+    it('should verify font-family', () => {
         const actualFontFamily = $(phoneField).getCSSProperty('font-family').parsed.string;
         expect(actualFontFamily).to.equal(expectedFontFamily);
     });
@@ -101,8 +101,14 @@ describe('Register - Cell Phone Number - Label - Design', () => {
     it('should verify that label is displayed', function () {
       expect($(label).isDisplayed()).to.be.true;
     });
+
     it('should verify that label has correct text', function () {
         const actualLabelText = $(label).getText();
         expect(actualLabelText).to.equal(expectedlabelText);
+    });
+
+    it('should verify font-family', () => {
+        const actualFontFamily = $(label).getCSSProperty('font-family').parsed.string;
+        expect(actualFontFamily).to.equal(expectedFontFamily);
     });
 });
