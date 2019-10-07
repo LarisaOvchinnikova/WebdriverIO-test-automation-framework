@@ -16,6 +16,8 @@ const expectedFontWeight = '400';
 const expectedBorderColorValid = '#24c88b';
 const expectedHighlightColorValid = '#24c88b';
 const expectedlabelText = 'Cell phone number';
+const expectedLabelFontSize = '17px';
+
 
 describe('Register - Cell Phone Number field - Design', () => {
     before(() => {
@@ -111,4 +113,10 @@ describe('Register - Cell Phone Number - Label - Design', () => {
         const actualFontFamily = $(label).getCSSProperty('font-family').parsed.string;
         expect(actualFontFamily).to.equal(expectedFontFamily);
     });
+
+    it('should verify font-size', () => {
+        const actualLabelFontSize = $(label).getCSSProperty('font-size').parsed.string;
+        expect(actualLabelFontSize).to.equal(expectedLabelFontSize);
+    });
+
 });
