@@ -1,6 +1,7 @@
 import { expect }  from 'chai';
 import { url } from '../../actions/constants';
 import loginAction from './../../actions/loginActions';
+import { user } from '../../actions/userConstants';
 
 const selector = {
     numberOfDayReports: '//h3/span[@class="badge badge-light"]',
@@ -16,7 +17,7 @@ const selector = {
     const expectedButtonText = 'Create day report';
     const expectedUserPageH1 = `${user.admin.firstName} ${user.admin.lastName}`;
     const expectedDiaryCreateH1 = 'Create day report';
-    const expectedDiaryListH1 = 'Day reports';
+    const expectedDiaryListH1 = 'Daily reports';
     const roles = ['admin', 'student'];
     const headers = ['About', 'Goals', 'Completed Challenges', 'Day reports '];
     const dayReportText = `Today I watched ${Math.trunc(
