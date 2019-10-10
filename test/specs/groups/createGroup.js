@@ -7,10 +7,13 @@ const selector = {
     menuGroups: '//li/a[@qa="groups-link"]',
     h1: '//h1',
     createGroupbutton: '//a[@qa="create-group-button"]',
+    h4: '//h4',
 };
 const expected ={
     h1: 'Groups',
 };
+
+let numberOfGroups;
 
 describe('Groups - Create group - Functionality', () => {
     before(() => {
@@ -38,5 +41,9 @@ describe('Groups - Create group - Functionality', () => {
         expect($(selector.createGroupbutton).isDisplayed()).to.be.true;
     });
 
+    it('should verify that count of existing groups > 0', function () {
+        numberOfGroups = $$(selector.h4).length;
+        expect(numberOfGroups > 0).to.be.true;
+    });
 
 });
