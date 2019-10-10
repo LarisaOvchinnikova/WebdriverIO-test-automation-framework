@@ -29,23 +29,25 @@ describe('Create day report from User\'s page by clicking button `Create day rep
         loginAction(browser);
         browser.pause(1000);
     });
-/*
+
     it('should  verify redirect page URL', () => {
         const actualUrl = browser.getUrl();
-        const expectedUrl = `${url.baseUrl}/user/${user.admin.id}/`;
-        expect(actualUrl).equal(expectedUrl);
+        const expectedUrl = `${url.userUrl}/${user.admin.id}`;
+    //    expect(actualUrl).equal('https://stage.pasv.us/user/5d6dc5f8af023b00386c5f3b');
+        expect(actualUrl).equal(expectedUrl)
     });
-*/
+
     it('should verify that after login actions it was redirect to user page', function () {
-        const actualUserPageH1 = $(selector.headerH1).getText();
-        expect(actualH1).to.equa(expectedUserPageH1);
+        const actualH1Text = $(selector.headerH1).getText();
+        const expectedH1Text = `${user.admin.firstName} ${user.admin.lastName}`;
+        expect(actualH1Text).to.equal(expectedH1Text);
     });
 
     it('should verify that user\'s page has 4 headers h3', () => {
         const countOfHeaderH3= $$(selector.headerH3).length;
         expect(countOfHeaderH3).to.equal(4);
     });
-
+/*
     it('should verify that header #`${i}` is `${header[i]}',  () => {
        for (let i = 0 ; i < 4; i++){
            const actualH3 = $$(selector.headerH3)[i].getText();
@@ -53,8 +55,8 @@ describe('Create day report from User\'s page by clicking button `Create day rep
            expect(actualH3).equal(expectedH3);
        }
     });
-
-    it('should verify that initial number of day reports > 0', function () {
+8*/
+it('should verify that initial number of day reports > 0', function () {
         const initialNumber = $(selector.numberOfDayReports).getText();
         expect(initialNumber > 0).to.be.true;
     });
@@ -106,6 +108,14 @@ describe('Create day report from User\'s page by clicking button `Create day rep
     });
 
 //перейти на страницу юзера и проверить, что количество записей увеличилось на 1
-
+    it('should verify that click on `user name` in upper-right corner redirect to users page', function() {
+        //englishLevelElement.selectByVisibleText('Beginner');
+        // const selector = '//a[@class=\'dropdown-toggle nav-link\']';
+        const selector = '//a[@class="dropdown-toggle nav-link"]';
+        $(selector).click();
+        const option = '//button[contains(text(),"Profile")]';
+        $(option).click();
+        browser.pause(10000);
+    });
 });
 
