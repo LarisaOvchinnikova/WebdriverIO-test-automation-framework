@@ -9,17 +9,26 @@ const selector = {
     createGroupbutton: '//a[@qa="create-group-button"]',
     h4: '//h4',
     submitButton: '//button[@type="submit"]',
+    groupNameField: '//input[@name="name"]',
+    groupDescriptionField: '//input[@name="description"]',
+    accessTypeField: '//select[@name="accessType"]',
+
 };
-const expected ={
+const expected = {
     h1Groups: 'Groups',
     h1CreateGroup: 'Create new Group',
 };
+const data = {
+    groupName: 'Codewars gamers',
+    groupDescription: 'Group for those who like to think',
+    accessType: 'All',
+
+}
 
 let numberOfGroups;
 
 describe('Groups - Create group - Functionality', () => {
     before(() => {
-        browser.maximizeWindow();
         loginAction(browser);
     });
 
@@ -59,8 +68,16 @@ describe('Groups - Create group - Functionality', () => {
         expect(actualH1).equal(expected.h1CreateGroup);
     });
 
+
     it('should verify that `Create` button is disabled when fields are empty', () => {
-        expect($(selector.submitButton).isEnabled()).to.be,false;
+        expect($(selector.submitButton).isEnabled()).to.be.false;
+    });
+
+    it('should verify that `Create` button is enabled when required fields are filled correctly ', () => {
+        $(selector.groupNameField).setValue(data.groupName);
+        $(selector.groupDescriptionField).setValue(data.groupDescription);
+        $(selector.accessTypeField).selectByVisibleText(data.accessType);
+        expect($(selector.submitButton).isEnabled()).to.be.true;
     });
 
 });
