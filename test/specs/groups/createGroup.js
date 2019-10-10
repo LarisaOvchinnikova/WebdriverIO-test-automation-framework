@@ -84,7 +84,27 @@ describe('Groups - Create group - Functionality', () => {
         expect($(selector.submitButton).isEnabled()).to.be.false;
     });
 
-    it('should verify that `Create` button is enabled when required fields are filled correctly ', () => {
+    it('should verify that `Access type` field is required', () => {
+        $(selector.groupNameField).setValue(data.groupName);
+        $(selector.groupDescriptionField).setValue(data.groupDescription);
+        expect($(selector.submitButton).isEnabled()).to.be.false;
+    });
+
+    it('should verify that `Group name` field is required', () => {
+        $(selector.groupNameField).setValue('');
+        $(selector.groupDescriptionField).setValue(data.groupDescription);
+        $(selector.accessTypeField).selectByVisibleText(data.accessType);
+        expect($(selector.submitButton).isEnabled()).to.be.false;
+    });
+
+     it('should verify that `Group description` field is not required', () => {
+        $(selector.groupNameField).setValue(data.groupName);
+         $(selector.groupDescriptionField).setValue('');
+        $(selector.accessTypeField).selectByVisibleText(data.accessType);
+        expect($(selector.submitButton).isEnabled()).to.be.true;
+    });
+
+    it('should verify that `Create` button is enabled when required fields are filled', () => {
         $(selector.groupNameField).setValue(data.groupName);
         $(selector.groupDescriptionField).setValue(data.groupDescription);
         $(selector.accessTypeField).selectByVisibleText(data.accessType);
