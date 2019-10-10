@@ -8,6 +8,7 @@ const selector = {
     h1: '//h1',
     createGroupbutton: '//a[@qa="create-group-button"]',
     h4: '//h4',
+    submitButton: '//button[@type="submit"]',
 };
 const expected ={
     h1Groups: 'Groups',
@@ -56,6 +57,10 @@ describe('Groups - Create group - Functionality', () => {
     it('should verify h1 on the page `Create new Group`', () => {
         const actualH1 = $(selector.h1).getText();
         expect(actualH1).equal(expected.h1CreateGroup);
+    });
+
+    it('should verify that `Create` button is disabled when fields are empty', () => {
+        expect($(selector.submitButton).isEnabled()).to.be,false;
     });
 
 });
