@@ -12,18 +12,19 @@ const selector = {
     groupNameField: '//input[@name="name"]',
     groupDescriptionField: '//input[@name="description"]',
     accessTypeField: '//select[@name="accessType"]',
+    successMessage: '//div[@class="notification notification-success notification-visible"]',
 
 };
 const expected = {
     h1Groups: 'Groups',
     h1CreateGroup: 'Create new Group',
+    successMessageText: 'Group created',
 };
 const data = {
     groupName: 'Codewars gamers',
     groupDescription: 'Group for those who like to think',
     accessType: 'All',
-
-}
+};
 
 let numberOfGroups;
 
@@ -84,12 +85,6 @@ describe('Groups - Create group - Functionality', () => {
         expect($(selector.submitButton).isEnabled()).to.be.false;
     });
 
-    it('should verify that `Access type` field is required', () => {
-        $(selector.groupNameField).setValue(data.groupName);
-        $(selector.groupDescriptionField).setValue(data.groupDescription);
-        expect($(selector.submitButton).isEnabled()).to.be.false;
-    });
-
     it('should verify that `Group name` field is required', () => {
         $(selector.groupNameField).setValue('');
         $(selector.groupDescriptionField).setValue(data.groupDescription);
@@ -97,11 +92,22 @@ describe('Groups - Create group - Functionality', () => {
         expect($(selector.submitButton).isEnabled()).to.be.false;
     });
 
-     it('should verify that `Group description` field is not required', () => {
+    it('should verify that `Access type` field is required', () => {
+        $(selector.groupNameField).setValue(data.groupName);
+        $(selector.groupDescriptionField).setValue(data.groupDescription);
+        $(selector.accessTypeField).selectByVisibleText('');
+        expect($(selector.submitButton).isEnabled()).to.be.false;
+    });
+
+    it('should verify that `Group description` field is not required', () => {
         $(selector.groupNameField).setValue(data.groupName);
          $(selector.groupDescriptionField).setValue('');
         $(selector.accessTypeField).selectByVisibleText(data.accessType);
         expect($(selector.submitButton).isEnabled()).to.be.true;
+    });
+
+    it('should verify that `Group description` field is-valid after filling other fields', () => {
+        expect($(selector.groupDescriptionField).getAttribute('class')).includes('is-valid');
     });
 
     it('should verify that `Create` button is enabled when required fields are filled', () => {
@@ -111,4 +117,20 @@ describe('Groups - Create group - Functionality', () => {
         expect($(selector.submitButton).isEnabled()).to.be.true;
     });
 
+    it('should verify that `Group name` field is-valid after filling', () => {
+        expect($(selector.groupNameField).getAttribute('class')).includes('is-valid');
+    });
+
+    it('should verify that `Access type` field is-valid after filling', () => {
+       expect($(selector.accessTypeField).getAttribute('class')).includes('is-valid');
+    });
+
+
+    it('should verify that after click on button `Create` success message is displayed', () => {
+        expect($(selector.successMessage).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that success message text is correct', () => {
+        expect($(selector.successMessage).getText()).equal(expected.successMessageText);
+    });
 });
