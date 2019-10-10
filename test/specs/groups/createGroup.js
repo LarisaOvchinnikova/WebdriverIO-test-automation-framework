@@ -26,12 +26,12 @@ const data = {
     accessType: 'All',
 };
 
-var numberOfGroups;
+let numberOfGroups;
 
 describe('Groups - Create group - Functionality', () => {
     before(() => {
         loginAction(browser);
-       // let numberOfGroups;
+
     });
 
     it('should verify that `Groups` item is displayed in main menu', () => {
@@ -55,7 +55,8 @@ describe('Groups - Create group - Functionality', () => {
     });
 
     it('should verify that count of existing groups > 0', () => {
-        numberOfGroups = $$(groupListItem).length;
+        browser.pause(6000);
+        numberOfGroups = $$(selector.groupListItem).length;
         console.log('------------------------------------------------------------------');
         console.log(numberOfGroups);
         console.log('------------------------------------------------------------------');
@@ -147,8 +148,8 @@ describe('Groups - Create group - Functionality', () => {
 
     it('should verify that amount of groups increased by 1 after creating group', () => {
         $(selector.menuGroups).click();
-        browser.pause(500);
-        const numberOfGroups1 = $$(groupListItem).length;
+        browser.pause(6000);
+        const numberOfGroups1 = $$(selector.groupListItem).length;
         expect(numberOfGroups1 === numberOfGroups + 1).to.be.true;
     });
 
