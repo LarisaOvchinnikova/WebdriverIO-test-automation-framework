@@ -68,6 +68,10 @@ describe('Groups - Create group - Functionality', () => {
         expect(actualH1).equal(expected.h1CreateGroup);
     });
 
+    it('should verify that `Group name` field is displayed', () => {
+        expect($(selector.groupNameField).isDisplayed()).to.be.true;
+    });
+
 
     it('should verify that `Create` button is disabled when fields are empty', () => {
         expect($(selector.submitButton).isEnabled()).to.be.false;
