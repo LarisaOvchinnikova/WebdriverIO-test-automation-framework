@@ -6,6 +6,7 @@ import loginAction from '../../actions/loginActions';
 const selector = {
     menuGroups: '//li/a[@qa="groups-link"]',
     h1: '//h1',
+    createGroupbutton: '//a[@qa="create-group-button"]',
 };
 const expected ={
     h1: 'Groups',
@@ -32,5 +33,10 @@ describe('Groups - Create group - Functionality', () => {
         const actualH1Text = $(selector.h1).getText();
         expect(actualH1Text).to.equal(expected.h1);
     });
+
+    it('should verify that button `Create new Group` is displayed', () => {
+        expect($(selector.createGroupbutton).isDisplayed()).to.be.true;
+    });
+
 
 });
