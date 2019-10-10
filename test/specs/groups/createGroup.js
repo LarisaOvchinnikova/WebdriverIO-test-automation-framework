@@ -7,7 +7,7 @@ const selector = {
     menuGroups: '//li/a[@qa="groups-link"]',
     h1: '//h1',
     createGroupbutton: '//a[@qa="create-group-button"]',
-    h4: '//h4',
+    groupListItem: '//div[@qa="group-list-item"]',
     submitButton: '//button[@type="submit"]',
     groupNameField: '//input[@name="name"]',
     groupDescriptionField: '//input[@name="description"]',
@@ -26,11 +26,12 @@ const data = {
     accessType: 'All',
 };
 
-let numberOfGroups;
+var numberOfGroups;
 
 describe('Groups - Create group - Functionality', () => {
     before(() => {
         loginAction(browser);
+       // let numberOfGroups;
     });
 
     it('should verify that `Groups` item is displayed in main menu', () => {
@@ -54,7 +55,11 @@ describe('Groups - Create group - Functionality', () => {
     });
 
     it('should verify that count of existing groups > 0', () => {
-        numberOfGroups = $$(selector.h4).length;
+        numberOfGroups = $$(groupListItem).length;
+        console.log('------------------------------------------------------------------');
+        console.log(numberOfGroups);
+        console.log('------------------------------------------------------------------');
+
         expect(numberOfGroups > 0).to.be.true;
     });
 
@@ -142,8 +147,9 @@ describe('Groups - Create group - Functionality', () => {
 
     it('should verify that amount of groups increased by 1 after creating group', () => {
         $(selector.menuGroups).click();
-        const numberOfGroups1 = $$(selector.h4).length;
-        expect(numberOfGroups1 === numberOfgroups + 1).to.be.true;
+        browser.pause(500);
+        const numberOfGroups1 = $$(groupListItem).length;
+        expect(numberOfGroups1 === numberOfGroups + 1).to.be.true;
     });
 
 });
