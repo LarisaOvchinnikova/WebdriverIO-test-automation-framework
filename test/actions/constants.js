@@ -6,8 +6,9 @@ export const url = {
     groupUrl: 'https://stage.pasv.us/group',
     groupCreated: 'https://stage.pasv.us/groups',
     createGroupUrl: 'https://stage.pasv.us/group/create',
+
     createDayReportUrl: 'https://stage.pasv.us/diary/create',
-    serverUrl: 'https://server-stage.pasv.us',
+    server: 'https://server-stage.pasv.us',
     userUrl: 'https://stage.pasv.us/user'
 };
 
