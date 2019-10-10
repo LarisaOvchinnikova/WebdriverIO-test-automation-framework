@@ -125,6 +125,11 @@ describe('Groups - Create group - Functionality', () => {
        expect($(selector.accessTypeField).getAttribute('class')).includes('is-valid');
     });
 
+    it('should verify URL after clicking on `Create` button', () => {
+        $(selector.createGroupbutton).click();
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).equal(url.groupCreated);
+    });
 
     it('should verify that after click on button `Create` success message is displayed', () => {
         expect($(selector.successMessage).isDisplayed()).to.be.true;
