@@ -4,6 +4,7 @@ export const url = {
     registerUrl: 'https://stage.pasv.us/user/register',
     diaryUrl: 'https://stage.pasv.us/diary',
     groupUrl: 'https://stage.pasv.us/group',
+    createGroupUrl: 'https://stage.pasv.us/group/create',
     createDayReportUrl: 'https://stage.pasv.us/diary/create',
     serverUrl: 'https://server-stage.pasv.us',
     userUrl: 'https://stage.pasv.us/user'
