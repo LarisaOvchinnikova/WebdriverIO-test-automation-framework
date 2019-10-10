@@ -76,6 +76,10 @@ describe('Groups - Create group - Functionality', () => {
         expect($(selector.groupDescriptionField).isDisplayed()).to.be.true;
     });
 
+    it('should verify that `Access type` field is displayed', () => {
+        expect($(selector.accessTypeField).isDisplayed()).to.be.true;
+    });
+
     it('should verify that `Create` button is disabled when fields are empty', () => {
         expect($(selector.submitButton).isEnabled()).to.be.false;
     });
