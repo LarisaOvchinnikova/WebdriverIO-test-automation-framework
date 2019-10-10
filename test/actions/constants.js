@@ -5,5 +5,6 @@ export const url = {
     diaryUrl: 'https://stage.pasv.us/diary',
     createDayReportUrl: 'https://stage.pasv.us/diary/create',
     serverUrl: 'https://server-stage.pasv.us',
+    userUrl: 'https://stage.pasv.us/user'
 };
 
