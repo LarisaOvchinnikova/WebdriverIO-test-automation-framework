@@ -18,7 +18,7 @@ const selector = {
 const expected = {
     h1Groups: 'Groups',
     h1CreateGroup: 'Create new Group',
-    successMessageText: 'Group created',
+    successMessageText: 'Group created\n×',
 };
 const data = {
     groupName: 'Codewars gamers',
@@ -126,7 +126,8 @@ describe('Groups - Create group - Functionality', () => {
     });
 
     it('should verify URL after clicking on `Create` button', () => {
-        $(selector.createGroupbutton).click();
+        $(selector.submitButton).click();
+        browser.pause(1000);
         const actualUrl = browser.getUrl();
         expect(actualUrl).equal(url.groupCreated);
     });
@@ -138,4 +139,11 @@ describe('Groups - Create group - Functionality', () => {
     it('should verify that success message text is correct', () => {
         expect($(selector.successMessage).getText()).equal(expected.successMessageText);
     });
+
+    it('should verify that amount of groups increased by 1 after creating group', () => {
+        $(selector.menuGroups).click();
+        const numberOfGroups1 = $$(selector.h4).length;
+        expect(numberOfGroups1 === numberOfgroups + 1).to.be.true;
+    });
+
 });
