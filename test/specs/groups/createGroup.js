@@ -42,7 +42,7 @@ describe('Groups - Create group - Functionality', () => {
     it('should verify that click to `Groups` in main menu should redirect to `Groups` page', () => {
         $(selector.menuGroups).click();
         const actualUrl = browser.getUrl();
-        expect(actualUrl).to.equal(url.groupUrl);
+        expect(actualUrl).to.equal(url.group);
     });
 
     it('should verify that `Groups` page has correct h1', () => {
@@ -63,7 +63,7 @@ describe('Groups - Create group - Functionality', () => {
     it('should verify URL after clicking on `Create new group` button', () => {
         $(selector.createGroupbutton).click();
         const actualUrl = browser.getUrl();
-        expect(actualUrl).equal(url.createGroupUrl);
+        expect(actualUrl).equal(url.createGroup);
     });
 
     it('should verify h1 on the page `Create new Group`', () => {

@@ -4,92 +4,68 @@ import loginAction from './../../actions/loginActions';
 import { user } from '../../actions/userConstants';
 
 const selector = {
-    numberOfDayReports: '//h3/span[@class="badge badge-light"]',
-    createDayReportButton: '//a[@qa="create-day-report-button"]',
-    diaryRecord: '//div[@qa="description"]',
-    saveButton: '//button[@type="submit"]',
-    checkBox: '//input[@type="checkbox"]',
-    descriptionField: '//textarea[@name="description"]',
     headerH1: '//h1',
-    headerH3: '//h3',
+    headerH3: '//h3[contains(text(),"Daily reports")]',
+    numberOfDayReports: '//h3/span[@class="badge badge-light"]',
+    diaryRecord: '//div[@qa="description"]',
+    createDayReportButton: '//a[@qa="create-day-report-button"]',
+    checkBox: '//input[@type="checkbox"]',
+    saveButton: '//button[@type="submit"]',
+    descriptionField: '//textarea[@name="description"]',
 };
 
-    const expectedButtonText = 'Create day report';
-    const expectedUserPageH1 = `${user.admin.firstName} ${user.admin.lastName}`;
-    const expectedDiaryCreateH1 = 'Create day report';
-    const expectedDiaryListH1 = 'Daily reports';
-    const roles = ['admin', 'student'];
-    const headers = ['About', 'Goals', 'Completed Challenges', 'Day reports '];
-    const dayReportText = `Today I watched ${Math.trunc(
-    Math.random() * 10)} lectures and solved ${Math.trunc(Math.random() * 10)} tasks on codewars. Also I wrote tests.`;
+let initialNumber;
+let countOfCheckBoxes;
 
-describe('Create day report from User\'s page by clicking button `Create day report`', () => {
+const expectedHeaderH3Text = 'Daily reports';
+const dayReportText = `Today I watched ${Math.trunc(
+    Math.random() * 10,
+)} lectures and solved ${Math.trunc(Math.random() * 10)} tasks on codewars. Also I wrote tests.`;
 
-    before (() => {
+describe('Diary - From User Page - Functionality', () => {
+    before(() => {
         loginAction(browser);
-        browser.pause(1000);
+        browser.pause(500);
+        initialNumber = $(selector.numberOfDayReports).getText();
     });
 
-    it('should  verify redirect page URL', () => {
+    it('should verify URL when redirect to User page', () => {
         const actualUrl = browser.getUrl();
-        const expectedUrl = `${url.userUrl}/${user.admin.id}`;
-    //    expect(actualUrl).equal('https://stage.pasv.us/user/5d6dc5f8af023b00386c5f3b');
-        expect(actualUrl).equal(expectedUrl)
+        const expectedUrl = `${url.baseUrl}/user/${user.admin.id}`;
+        expect(actualUrl).equal(expectedUrl);
     });
 
-    it('should verify that after login actions it was redirect to user page', function () {
+    it('should verify h1 of User page', () => {
         const actualH1Text = $(selector.headerH1).getText();
         const expectedH1Text = `${user.admin.firstName} ${user.admin.lastName}`;
         expect(actualH1Text).to.equal(expectedH1Text);
     });
 
-    it('should verify that user\'s page has 4 headers h3', () => {
-        const countOfHeaderH3= $$(selector.headerH3).length;
-        expect(countOfHeaderH3).to.equal(4);
-    });
-/*
-    it('should verify that header #`${i}` is `${header[i]}',  () => {
-       for (let i = 0 ; i < 4; i++){
-           const actualH3 = $$(selector.headerH3)[i].getText();
-           const expectedH3 = headers[i];
-           expect(actualH3).equal(expectedH3);
-       }
-    });
-8*/
-it('should verify that initial number of day reports > 0', function () {
-        const initialNumber = $(selector.numberOfDayReports).getText();
-        expect(initialNumber > 0).to.be.true;
+    it('should verify that user`s page has header `Daily reports`', () => {
+        const headerH3Text = $(selector.headerH3).getText();
+        expect(headerH3Text).to.include(expectedHeaderH3Text);
     });
 
-    it ("should verify that button `Create day report` is displayed on user\'s page", () => {
-        const buttonIsDisplayed = $(createDayReportButton).isDisplayed();
-        expect(buttonIsDisplayed).to.be.true;
+    it('should verify that initial number of user`s day reports > 0', () => {
+        browser.pause(1000);
+        initialNumber = $(selector.numberOfDayReports).getText();
+        expect(+initialNumber > 0).to.be.true;
     });
 
-    it('should verify that button has correct text', function () {
-        const actualButtonText = $(createDayReportButton).getText();
-        expect(actualButtonText).to.equal(expectedButtonText);
-    });
-
-    it ("should verify that click to button `Create day report` redirect to Create day report` page`", () => {
+    it('should verify that click to `Create day report` button redirect to `Create day report` page', () => {
         $(selector.createDayReportButton).click();
-        browser.pause(5000);
         const actualUrl = browser.getUrl();
-        expect(actualUrl).to.equal(url.createDayReportUrl);
+        expect(actualUrl).to.equal(url.diaryCreateForm);
     });
 
-    it ("should verify that `Create day report` page has correct h1", () => {
-        const actualH1 = $(selector.headerH1).getText();
-        expect(actualH1).to.equal(expectedDiaryCreateH1);
-    });
-
-    it('should verify that `Save` button is-enabled after creating day report',  () => {
-        for (let i = 1; i < 12; i++) {
+    it('should verify that `Save` button is enabled when report is correct', () => {
+        countOfCheckBoxes = $$(selector.checkBox).length;
+        for (let i = 1; i < countOfCheckBoxes; i++) {
             const selector = $('//input[@id="input-[' + i + ']"]');
             selector.click();
         }
-        const descriptionArea = $(selector.descriptionField);
-        descriptionArea.setValue(dayReportText);
+        $(selector.descriptionField).setValue(dayReportText);
+        browser.pause(300);
         const isEnabled = $(selector.saveButton).isEnabled();
         expect(isEnabled).to.be.true;
     });
@@ -99,23 +75,34 @@ it('should verify that initial number of day reports > 0', function () {
         saveButton.click();
         browser.pause(1000);
         const actualUrl = browser.getUrl();
-        expect(actualUrl).to.equal(url.diaryUrl);
+        expect(actualUrl).to.equal(url.diaryList);
     });
 
-    it('should verify that `Day reports` page has correct h1', () => {
-        const actualH1 = $(selector.headerH1).getText();
-        expect(actualH1).to.equal(expectedDiaryListH1);
+    it('should verify that day report appeared on `Day reports` page', () => {
+        const lastDiaryRecord = $$(selector.diaryRecord)[0].getText();
+        expect(lastDiaryRecord).to.equal(dayReportText);
     });
 
-//перейти на страницу юзера и проверить, что количество записей увеличилось на 1
-    it('should verify that click on `user name` in upper-right corner redirect to users page', function() {
-        //englishLevelElement.selectByVisibleText('Beginner');
-        // const selector = '//a[@class=\'dropdown-toggle nav-link\']';
+    it('should verify that click on `user name`- profile  in upper-right corner redirect to user`s page', () => {
         const selector = '//a[@class="dropdown-toggle nav-link"]';
         $(selector).click();
         const option = '//button[contains(text(),"Profile")]';
         $(option).click();
-        browser.pause(10000);
+        browser.pause(600);
+        const actualUrl = browser.getUrl();
+        const expectedUrl = `${url.baseUrl}/user/${user.admin.id}`;
+        expect(actualUrl).equal(expectedUrl);
+    });
+
+    it('should verify that number of user`s day reports on users page increased by 1', () => {
+        browser.pause(1000);
+        let initialNumber1 = $(selector.numberOfDayReports).getText();
+        expect(+initialNumber1 === +initialNumber + 1).to.be.true;
+    });
+
+    it('should verify that day report appeared on user`s page', () => {
+        const lastDiaryRecord = $$(selector.diaryRecord)[0].getText();
+        expect(lastDiaryRecord).to.equal(dayReportText);
     });
 });
 

@@ -1,4 +1,4 @@
-import { url } from '../../../actions/constants';
+import { url } from './../../../actions/constants';
 import axios from 'axios';
 
 export default function diaryGetAll(token) {
@@ -16,3 +16,4 @@ export default function diaryGetAll(token) {
             return null;
         });
 }
+

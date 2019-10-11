@@ -1,5 +1,5 @@
 import {expect} from 'chai';
-import { baseUrl } from '../../../actions/constants';
+import { url } from '../../../actions/constants';
 
 const favicon = '//link[@href="/favicon.ico"]';
 const globalHeader = '//div[@id="main-bar"]';
@@ -8,12 +8,12 @@ const footer = '//footer[@class="pt-5 pb-5"]';
 
 describe('Home page - General - Design', () => {
     before (() => {
-        browser.url(baseUrl);
+        browser.url(url.baseUrl);
     });
 
     it('should verify URL',  () => {
         const actualUrl = browser.getUrl();
-        expect(actualUrl).to.equal(baseUrl+'/');
+        expect(actualUrl).to.equal(url.baseUrl+'/');
     });
 
     it('should verify that favicon.ico is existing',  () => {

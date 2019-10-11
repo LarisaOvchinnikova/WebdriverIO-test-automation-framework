@@ -3,7 +3,7 @@ import { user } from './userConstants';
 
 export default function loginAction(browser) {
 
-    browser.url(url.loginUrl);
+    browser.url(url.login);
 
     const emailField = $('//input[@name="email"]');
     const passwordField = $('//input[@name="password"]');

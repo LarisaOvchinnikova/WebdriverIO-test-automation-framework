@@ -1,14 +1,30 @@
-export const url = {
-    baseUrl: 'https://stage.pasv.us',
-    loginUrl: 'https://stage.pasv.us/user/login',
-    registerUrl: 'https://stage.pasv.us/user/register',
-    diaryUrl: 'https://stage.pasv.us/diary',
-    groupUrl: 'https://stage.pasv.us/group',
-    groupCreated: 'https://stage.pasv.us/groups',
-    createGroupUrl: 'https://stage.pasv.us/group/create',
+const baseUrl = 'https://stage.pasv.us';
 
-    createDayReportUrl: 'https://stage.pasv.us/diary/create',
+const url = {
+    baseUrl,
+
+    login: `${baseUrl}/user/login`,
+    register: `${baseUrl}/user/register`,
+    forgotPassword: `${baseUrl}/user/password/reset/request`,
+    checkEmail: `${baseUrl}/user/password/reset/mailed`,
+
+    diaryList: `${baseUrl}/diary`,
+    diaryCreateForm: `${baseUrl}/diary/create`,
+
+    group: `${baseUrl}/group`,
+    groupCreated: `${baseUrl}/groups`,
+    createGroup: `${baseUrl}/group/create`,
+
     server: 'https://server-stage.pasv.us',
-    userUrl: 'https://stage.pasv.us/user'
+};
+
+const app = {
+    name: 'Progress Monitor',
+    slogan: 'eat(); sleep(); code(); repeat();',
+};
+
+module.exports = {
+    url,
+    app,
 };
 

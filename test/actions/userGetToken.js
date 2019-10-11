@@ -1,6 +1,6 @@
-import { url } from './constants';
-import { user } from './userConstants';
-import axios from 'axios';
+const { url } = require('./constants');
+const { user } = require ('./userConstants');
+const axios = require ('axios');
 
 module.exports = function userGetToken(role) {
     return axios

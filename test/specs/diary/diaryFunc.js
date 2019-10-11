@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { url } from './../../actions/constants';
 import loginAction from '../../actions/loginActions';
-import diaryGetAll from "./_actions/diaryGetAll";
+import diaryGetAll from './_actions/diaryGetAll';
 
 const selector = {
     menuDiary: '//li/a[@qa="diary-link"]',
@@ -17,12 +17,19 @@ const diaryH1 = 'Daily reports';
 const createDiaryH1 = 'Create day report';
 const dayReportShortText = 'Today I wrote tests.';
 const dayReportText = 'Today I watched 2 lectures and solved 3 tasks on codewars. Also I wrote tests.';
-let countOfCheckBoxes;
 
-describe('Diary - Func', () => {
+let countOfCheckBoxes;
+let allDiaries;
+let initialDiaryCount;
+
+describe('Diary - Functionality', () => {
     before (() => {
-        browser.maximizeWindow();
         loginAction(browser);
+    });
+
+    it('should get all diaries from DB and store initial count', async () => {
+        const allDiaries = await diaryGetAll(process.env.TOKEN_ADMIN);
+        initialDiaryCount = allDiaries.length;
     });
 
     it('should verify that `Diary`item is displayed in main menu', () => {
