@@ -1,20 +1,22 @@
 import {expect} from 'chai';
-import { baseUrl, registerUrl } from '../../actions/constants';
+import { url } from '../../actions/constants';
 
 const registerButton = '//div[@id="user-section"]//a[text()="Register"]'
 const globalHeader = '//div[@id="main-bar"]';
 const header = '//h1';
 const footer = '//footer[@class="pt-5 pb-5"]';
+const firstNameField = '//input[@name="firstName"]';
+const lastNameField = '//input[@name="lastName"]';
 
 describe('Registration -- Redirect', () => {
     before(() => {
-        browser.url(baseUrl);
+        browser.url(url.baseUrl);
     });
 
     it('should verify that clicking on Register button from Home Page gets redirected to Register Page ', function () {
         $(registerButton).click();
         const redirectUrl = browser.getUrl();
-        expect(redirectUrl).to.equal(registerUrl);
+        expect(redirectUrl).to.equal(url.register);
     });
 
     it('should verify that Global header is displayed', () => {
@@ -27,12 +29,15 @@ describe('Registration -- Redirect', () => {
         expect(h1).to.equal('User Register');
     });
 
-    it('should verify that `Real name` field is displayed ', function () {
-        const selector = '//input[@name="name"]';
-        const isDisplayed = $(selector).isDisplayed();
+    it('should verify that First name` field is displayed ', function () {
+        const isDisplayed = $(firstNameField).isDisplayed();
         expect (isDisplayed).to.be.true;
     });
 
+    it('should verify that Last name` field is displayed ', function () {
+        const isDisplayed = $(lastNameField).isDisplayed();
+        expect (isDisplayed).to.be.true;
+    });
     it('should verify that `Cell phone number` field is displayed ', function () {
         const selector = '//input[@name="phone"]';
         const isDisplayed = $(selector).isDisplayed();
