@@ -13,7 +13,9 @@ const selector = {
     accessTypeField: '//select[@name="accessType"]',
     groupNames: '//h4/a',
     editButton: $('//a[@qa="edit-button"]'),
-    editGroupDescription: '//textarea[@name="description"]'
+    editGroupDescription: '//textarea[@name="description"]',
+    slackWebhook: '//input[@name="slackWebhook"]',
+    searchQuiz: '//input[@name="searchQuiz"]',
 
 //    successMessage: '//div[@class="notification notification-success notification-visible"]',
 
@@ -29,7 +31,7 @@ const data = {
     groupDescription: 'Group for those who like to think',
     accessType: 'All',
     newGroupName: 'Codewars winners',
-    newGroupDescription: 'Group for those who like to think and play.',
+    newGroupDescription: 'Group for those who like to think and succeed.',
     newAccessType: 'Members',
 };
 
@@ -78,7 +80,7 @@ describe('Groups - Edit group - Functionality', () => {
     });
 
     it('should verify that `Group description` field is displayed on `Edit Group` page', () => {
-        expect($(selector.groupDescriptionField).isDisplayed()).to.be.true;
+        expect($(selector.editGroupDescription).isDisplayed()).to.be.true;
     });
 
     it('should verify that `Access type` field is displayed on `Edit Group` page', () => {
@@ -86,7 +88,12 @@ describe('Groups - Edit group - Functionality', () => {
     });
 
     it('should verify that `Slack Webhook slug` field is displayed on `Edit Group` page', () => {
-        expect($(selector.groupNameField).isDisplayed()).to.be.true;
+        expect($(selector.slackWebhook).isDisplayed()).to.be.true;
     });
+
+    it('should verify that `Assign quiz` field is displayed on `Edit Group` page', () => {
+        expect($(selector.searchQuiz).isDisplayed()).to.be.true;
+    });
+
 
 });
