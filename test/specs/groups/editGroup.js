@@ -15,9 +15,9 @@ const selector = {
 
 };
 const expected = {
-    h1Groups: 'Groups',
-    h1CreateGroup: 'Create new Group',
-    successMessageText: 'Group created\n×',
+   // h1Groups: 'Groups',
+   // h1CreateGroup: 'Create new Group',
+   // successMessageText: 'Group created\n×',
 };
 const data = {
     groupName: 'Codewars gamers',
@@ -42,8 +42,19 @@ describe('Groups - Edit group - Functionality', () => {
         expect(actualUrl).equal(url.group);
     });
 
+    it('should verify that new group is displayed in the list of groups', () => {
+        browser.pause(1000);
+        const lastGroup = $$(selector.groupListItem)[0];
+        console.log('============================================================================================');
+        console.log(lastGroup.getText());
+        console.log('============================================================================================');
+        const lastGroupText = lastGroup.getText();
+        expect(lastGroupText.includes(data.groupName)).to.be.true;
+    });
 
+    it('should verify that clicking on group name in the list of groups redirect to group page', () => {
 
+    });
 
 
 });
