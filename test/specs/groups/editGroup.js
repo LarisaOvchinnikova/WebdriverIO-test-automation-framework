@@ -12,7 +12,7 @@ const selector = {
     groupDescriptionField: '//input[@name="description"]',
     accessTypeField: '//select[@name="accessType"]',
     groupNames: '//h4/a',
-    editButton: $('//a[@qa="edit-button"]'),
+    editButton: '//a[@qa="edit-button"]',
     editGroupDescription: '//textarea[@name="description"]',
     slackWebhook: '//input[@name="slackWebhook"]',
     searchQuiz: '//input[@name="searchQuiz"]',
@@ -70,7 +70,7 @@ describe('Groups - Edit group - Functionality', () => {
 
     it('should verify that clicking on `Edit`button redirect to `Edit Group` page', () => {
         $(selector.editButton).click();
-        browser.pause(1000);
+        browser.pause(6000);
         const actualH1 = $(selector.h1).getText();
         expect(actualH1).equal(expected.editGroupH1);
     });
