@@ -11,7 +11,7 @@ const selector = {
     groupNameField: '//input[@name="name"]',
     groupDescriptionField: '//input[@name="description"]',
     accessTypeField: '//select[@name="accessType"]',
-    successMessage: '//div[@class="notification notification-success notification-visible"]',
+//    successMessage: '//div[@class="notification notification-success notification-visible"]',
 
 };
 const expected = {
@@ -25,38 +25,24 @@ const data = {
     accessType: 'All',
 };
 
-let numberOfGroups;
-
-describe('Groups - Create group - Functionality', () => {
+describe('Groups - Edit group - Functionality', () => {
     before(() => {
         loginAction(browser);
     });
 
-    it('should verify that click to `Groups` in main menu should redirect to `Groups` page', () => {
+    it('should verify URL after group is created', () => {
         $(selector.menuGroups).click();
-        const actualUrl = browser.getUrl();
-        expect(actualUrl).to.equal(url.group);
-    });
-
-    it('should verify URL after clicking on `Create new group` button', () => {
         $(selector.createGroupbutton).click();
-        const actualUrl = browser.getUrl();
-        expect(actualUrl).equal(url.createGroup);
-    });
-
-    it('should verify that `Create` button is enabled when required fields are filled', () => {
         $(selector.groupNameField).setValue(data.groupName);
         $(selector.groupDescriptionField).setValue(data.groupDescription);
         $(selector.accessTypeField).selectByVisibleText(data.accessType);
-        expect($(selector.submitButton).isEnabled()).to.be.true;
-    });
-
-    it('should verify URL after clicking on `Create` button', () => {
         $(selector.submitButton).click();
         browser.pause(1000);
         const actualUrl = browser.getUrl();
         expect(actualUrl).equal(url.group);
     });
+
+
 
 
 
