@@ -31,7 +31,7 @@ const data = {
     groupDescription: 'Group for those who like to think',
     accessType: 'All',
     newGroupName: 'Codewars winners',
-    newGroupDescription: 'Group for those who like to think and succeed.',
+    newGroupDescription: 'Group for those who like to think and win.',
     newAccessType: 'Members',
 };
 
@@ -70,7 +70,7 @@ describe('Groups - Edit group - Functionality', () => {
 
     it('should verify that clicking on `Edit`button redirect to `Edit Group` page', () => {
         $(selector.editButton).click();
-        browser.pause(6000);
+        browser.pause(1000);
         const actualH1 = $(selector.h1).getText();
         expect(actualH1).equal(expected.editGroupH1);
     });
@@ -95,5 +95,14 @@ describe('Groups - Edit group - Functionality', () => {
         expect($(selector.searchQuiz).isDisplayed()).to.be.true;
     });
 
+    it('should verify that changes will redirect to `Groups` page', function () {
+        $(selector.groupNameField).setValue(data.newGroupName);
+        $(selector.editGroupDescription).setValue(data.newGroupDescription);
+        $(selector.accessTypeField).selectByVisibleText(data.newAccessType);
+        $(selector.submitButton).click();
+        browser.pause(1000);
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).equal('https://stage.pasv.us/groups');
+    });
 
 });
