@@ -11,6 +11,8 @@ const selector = {
     groupNameField: '//input[@name="name"]',
     groupDescriptionField: '//input[@name="description"]',
     accessTypeField: '//select[@name="accessType"]',
+    groupNames: '//h4/a',
+
 //    successMessage: '//div[@class="notification notification-success notification-visible"]',
 
 };
@@ -18,11 +20,15 @@ const expected = {
    // h1Groups: 'Groups',
    // h1CreateGroup: 'Create new Group',
    // successMessageText: 'Group created\n×',
+    editGroupH1: 'Edit Group',
 };
 const data = {
     groupName: 'Codewars gamers',
     groupDescription: 'Group for those who like to think',
     accessType: 'All',
+    newGroupName: 'Codewars winners',
+    newGroupDescription: 'Group for those who like to think and play.',
+    newAccessType: 'Members',
 };
 
 describe('Groups - Edit group - Functionality', () => {
@@ -50,10 +56,10 @@ describe('Groups - Edit group - Functionality', () => {
     });
 
     it('should verify that clicking on group name in the list of groups redirect to group page', () => {
-        const lastGroupName = $$('//h4/a')[0];
+        const lastGroupName = $$(selector.groupNames)[0];
         lastGroupName.click();
         browser.pause(1000);
-        const actualH1 = $('//h1').getText();
+        const actualH1 = $(selector.h1).getText();
         const expectedH1 = `Group ${data.groupName}`;
         expect(actualH1).equal(expectedH1);
     });
@@ -62,9 +68,8 @@ describe('Groups - Edit group - Functionality', () => {
         const editButton = $('//a[@qa="edit-button"]');
         editButton.click();
         browser.pause(1000);
-        const actualH1 = $('//h1').getText();
-        const expectedH1 = 'Edit Group';
-        expect(actualH1).equal(expectedH1);
+        const actualH1 = $(selector.h1).getText();
+        expect(actualH1).equal(expected.editGroupH1);
     });
 
 
