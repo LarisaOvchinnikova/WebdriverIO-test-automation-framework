@@ -53,7 +53,12 @@ describe('Groups - Edit group - Functionality', () => {
     });
 
     it('should verify that clicking on group name in the list of groups redirect to group page', () => {
-
+        const lastGroupName = $$('//h4/a')[0];
+        lastGroupName.click();
+        browser.pause(1000);
+        const actualH1 = $('//h1').getText();
+        const expectedH1 = `Group ${data.groupName}`;
+        expect(actualH1).equal(expectedH1);
     });
 
 
