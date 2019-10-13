@@ -12,6 +12,8 @@ const selector = {
     groupDescriptionField: '//input[@name="description"]',
     accessTypeField: '//select[@name="accessType"]',
     groupNames: '//h4/a',
+    editButton: $('//a[@qa="edit-button"]'),
+    editGroupDescription: '//textarea[@name="description"]'
 
 //    successMessage: '//div[@class="notification notification-success notification-visible"]',
 
@@ -64,13 +66,27 @@ describe('Groups - Edit group - Functionality', () => {
         expect(actualH1).equal(expectedH1);
     });
 
-    it('should verify that clicking on `Edit`button redirect to edit group page', () => {
-        const editButton = $('//a[@qa="edit-button"]');
-        editButton.click();
+    it('should verify that clicking on `Edit`button redirect to `Edit Group` page', () => {
+        $(selector.editButton).click();
         browser.pause(1000);
         const actualH1 = $(selector.h1).getText();
         expect(actualH1).equal(expected.editGroupH1);
     });
 
+    it('should verify that `Group name` field is displayed on `Edit Group` page', () => {
+        expect($(selector.groupNameField).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that `Group description` field is displayed on `Edit Group` page', () => {
+        expect($(selector.groupDescriptionField).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that `Access type` field is displayed on `Edit Group` page', () => {
+        expect($(selector.accessTypeField).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that `Slack Webhook slug` field is displayed on `Edit Group` page', () => {
+        expect($(selector.groupNameField).isDisplayed()).to.be.true;
+    });
 
 });
