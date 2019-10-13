@@ -45,9 +45,6 @@ describe('Groups - Edit group - Functionality', () => {
     it('should verify that new group is displayed in the list of groups', () => {
         browser.pause(1000);
         const lastGroup = $$(selector.groupListItem)[0];
-        console.log('============================================================================================');
-        console.log(lastGroup.getText());
-        console.log('============================================================================================');
         const lastGroupText = lastGroup.getText();
         expect(lastGroupText.includes(data.groupName)).to.be.true;
     });
@@ -58,6 +55,15 @@ describe('Groups - Edit group - Functionality', () => {
         browser.pause(1000);
         const actualH1 = $('//h1').getText();
         const expectedH1 = `Group ${data.groupName}`;
+        expect(actualH1).equal(expectedH1);
+    });
+
+    it('should verify that clicking on `Edit`button redirect to edit group page', () => {
+        const editButton = $('//a[@qa="edit-button"]');
+        editButton.click();
+        browser.pause(1000);
+        const actualH1 = $('//h1').getText();
+        const expectedH1 = 'Edit Group';
         expect(actualH1).equal(expectedH1);
     });
 
