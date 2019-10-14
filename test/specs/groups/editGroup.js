@@ -184,10 +184,19 @@ describe('Groups - Edit group - Functionality', () => {
     it('should verify that `Save` button is enabled after filling in the required fields', () => {
         $(selector.lectureName).setValue(data.lectureName);
         $(selector.youtubeLink).setValue(data.lectureLink);
-        $(selector.date).selectByVisibleText(new Date().getDate());
-        $(selector.checkbox).click();
+        $(selector.date).selectByVisibleText('1');
+        browser.keys('Tab');
+        // $(selector.checkbox).click();
         $(selector.lectureDescription).setValue(data.lectureDescription);
-        expect($(selector.submitButton).getAttribute('class')).includes('enabled');
+        browser.pause(1000);
+        const isEnabled = $(selector.submitButton).isEnabled();
+        expect(isEnabled).to.be.true;
+    });
+
+
+    it('should verify that after click on `Save` button successful message displayed', () => {
+        $(selector.submitButton).click();
+        expect($(selector.successMessage).isDisplayed()).to.be.true;
     });
 });
 
