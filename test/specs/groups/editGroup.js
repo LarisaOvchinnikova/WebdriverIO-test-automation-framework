@@ -16,8 +16,7 @@ const selector = {
     editGroupDescription: '//textarea[@name="description"]',
     slackWebhook: '//input[@name="slackWebhook"]',
     searchQuiz: '//input[@name="searchQuiz"]',
-
-//    successMessage: '//div[@class="notification notification-success notification-visible"]',
+    successMessage: '//div[@class="notification notification-success notification-visible"]',
 
 };
 const expected = {
@@ -95,7 +94,7 @@ describe('Groups - Edit group - Functionality', () => {
         expect($(selector.searchQuiz).isDisplayed()).to.be.true;
     });
 
-    it('should verify that changes will redirect to `Groups` page', function () {
+    it('should verify that after editing and clicking on save button will redirect to `Groups` page', function () {
         $(selector.groupNameField).setValue(data.newGroupName);
         $(selector.editGroupDescription).setValue(data.newGroupDescription);
         $(selector.accessTypeField).selectByVisibleText(data.newAccessType);
@@ -103,6 +102,18 @@ describe('Groups - Edit group - Functionality', () => {
         browser.pause(1000);
         const actualUrl = browser.getUrl();
         expect(actualUrl).equal('https://stage.pasv.us/groups');
+    });
+
+    it('should verify that success message is displayed', () => {
+        expect($(selector.successMessage).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that name of group was changed', () => {
+        $(selector.menuGroups).click();
+        browser.pause(1000);
+        const lastGroup = $$(selector.groupListItem)[0];
+        const lastGroupText = lastGroup.getText();
+        expect(lastGroupText.includes(data.newGroupName)).to.be.true;
     });
 
 });

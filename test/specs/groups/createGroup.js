@@ -102,7 +102,7 @@ describe('Groups - Create group - Functionality', () => {
 
     it('should verify that `Group description` field is not required', () => {
         $(selector.groupNameField).setValue(data.groupName);
-         $(selector.groupDescriptionField).setValue('');
+        $(selector.groupDescriptionField).setValue('');
         $(selector.accessTypeField).selectByVisibleText(data.accessType);
         expect($(selector.submitButton).isEnabled()).to.be.true;
     });
@@ -134,7 +134,7 @@ describe('Groups - Create group - Functionality', () => {
     });
 
     it('should verify that after click on button `Create` success message is displayed', () => {
-        expect($(selector.successMessage).isDisplayed()).to.be.true;
+       expect($(selector.successMessage).isDisplayed()).to.be.true;
     });
 
     it('should verify that success message text is correct', () => {
