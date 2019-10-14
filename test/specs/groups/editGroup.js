@@ -171,7 +171,17 @@ describe('Groups - Edit group - Functionality', () => {
         expect($(selector.lectureDescription).isDisplayed()).to.be.true;
     });
 
+    it('should verify that `Save` button is displayed on `Create lecture` page', () => {
+        expect($(selector.submitButton).isDisplayed()).to.be.true;
+    });
 
+    it('should verify that `Save` button is disabled when fields are empty', () => {
+        expect($(selector.submitButton).getAttribute('class')).includes('disabled');
+    });
+
+    it('should verify that `Lecture description` textarea is displayed on `Create lecture` page', () => {
+        expect($(selector.lectureDescription).isDisplayed()).to.be.true;
+    });
 });
 
 
