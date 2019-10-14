@@ -49,7 +49,6 @@ describe('Groups - Create Lecture - Functionality', () => {
 
     it('should verify that click on `Create lecture` button redirect to `Create lecture` page', () => {
         $(selector.createLectureButton).click();
-       //browser.pause(1000);
         const actualH1 = $$(selector.h1)[1].getText();
         expect(actualH1).equal(expected.createLectureH1);
     });
