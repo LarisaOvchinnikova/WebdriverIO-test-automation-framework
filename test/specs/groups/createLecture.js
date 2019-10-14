@@ -36,14 +36,14 @@ describe('Groups - Create Lecture - Functionality', () => {
     before(() => {
         loginAction(browser);
         $(selector.menuGroups).click();
-        browser.pause(1000);
+        $(selector.groupNames).waitForDisplayed(1000);
         const lastGroupName = $$(selector.groupNames)[0];
         browser.pause(1000);
         lastGroupName.click();
      });
 
     it('should verify that after click on `Lectures` item button `Create lecture` is displayed', () => {
-        browser.pause(1000);
+        $(selector.createLectureButton).waitForDisplayed(1000);
         expect($(selector.createLectureButton).isDisplayed()).to.be.true;
     });
 
@@ -87,7 +87,7 @@ describe('Groups - Create Lecture - Functionality', () => {
         $(selector.date).setValue(date);
         browser.keys('Tab');
         $(selector.lectureDescription).setValue(data.lectureDescription);
-        browser.pause(1000);
+        $(selector.submitButton).waitForEnabled(1000);
         const isDisabled = $(selector.submitButton).getAttribute('class').includes('disabled');
         expect(isDisabled).to.be.false;
     });
