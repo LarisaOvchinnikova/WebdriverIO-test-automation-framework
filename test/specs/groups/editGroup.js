@@ -19,6 +19,8 @@ const selector = {
     successMessage: '//div[@class="notification notification-success notification-visible"]',
     descriptionButton: '//a[contains(text(),"Description")]',
     descriptionText: '//div/p',
+    lecturesButton: '//a[contains(text(),"Lectures")]',
+    createLectureButton: '//a[@qa="create-lecture-button"]',
 
 };
 const expected = {
@@ -26,6 +28,7 @@ const expected = {
    // h1CreateGroup: 'Create new Group',
    // successMessageText: 'Group created\n×',
     editGroupH1: 'Edit Group',
+    createLectureH1: 'Create lecture',
 };
 const data = {
     groupName: 'Codewars gamers',
@@ -129,6 +132,19 @@ describe('Groups - Edit group - Functionality', () => {
     });
 
     // https://app.pasv.us/group/5bf301f5b17cc43d5332d75a/lecture/5bf316dbb17cc43d5332d76a
+
+    it('should verify that after click on `Lectures` item button `Create lecture` is displayed', () => {
+        $(selector.lecturesButton).click();
+        browser.pause(1000);
+        expect($(selector.createLectureButton).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that click on `Create lecture` button redirect to `Create lecture` page', () => {
+        $(selector.createLectureButton).click();
+        browser.pause(1000);
+        const actualH1 = $$(selector.h1)[1].getText();
+        expect(actualH1).equal(expected.createLectureH1);
+    });
 
 
 });
