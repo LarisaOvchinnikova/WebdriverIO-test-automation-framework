@@ -21,6 +21,11 @@ const selector = {
     descriptionText: '//div/p',
     lecturesButton: '//a[contains(text(),"Lectures")]',
     createLectureButton: '//a[@qa="create-lecture-button"]',
+    lectureName: '//input[@name="name"]',
+    youtubeLink: '//input[@name="video"]',
+    date: '//input[@placeholder="Date"]',
+    checkbox: '//input[@type="checkbox"]',
+    lectureDescription: '//textarea[@name="description"]',
 
 };
 const expected = {
@@ -144,6 +149,14 @@ describe('Groups - Edit group - Functionality', () => {
         browser.pause(1000);
         const actualH1 = $$(selector.h1)[1].getText();
         expect(actualH1).equal(expected.createLectureH1);
+    });
+
+    it('should verify that `Lecture name` field is displayed on `Create lecture` page', () => {
+        expect($(selector.lectureName).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that `YouTube link` field is displayed on `Create lecture` page', () => {
+        expect($(selector.youtubeLink).isDisplayed()).to.be.true;
     });
 
 
