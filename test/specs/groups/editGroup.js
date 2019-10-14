@@ -42,6 +42,7 @@ const data = {
     newGroupName: 'Codewars winners',
     newGroupDescription: 'Group for those who like to think and win.',
     newAccessType: 'Members',
+    lectureName: 'Solving four tasks',
     lectureLink: 'https://www.youtube.com/watch?v=pPJOen-1-mw',
 };
 
@@ -179,8 +180,10 @@ describe('Groups - Edit group - Functionality', () => {
         expect($(selector.submitButton).getAttribute('class')).includes('disabled');
     });
 
-    it('should verify that `Lecture description` textarea is displayed on `Create lecture` page', () => {
-        expect($(selector.lectureDescription).isDisplayed()).to.be.true;
+    it('should verify that `Save` button is enabled after filling in the required fields', () => {
+        $(selector.lectureName).setValue(data.lectureName);
+        $(selector.youtubeLink).setValue(data.lectureLink);
+        expect($(selector.submitButton).getAttribute('class')).includes('enabled');
     });
 });
 
