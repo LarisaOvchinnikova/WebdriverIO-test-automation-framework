@@ -3,42 +3,25 @@ import { url } from './../../actions/constants';
 import loginAction from '../../actions/loginActions';
 
 const selector = {
-    menuGroups: '//li/a[@qa="groups-link"]',
-    h1: '//h1',
-    createGroupbutton: '//a[@qa="create-group-button"]',
-    groupListItem: '//div[@qa="group-list-item"]',
+    menuGroups: '//li/a[@qa="groups-link"]',//
+    h1: '//h1', //
     submitButton: '//button[@type="submit"]',
-    groupNameField: '//input[@name="name"]',
-    groupDescriptionField: '//input[@name="description"]',
-    accessTypeField: '//select[@name="accessType"]',
-    groupNames: '//h4/a',
-    editButton: '//a[@qa="edit-button"]',
-    editGroupDescription: '//textarea[@name="description"]',
-    slackWebhook: '//input[@name="slackWebhook"]',
-    searchQuiz: '//input[@name="searchQuiz"]',
+    groupNames: '//h4/a',//
     successMessage: '//div[@class="notification notification-success notification-visible"]',
-    descriptionButton: '//a[contains(text(),"Description")]',
-    descriptionText: '//div/p',
     lecturesButton: '//a[contains(text(),"Lectures")]',
-    createLectureButton: '//a[@qa="create-lecture-button"]',
+    createLectureButton: '//a[@qa="create-lecture-button"]',//
     lectureName: '//input[@name="name"]',
     youtubeLink: '//input[@name="video"]',
     date: '//input[@placeholder="Date"]',
     checkbox: '//label[@for="Active"]',
     lectureDescription: '//textarea[@name="description"]',
-
 };
+
 const expected = {
-    editGroupH1: 'Edit Group',
     createLectureH1: 'Create lecture',
 };
+
 const data = {
-    groupName: 'Codewars gamers',
-    groupDescription: 'Group for those who like to think',
-    accessType: 'All',
-    newGroupName: 'Codewars winners',
-    newGroupDescription: 'Group for those who like to think and win.',
-    newAccessType: 'Members',
     lectureName: 'Solving four tasks',
     lectureLink: 'https://www.youtube.com/watch?v=pPJOen-1-mw',
     lectureDescription: 'Analysis of the solution of four codewars tasks',
@@ -49,24 +32,17 @@ let month = new Date().getMonth() + 1;
 let year = new Date().getFullYear();
 let date = month + '.' + day + '.' + year;
 
-describe('Groups - Edit group - Functionality', () => {
+describe('Groups - Create Lecture - Functionality', () => {
     before(() => {
         loginAction(browser);
-    });
-
-
-    it('should verify that clicking on group name in the list of groups redirect to group`s page', () => {
+        $(selector.menuGroups).click();
+        browser.pause(1000);
         const lastGroupName = $$(selector.groupNames)[0];
         lastGroupName.click();
         browser.pause(1000);
-        const actualH1 = $(selector.h1).getText();
-        const expectedH1 = `Group ${data.groupName}`;
-        expect(actualH1).equal(expectedH1);
     });
 
     it('should verify that after click on `Lectures` item button `Create lecture` is displayed', () => {
-        $(selector.lecturesButton).click();
-        browser.pause(1000);
         expect($(selector.createLectureButton).isDisplayed()).to.be.true;
     });
 
