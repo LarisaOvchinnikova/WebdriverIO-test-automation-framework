@@ -159,6 +159,9 @@ describe('Groups - Edit group - Functionality', () => {
         expect($(selector.youtubeLink).isDisplayed()).to.be.true;
     });
 
+    it('should verify that `Date` field is displayed on `Create lecture` page', () => {
+        expect($(selector.date).isDisplayed()).to.be.true;
+    });
 
 });
 
