@@ -44,6 +44,7 @@ const data = {
     newAccessType: 'Members',
     lectureName: 'Solving four tasks',
     lectureLink: 'https://www.youtube.com/watch?v=pPJOen-1-mw',
+    lectureDescription: 'Analysis of the solution of four codewars tasks',
 };
 
 describe('Groups - Edit group - Functionality', () => {
@@ -183,6 +184,9 @@ describe('Groups - Edit group - Functionality', () => {
     it('should verify that `Save` button is enabled after filling in the required fields', () => {
         $(selector.lectureName).setValue(data.lectureName);
         $(selector.youtubeLink).setValue(data.lectureLink);
+        $(selector.date).selectByVisibleText(new Date().getDate());
+        $(selector.checkbox).click();
+        $(selector.lectureDescription).setValue(data.lectureDescription);
         expect($(selector.submitButton).getAttribute('class')).includes('enabled');
     });
 });
