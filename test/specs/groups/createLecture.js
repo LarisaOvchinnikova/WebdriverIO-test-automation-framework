@@ -3,13 +3,13 @@ import { url } from './../../actions/constants';
 import loginAction from '../../actions/loginActions';
 
 const selector = {
-    menuGroups: '//li/a[@qa="groups-link"]',//
-    h1: '//h1', //
+    menuGroups: '//li/a[@qa="groups-link"]',
+    h1: '//h1',
     submitButton: '//button[@type="submit"]',
-    groupNames: '//h4/a',//
+    groupNames: '//h4/a',
     successMessage: '//div[@class="notification notification-success notification-visible"]',
     lecturesButton: '//a[contains(text(),"Lectures")]',
-    createLectureButton: '//a[@qa="create-lecture-button"]',//
+    createLectureButton: '//a[@qa="create-lecture-button"]',
     lectureName: '//input[@name="name"]',
     youtubeLink: '//input[@name="video"]',
     date: '//input[@placeholder="Date"]',
@@ -38,17 +38,18 @@ describe('Groups - Create Lecture - Functionality', () => {
         $(selector.menuGroups).click();
         browser.pause(1000);
         const lastGroupName = $$(selector.groupNames)[0];
-        lastGroupName.click();
         browser.pause(1000);
-    });
+        lastGroupName.click();
+     });
 
     it('should verify that after click on `Lectures` item button `Create lecture` is displayed', () => {
+        browser.pause(1000);
         expect($(selector.createLectureButton).isDisplayed()).to.be.true;
     });
 
     it('should verify that click on `Create lecture` button redirect to `Create lecture` page', () => {
         $(selector.createLectureButton).click();
-        browser.pause(1000);
+       //browser.pause(1000);
         const actualH1 = $$(selector.h1)[1].getText();
         expect(actualH1).equal(expected.createLectureH1);
     });

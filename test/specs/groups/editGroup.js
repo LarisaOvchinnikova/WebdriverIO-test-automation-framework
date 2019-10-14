@@ -115,7 +115,7 @@ describe('Groups - Edit group - Functionality', () => {
         expect(lastGroupText.includes(data.newGroupName)).to.be.true;
     });
 
-    it('should verify that Description on group page is correct', () => {
+    it('should verify that Description on group page was changed', () => {
         const lastGroupName = $$(selector.groupNames)[0];
         lastGroupName.click();
         browser.pause(1000);
