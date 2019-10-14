@@ -24,7 +24,7 @@ const selector = {
     lectureName: '//input[@name="name"]',
     youtubeLink: '//input[@name="video"]',
     date: '//input[@placeholder="Date"]',
-    checkbox: '//input[@type="checkbox"]',
+    checkbox: '//label[@for="Active"]',
     lectureDescription: '//textarea[@name="description"]',
 
 };
@@ -170,6 +170,7 @@ describe('Groups - Edit group - Functionality', () => {
     it('should verify that `Lecture description` textarea is displayed on `Create lecture` page', () => {
         expect($(selector.lectureDescription).isDisplayed()).to.be.true;
     });
+
 
 });
 
