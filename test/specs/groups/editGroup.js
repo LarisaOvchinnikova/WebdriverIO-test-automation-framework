@@ -51,7 +51,7 @@ describe('Groups - Edit group - Functionality', () => {
     });
 
     it('should verify that new group is displayed in the list of groups', () => {
-        browser.pause(1000);
+        $(selector.groupListItem).waitForDisplayed(1000);
         const lastGroup = $$(selector.groupListItem)[0];
         const lastGroupText = lastGroup.getText();
         expect(lastGroupText.includes(data.groupName)).to.be.true;
@@ -60,7 +60,7 @@ describe('Groups - Edit group - Functionality', () => {
     it('should verify that clicking on group name in the list of groups redirect to group`s page', () => {
         const lastGroupName = $$(selector.groupNames)[0];
         lastGroupName.click();
-        browser.pause(1000);
+        $(selector.h1).waitForDisplayed(1000);
         const actualH1 = $(selector.h1).getText();
         const expectedH1 = `Group ${data.groupName}`;
         expect(actualH1).equal(expectedH1);
@@ -68,7 +68,7 @@ describe('Groups - Edit group - Functionality', () => {
 
     it('should verify that clicking on `Edit`button redirect to `Edit Group` page', () => {
         $(selector.editButton).click();
-        browser.pause(1000);
+        $(selector.h1).waitForDisplayed(1000);
         const actualH1 = $(selector.h1).getText();
         expect(actualH1).equal(expected.editGroupH1);
     });
@@ -109,7 +109,7 @@ describe('Groups - Edit group - Functionality', () => {
 
     it('should verify that name of group was changed', () => {
         $(selector.menuGroups).click();
-        browser.pause(6000);
+        $(selector.groupListItem).waitForDisplayed(1000);
         const lastGroup = $$(selector.groupListItem)[0];
         const lastGroupText = lastGroup.getText();
         expect(lastGroupText.includes(data.newGroupName)).to.be.true;
@@ -118,7 +118,7 @@ describe('Groups - Edit group - Functionality', () => {
     it('should verify that Description on group page was changed', () => {
         const lastGroupName = $$(selector.groupNames)[0];
         lastGroupName.click();
-        browser.pause(1000);
+        $(selector.descriptionButton).waitForDisplayed(1000);
         $(selector.descriptionButton).click();
         const actualDescriptionText = $(selector.descriptionText).getText();
         expect(actualDescriptionText).include(data.newGroupDescription)
