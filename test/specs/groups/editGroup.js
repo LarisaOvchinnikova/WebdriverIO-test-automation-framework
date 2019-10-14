@@ -163,6 +163,14 @@ describe('Groups - Edit group - Functionality', () => {
         expect($(selector.date).isDisplayed()).to.be.true;
     });
 
+    it('should verify that checkbox `Active` is displayed on `Create lecture` page', () => {
+        expect($(selector.checkbox).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that `Lecture description` textarea is displayed on `Create lecture` page', () => {
+        expect($(selector.lectureDescription).isDisplayed()).to.be.true;
+    });
+
 });
 
 
