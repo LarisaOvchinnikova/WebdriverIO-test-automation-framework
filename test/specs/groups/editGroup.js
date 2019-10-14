@@ -17,6 +17,8 @@ const selector = {
     slackWebhook: '//input[@name="slackWebhook"]',
     searchQuiz: '//input[@name="searchQuiz"]',
     successMessage: '//div[@class="notification notification-success notification-visible"]',
+    descriptionButton: '//a[contains(text(),"Description")]',
+    descriptionText: '//div/p',
 
 };
 const expected = {
@@ -32,6 +34,7 @@ const data = {
     newGroupName: 'Codewars winners',
     newGroupDescription: 'Group for those who like to think and win.',
     newAccessType: 'Members',
+    lectureLink: 'https://www.youtube.com/watch?v=pPJOen-1-mw',
 };
 
 describe('Groups - Edit group - Functionality', () => {
@@ -58,7 +61,7 @@ describe('Groups - Edit group - Functionality', () => {
         expect(lastGroupText.includes(data.groupName)).to.be.true;
     });
 
-    it('should verify that clicking on group name in the list of groups redirect to group page', () => {
+    it('should verify that clicking on group name in the list of groups redirect to group`s page', () => {
         const lastGroupName = $$(selector.groupNames)[0];
         lastGroupName.click();
         browser.pause(1000);
@@ -94,7 +97,7 @@ describe('Groups - Edit group - Functionality', () => {
         expect($(selector.searchQuiz).isDisplayed()).to.be.true;
     });
 
-    it('should verify that after editing and clicking on save button will redirect to `Groups` page', function () {
+    it('should verify that after editing and clicking on save button will redirect to `Groups` page', () => {
         $(selector.groupNameField).setValue(data.newGroupName);
         $(selector.editGroupDescription).setValue(data.newGroupDescription);
         $(selector.accessTypeField).selectByVisibleText(data.newAccessType);
@@ -116,4 +119,18 @@ describe('Groups - Edit group - Functionality', () => {
         expect(lastGroupText.includes(data.newGroupName)).to.be.true;
     });
 
+    it('should verify that Description on group page is correct', () => {
+        const lastGroupName = $$(selector.groupNames)[0];
+        lastGroupName.click();
+        browser.pause(1000);
+        $(selector.descriptionButton).click();
+        const actualDescriptionText = $(selector.descriptionText).getText();
+        expect(actualDescriptionText).include(data.newGroupDescription)
+    });
+
+    // https://app.pasv.us/group/5bf301f5b17cc43d5332d75a/lecture/5bf316dbb17cc43d5332d76a
+
+
 });
+
+
