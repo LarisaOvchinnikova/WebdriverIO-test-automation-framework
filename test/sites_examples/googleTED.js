@@ -27,8 +27,13 @@ describe('Google page - TED - functionality', () => {
        browser.keys("Enter");
     });
 
-    it('should check the first result', function () {
+    it('should check the first result', () => {
         const firstResult = $(selector.resultTitle).getText();
-        expect(firstResult).to.be.equal(expected.textOfResult);
+        expect(firstResult).to.include(expected.textOfResult);
+    });
+
+    it('should verify that URL contains `TED`', () => {
+        const actualUrl = browser.getUrl();
+        expect(actualUrl.includes('TED')).to.be.true;
     });
 });
