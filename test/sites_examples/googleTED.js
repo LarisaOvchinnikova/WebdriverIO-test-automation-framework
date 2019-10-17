@@ -4,15 +4,16 @@ const url = 'https://www.google.com';
 
 const selector = {
     inputField: '//input[@title="Search"]',
+    resultTitle: '//div[@id="res"]//h3',
 };
 const expected = {
-    h1Groups: 'Groups',
+    textOfResult: 'TED: Ideas worth spreading',
 };
 const data = {
-    groupName: 'Codewars gamers',
+    search: 'TED',
 };
 
-describe('Google page - functionality', () => {
+describe('Google page - TED - functionality', () => {
     before (() => {
         browser.url(url);
     });
@@ -21,4 +22,13 @@ describe('Google page - functionality', () => {
        expect($(selector.inputField).isDisplayed()).true;
     });
 
+   it('should type TED in search bar', () => {
+       $(selector.inputField).setValue(data.search);
+       browser.keys("Enter");
+    });
+
+    it('should check the first result', function () {
+        const firstResult = $(selector.resultTitle).getText();
+        expect(firstResult).to.be.equal(expected.textOfResult);
+    });
 });
