@@ -39,7 +39,7 @@ describe('Google page - TED - functionality', () => {
         expect(actualUrl.includes('TED')).to.be.true;
     });
 
-    it('should verify that click on button Videos redirect to videos page and first result contains text `TED-YouTube`', () =>
+    it('should verify that click on button Videos redirect to videos page and first result contains text `TED-YouTube`', () => {
         $(selector.videosButton).click();
         browser.pause(1000);
         const firstVideo = $(selector.resultTitle).getText();
