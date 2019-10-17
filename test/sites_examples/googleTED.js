@@ -6,10 +6,13 @@ const selector = {
     inputField: '//input[@title="Search"]',
     resultTitle: '//div[@id="res"]//h3',
     videosButton: '//a[contains(text(),"Videos")]',
+    imagesButton: '//a[contains(text(),"Images")]',
+    firstImage: '//div[@class="mVDMnf nJGrxf"]',
 };
 const expected = {
     textOfResult: 'TED: Ideas worth spreading',
     videoTitle: 'TED - YouTube',
+    imageTitle: 'TED Talks',
 };
 const data = {
     search: 'TED',
@@ -45,4 +48,13 @@ describe('Google page - TED - functionality', () => {
         const firstVideo = $(selector.resultTitle).getText();
         expect(firstVideo).to.include(expected.videoTitle);
     });
+
+    it('should verify that click on button Images redirect to images page and first result contains text `TED-Talks`', () => {
+        $(selector.imagesButton).click();
+        browser.pause(1000);
+        const firstImageText = $(selector.firstImage).getText();
+        expect(firstImageText).to.include(expected.imageTitle);
+    });
+
+
 });
