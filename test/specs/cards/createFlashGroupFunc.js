@@ -102,4 +102,13 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         const actualUrl = browser.getUrl();
         expect(actualUrl).to.equal(url.card);
     });
+
+    it('should verify that success message is displayed', () => {
+        expect($(selector.successMessage).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that amount of flashGroups is increased by 1', () => {
+        const newNumberOfFlashGroups = $$(selector.flashGroupName).length;
+        expect(newNumberOfFlashGroups === numberOfFlashGroups + 1).to.be.true;
+    });
 });
