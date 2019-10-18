@@ -62,4 +62,12 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect($(selector.createNewFlashGroupButton).isDisplayed()).to.be.true;
     });
 
+    it('should verify that button `Create new FlashGroup` has correct text', () => {
+        expect($(selector.createNewFlashGroupButton).getText()).equal(expected.buttonText);
+    });
+
+    it('should verify that amount of flashCardGroups is > 0', () => {
+        numberOfFlashGroups = $$(selector.flashGroupName).length;
+        expect(numberOfFlashGroups > 0).to.be.true;
+    });
 });
