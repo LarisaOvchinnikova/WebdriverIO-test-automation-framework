@@ -70,4 +70,11 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         numberOfFlashGroups = $$(selector.flashGroupName).length;
         expect(numberOfFlashGroups > 0).to.be.true;
     });
+
+    it('should verify URL after clicking on `Create new FlashGroup` button', () => {
+        $(selector.createNewFlashGroupButton).click();
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).equal(url.createFlashGroup);
+    });
+
 });
