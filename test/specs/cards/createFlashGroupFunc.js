@@ -58,4 +58,8 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(actualH1Text).to.equal(expected.h1Cards);
     });
 
+    it('should verify that button `Create new FlashGroup` is displayed', () => {
+        expect($(selector.createNewFlashGroupButton).isDisplayed()).to.be.true;
+    });
+
 });
