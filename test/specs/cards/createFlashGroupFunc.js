@@ -46,4 +46,10 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         const cardsIsDisplayed = $(selector.menuCards).isDisplayed();
         expect(cardsIsDisplayed).to.be.true;
     });
+
+    it('should verify that click to `Cards` in main menu should redirect to `FlashCards` page', () => {
+        $(selector.menuCards).click();
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).to.equal(url.card);
+    });
 });
