@@ -116,4 +116,9 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         const nameOfLastFlashGroup = $$(selector.flashGroupName)[0].getText();
         expect(nameOfLastFlashGroup).equal(data.flashCardGroupName);
     });
+
+    it('should verify that description of created Group is correct', () => {
+        const nameOfLastFlashGroup = $$(selector.groupDescription)[0].getText();
+        expect(nameOfLastFlashGroup).equal(data.flashCardGroupDescription);
+    });
 });
