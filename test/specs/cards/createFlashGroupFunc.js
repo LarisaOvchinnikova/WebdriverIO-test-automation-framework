@@ -77,4 +77,9 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(actualUrl).equal(url.createFlashGroup);
     });
 
+    it('should verify that `Create new Flash Group` page has correct h1', () => {
+        const actualH1Text = $(selector.h1).getText();
+        expect(actualH1Text).to.equal(expected.h1CreateNewFlashGroup);
+    });
+
 });
