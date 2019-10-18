@@ -82,4 +82,11 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(actualH1Text).to.equal(expected.h1CreateNewFlashGroup);
     });
 
+    it('should verify that `Group name` field is displayed', () => {
+        expect($(selector.groupNameField).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that `Group description` field is displayed', () => {
+        expect($(selector.groupDescriptionField).isDisplayed()).to.be.true;
+    });
 });
