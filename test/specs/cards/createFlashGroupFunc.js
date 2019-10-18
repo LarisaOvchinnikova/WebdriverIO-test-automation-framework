@@ -89,4 +89,17 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
     it('should verify that `Group description` field is displayed', () => {
         expect($(selector.groupDescriptionField).isDisplayed()).to.be.true;
     });
+
+    it('should verify that button `Create` is displayed', () => {
+        expect($(selector.createButton).isDisplayed()).to.be.true;
+    });
+
+    it('should verify that after filling fields and click on Create button redirect to `FlashCards` page', () => {
+        $(selector.groupNameField).setValue(data.flashCardGroupName);
+        $(selector.groupDescriptionField).setValue(data.flashCardGroupDescription);
+        $(selector.createButton).click();
+        browser.pause(1000);
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).to.equal(url.card);
+    });
 });
