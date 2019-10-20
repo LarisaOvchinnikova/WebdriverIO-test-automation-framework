@@ -26,6 +26,7 @@
     "groups:create": "wdio wdio.conf.js --spec test/specs/groups/createGroup.js --inspect",
     "groups:edit": "wdio wdio.conf.js --spec test/specs/groups/editGroup.js --inspect",
     "groups:createLecture": "wdio wdio.conf.js --spec test/specs/groups/createLecture.js --inspect",
+    "cards:createFlashGroupFunc": "wdio wdio.conf.js --spec test/specs/cards/createFlashGroupFunc.js --inspect",
 
     "google:TED": "wdio wdio.conf.js --spec test/sites_examples/googleTED.js --inspect"
 

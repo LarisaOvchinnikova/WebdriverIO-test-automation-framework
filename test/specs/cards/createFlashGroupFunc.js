@@ -1,6 +1,6 @@
 import { expect } from 'chai';
-import { url } from './../constants';
-import loginAction from './../user/_actions/loginAction';
+import { url } from './../../actions/constants';
+import loginAction from './../../actions/loginActions';
 //import flashCardGroupGetAll from './_actions/flashCardGroupGetAll';
 
 const selector = {
@@ -20,6 +20,7 @@ const expected = {
     h1Cards: 'FlashCards',
     buttonText: 'Create new FlashGroup',
     h1CreateNewFlashGroup: 'Create new Flash Group',
+    h1EditGroup: 'Edit ',
 };
 
 const data = {
@@ -122,8 +123,10 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(nameOfLastFlashGroup).equal(data.flashCardGroupDescription);
     });
 
-    it('should verify that click to `edit` button ', () => {
+    it('should verify that after click to `edit` button redirect to `Edit Group` page ', () => {
         $(selector.editButton).click();
         browser.pause(6000);
+        const actualH1 = $(selector.h1).getText();
+        expect(actualH1).equal(expected.h1EditGroup+data.flashCardGroupName);
     });
 });
