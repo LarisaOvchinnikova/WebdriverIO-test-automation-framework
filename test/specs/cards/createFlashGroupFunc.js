@@ -152,8 +152,18 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(actualFlashGroupName).equal(data.flashCardGroupName+data.addToName);
     });
 
-    it('should verify that on `FlashCards` page the description was changed', () => {
-        const actualFlashGroupName = $$(selector.groupDescription)[0].getText();
-        expect(actualFlashGroupName).equal(data.flashCardGroupDescription+data.addToDescription);
+    it('should verify that on `FlashCards` page the description of group was changed', () => {
+        const actualFlashGroupDescription = $$(selector.groupDescription)[0].getText();
+        expect(actualFlashGroupDescription).equal(flashGroupDescriptionOld + data.addToDescription);
+    });
+
+    it('should verify that the new name of group not equal old name', () => {
+        const actualFlashGroupName = $$(selector.flashGroupName)[0].getText();
+        expect(actualFlashGroupName !== flashGroupNameOld).to.be.true;
+    });
+
+    it('should verify that the new description of group not equal old description', () => {
+        const actualFlashGroupDescription = $$(selector.groupDescription)[0].getText();
+        expect(actualFlashGroupDescription !== flashGroupDescriptionOld).to.be.true;
     });
 });
