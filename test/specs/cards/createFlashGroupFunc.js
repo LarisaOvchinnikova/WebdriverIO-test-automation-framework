@@ -147,4 +147,9 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(actualH1).equal(expected.h1Cards);
     });
 
+    it('should verify that on `FlashCards` page the name of group in the list of groups was changed', () => {
+        const actualFlashGroupName = $$(selector.flashGroupName)[0].getText();
+        expect(actualFlashGroupName).equal(data.flashCardGroupName+data.addToName);
+    });
+
 });
