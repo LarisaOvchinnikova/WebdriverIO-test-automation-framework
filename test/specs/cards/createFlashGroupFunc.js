@@ -133,12 +133,18 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(actualH1).equal(expected.h1EditGroup+data.flashCardGroupName);
     });
 
-    it('should verify that after edited flashGroup redirect to `FlashCards` page ', () => {
+    it('should verify URL that after editing flashGroup and clicking Save button', () => {
         $(selector.groupNameField).addValue(data.addToName)
         $(selector.groupDescriptionField).addValue(data.addToDescription);
-        browser.pause(1000);
         $(selector.saveButton).click();
+        browser.pause(1000);
+        const actualUrl = browser.getUrl();
+        expect(actualUrl).equal(url.card);
     });
 
+    it('should verify H1 after editing flashGroup and redirecting to `FlashCards` page ', () => {
+        const actualH1 = $(selector.h1).getText();
+        expect(actualH1).equal(expected.h1Cards);
+    });
 
 });
