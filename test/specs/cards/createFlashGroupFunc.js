@@ -12,6 +12,7 @@ const selector = {
     groupDescriptionField: '//input[@name="description"]',
     groupDescription: '//div[@qa="description"]',
     createButton: '//button[@class="btn btn-primary"]',
+    saveButton: '//button[@class="btn btn-primary"]',
     successMessage: '//div[@class="notification notification-success notification-visible"]',
     editButton: '//a[@class="edit"]',
 };
@@ -25,7 +26,9 @@ const expected = {
 
 const data = {
     flashCardGroupName: 'QA',
-    flashCardGroupDescription: 'common questions',
+    flashCardGroupDescription: 'General questions',
+    addToName: ' test',
+    addToDescription: ' on QA methodology',
 };
 
 //const token = process.env.TOKEN_ADMIN;
@@ -129,4 +132,13 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         const actualH1 = $(selector.h1).getText();
         expect(actualH1).equal(expected.h1EditGroup+data.flashCardGroupName);
     });
+
+    it('should verify that after edited flashGroup redirect to `FlashCards` page ', () => {
+        $(selector.groupNameField).addValue(data.addToName)
+        $(selector.groupDescriptionField).addValue(data.addToDescription);
+        browser.pause(1000);
+        $(selector.saveButton).click();
+    });
+
+
 });
