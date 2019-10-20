@@ -152,4 +152,8 @@ describe('Cards - Create FlashCardGroup - Functionality', () => {
         expect(actualFlashGroupName).equal(data.flashCardGroupName+data.addToName);
     });
 
+    it('should verify that on `FlashCards` page the description was changed', () => {
+        const actualFlashGroupName = $$(selector.groupDescription)[0].getText();
+        expect(actualFlashGroupName).equal(data.flashCardGroupDescription+data.addToDescription);
+    });
 });
