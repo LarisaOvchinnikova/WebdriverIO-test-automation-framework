@@ -7,6 +7,7 @@ const selector = {
     searchField: '//input[@id="search-text-input"]',
     searchResult: '//div[@class="products-header"]',
     product: '//p/a[@class="product-link"]',
+    productDescription: '//a//span[@class="product-title equal-height-cell"]',
 
 };
 
@@ -15,6 +16,7 @@ const data = {
 };
 
 let countOfResults;
+const arrayOfKeyWords = data.search.toLowerCase().split(' ');
 
 describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
@@ -50,4 +52,14 @@ describe('TJMAXX - Search field -  functionality', () => {
         const productLinksCount = $$(selector.product).length;
         expect(productLinksCount).equal(+countOfResults);
     });
+
+    it('should verify that first product description contains key search words', () => {
+        const productDescriptionText = $$(selector.productDescription)[0].getText().toLowerCase();
+        let k = 0;
+        for (let i = 0; i < arrayOfKeyWords.length; i++){
+           if (productDescriptionText.includes(arrayOfKeyWords[i])) k++;
+        }
+        expect(k).equal(arrayOfKeyWords.length);
+    });
+
 });
