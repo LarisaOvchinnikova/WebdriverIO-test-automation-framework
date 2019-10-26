@@ -28,7 +28,8 @@
     "groups:createLecture": "wdio wdio.conf.js --spec test/specs/groups/createLecture.js --inspect",
     "cards:createFlashGroupFunc": "wdio wdio.conf.js --spec test/specs/cards/createFlashGroupFunc.js --inspect",
 
-    "google:TED": "wdio wdio.conf.js --spec test/sites_examples/googleTED.js --inspect"
+    "google:TED": "wdio wdio.conf.js --spec test/sites_examples/googleTED.js --inspect",
+    "tjmaxx": "wdio wdio.conf.js --spec test/sites_examples/tjmaxx.js --inspect"
 
   },
   "author": "",

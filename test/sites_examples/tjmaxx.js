@@ -1,0 +1,26 @@
+import { expect } from 'chai';
+
+const url = 'https://tjmaxx.tjx.com/store/index.jsp';
+
+const selector = {
+   logo: '//img[@itemprop="logo"]',
+
+};
+const expected = {
+
+};
+const data = {
+
+};
+
+describe('TJMAXX - functionality', () => {
+    before (() => {
+        browser.url(url);
+    });
+
+    it('should verify that logo is displayed', () => {
+       expect($(selector.logo).isDisplayed()).true;
+    });
+
+
+});
