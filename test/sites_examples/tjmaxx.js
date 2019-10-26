@@ -40,6 +40,13 @@ describe('TJMAXX - Search field -  functionality', () => {
         expect(text).to.include(data.search);
     });
 
-
+    it('should find count of results and verify count > 0', () => {
+        const text = $(selector.searchResult).getText();
+        const count = text.match(/\d/g).join('');
+        console.log('------------------------------------------------');
+        console.log(count);
+        console.log('------------------------------------------------');
+        expect(+count > 0).to.be.true;
+    });
 
 });
