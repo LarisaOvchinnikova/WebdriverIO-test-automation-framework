@@ -4,6 +4,7 @@ const url = 'https://tjmaxx.tjx.com/store/index.jsp';
 
 const selector = {
    logo: '//img[@itemprop="logo"]',
+    searchField: '//input[@id="search-text-input"]',
 
 };
 const expected = {
@@ -13,7 +14,7 @@ const data = {
 
 };
 
-describe('TJMAXX - functionality', () => {
+describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
         browser.url(url);
     });
@@ -22,5 +23,8 @@ describe('TJMAXX - functionality', () => {
        expect($(selector.logo).isDisplayed()).true;
     });
 
+    it('should verify that search field is displayed', () => {
+        expect($(selector.searchField).isDisplayed()).true;
+    });
 
 });
