@@ -6,14 +6,15 @@ const selector = {
    logo: '//img[@itemprop="logo"]',
     searchField: '//input[@id="search-text-input"]',
     searchResult: '//div[@class="products-header"]',
+    product: '//p/a[@class="product-link"]',
 
 };
-const expected = {
 
-};
 const data = {
     search: 'linen dress Italy',
 };
+
+let countOfResults;
 
 describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
@@ -29,10 +30,9 @@ describe('TJMAXX - Search field -  functionality', () => {
         expect($(selector.searchField).isDisplayed()).true;
     });
 
-    it('should enter text in search field', () => {
+    let test = it('should enter text in search field', () => {
         $(selector.searchField).setValue(data.search);
         browser.keys('Enter');
-        browser.pause(6000);
     });
 
     it('should verify that result of search displays on the page', () => {
@@ -42,11 +42,12 @@ describe('TJMAXX - Search field -  functionality', () => {
 
     it('should find count of results and verify count > 0', () => {
         const text = $(selector.searchResult).getText();
-        const count = text.match(/\d/g).join('');
-        console.log('------------------------------------------------');
-        console.log(count);
-        console.log('------------------------------------------------');
-        expect(+count > 0).to.be.true;
+        countOfResults = text.match(/\d/g).join('');
+        expect(+countOfResults > 0).to.be.true;
     });
 
+    it('should find count of product links and verify that it = count of results', () => {
+        const productLinksCount = $$(selector.product).length;
+        expect(productLinksCount).equal(+countOfResults);
+    });
 });
