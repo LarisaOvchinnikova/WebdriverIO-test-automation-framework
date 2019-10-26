@@ -5,6 +5,7 @@ const url = 'https://tjmaxx.tjx.com/store/index.jsp';
 const selector = {
    logo: '//img[@itemprop="logo"]',
     searchField: '//input[@id="search-text-input"]',
+    searchResult: '//div[@class="products-header"]',
 
 };
 const expected = {
@@ -33,6 +34,12 @@ describe('TJMAXX - Search field -  functionality', () => {
         browser.keys('Enter');
         browser.pause(6000);
     });
+
+    it('should verify that result of search displays on the page', () => {
+        const text = $(selector.searchResult).getText();
+        expect(text).to.include(data.search);
+    });
+
 
 
 });
