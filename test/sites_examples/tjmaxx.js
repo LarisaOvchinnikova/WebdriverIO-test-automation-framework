@@ -8,6 +8,7 @@ const selector = {
     searchResult: '//div[@class="products-header"]',
     product: '//p/a[@class="product-link"]',
     productDescription: '//a//span[@class="product-title equal-height-cell"]',
+    productBrand: '//span[@class="product-brand"]',
 
 };
 
@@ -60,6 +61,11 @@ describe('TJMAXX - Search field -  functionality', () => {
            if (productDescriptionText.includes(arrayOfKeyWords[i])) k++;
         }
         expect(k).equal(arrayOfKeyWords.length);
+    });
+
+    it('should find count of product brands and verify that it = count of results', () => {
+        const productBrandCount = $$(selector.productBrand).length;
+        expect(productBrandCount).equal(+countOfResults);
     });
 
 });
