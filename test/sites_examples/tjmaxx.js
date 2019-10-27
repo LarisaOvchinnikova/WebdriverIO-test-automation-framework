@@ -8,7 +8,9 @@ const selector = {
     searchResult: '//div[@class="products-header"]',
     product: '//p/a[@class="product-link"]',
     productDescription: '//a//span[@class="product-title equal-height-cell"]',
+    productLink: ''
     productBrand: '//span[@class="product-brand"]',
+    h1Product: '//h1[@class="product-brand"]',
 
 };
 
@@ -18,6 +20,7 @@ const data = {
 
 let countOfResults;
 const arrayOfKeyWords = data.search.toLowerCase().split(' ');
+let nameOfBrand;
 
 describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
@@ -65,7 +68,15 @@ describe('TJMAXX - Search field -  functionality', () => {
 
     it('should find count of product brands and verify that it = count of results', () => {
         const productBrandCount = $$(selector.productBrand).length;
+        nameOfBrand = $(selector.productBrand)[0].getText();
         expect(productBrandCount).equal(+countOfResults);
+    });
+
+    it('should verify that click on first product brand redirect to product page', () => {
+        $(selector.productBrand)[0].click();
+        browser.pause(600);
+        const actualH1 = $(selector.h1Product).getText();
+        expect(actualH1).equal(nameOfBrand);
     });
 
 });
