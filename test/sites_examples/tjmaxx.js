@@ -11,7 +11,7 @@ const selector = {
     productBrand: '//span[@class="product-brand"]',
     productLink: '//a[@class="product-link"]',
     strikePrice: '//span[@class="strike"]',
-    newPrice: '//span[@class="discounted-price  "]',
+    price: '//span[@class="discounted-price  "]',
     h1Product: '//h1[@class="product-brand"]',
 
 };
@@ -25,6 +25,8 @@ const arrayOfKeyWords = data.search.toLowerCase().split(' ');
 let nameOfBrand;
 let oldPrice;
 let newPrice;
+let oldPriceOfProduct;
+
 
 describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
@@ -82,7 +84,7 @@ describe('TJMAXX - Search field -  functionality', () => {
     it('should get name of product brand and old and new price', () => {
         nameOfBrand = $(selector.productBrand).getText();
         oldPrice = $(selector.strikePrice).getText();
-        const strikeAndNewPrice = $(selector.newPrice).getText();
+        const strikeAndNewPrice = $(selector.price).getText();
         newPrice = strikeAndNewPrice.replace(oldPrice,'').trim();
         console.log('=============================================================')
         console.log(nameOfBrand);
@@ -90,15 +92,24 @@ describe('TJMAXX - Search field -  functionality', () => {
         console.log(strikeAndNewPrice);
         console.log(newPrice);
         console.log('=============================================================')
-
     });
 
     it('should verify that click on first product brand redirect to product page', () => {
         const product = $(selector.productLink).click();
- //     console.log('=============================================================')
         browser.pause(600);
         const actualH1 = $(selector.h1Product).getText();
         expect(actualH1).equal(nameOfBrand);
+    });
+
+    it('should verify that old price on product page is the same as oldPrice on the results page ', () => {
+        oldPriceOfProduct = $(selector.strikePrice).getText();
+        expect(oldPriceOfProduct).equal(oldPrice);
+    });
+
+    it('should verify that new price on product page is the same as new price on the results page ', () => {
+        const strikeAndNewPrice = $(selector.price).getText();
+        const newPriceOfProduct = strikeAndNewPrice.replace(oldPriceOfProduct,'').trim();
+        expect(newPriceOfProduct).equal(newPrice);
     });
 
 });
