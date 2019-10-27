@@ -3,7 +3,7 @@ import { expect } from 'chai';
 const url = 'https://tjmaxx.tjx.com/store/index.jsp';
 
 const selector = {
-   logo: '//img[@itemprop="logo"]',
+    logo: '//img[@itemprop="logo"]',
     searchField: '//input[@id="search-text-input"]',
     searchResult: '//div[@class="products-header"]',
     product: '//p/a[@class="product-link"]',
@@ -33,14 +33,11 @@ describe('TJMAXX - Search field -  functionality', () => {
         browser.url(url);
         browser.maximizeWindow();
         browser.pause(1000);
-        browser.switchWindow(url);
-        browser.pause(1000);
-    });
+   });
 
-    it('should verify that logo is displayed', () => {
+   it('should verify that logo is displayed', () => {
        expect($(selector.logo).isDisplayed()).true;
     });
-
 
     it('should verify that search field is displayed', () => {
         expect($(selector.searchField).isDisplayed()).true;
