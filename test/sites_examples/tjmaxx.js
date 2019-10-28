@@ -3,6 +3,7 @@ import { expect } from 'chai';
 const url = 'https://tjmaxx.tjx.com/store/index.jsp';
 
 const selector = {
+    h1: '//h1',
     logo: '//img[@itemprop="logo"]',
     searchField: '//input[@id="search-text-input"]',
     searchResult: '//div[@class="products-header"]',
@@ -93,6 +94,19 @@ describe('TJMAXX - Search field -  functionality', () => {
         console.log('=============================================================')
     });
 
+    it('should find names of brands in the loop', () => {
+        const allBrandsCount = $$(selector.productBrand).length;
+        const allBrands = $$(selector.productBrand);
+        for(let i = 0; i < allBrandsCount; i++) {
+            const name = $$(selector.productBrand)[i].getText();
+
+            console.log('=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=')
+            console.log(name);
+            console.log('=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=')
+        }
+    });
+
+
     it('should verify that click on first product brand redirect to product page', () => {
         const product = $(selector.productLink).click();
         browser.pause(600);
@@ -111,4 +125,10 @@ describe('TJMAXX - Search field -  functionality', () => {
         expect(newPriceOfProduct).equal(newPrice);
     });
 
+    it('should navigate back to result page ', () => {
+        browser.back();
+        browser.pause(6000);
+        const h1actual = $(selector.h1).getText();
+        expect(h1actual).includes(data.search);
+    });
 });
