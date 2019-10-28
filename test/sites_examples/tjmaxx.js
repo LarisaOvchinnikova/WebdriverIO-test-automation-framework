@@ -6,9 +6,9 @@ const selector = {
     logo: '//img[@itemprop="logo"]',
     searchField: '//input[@id="search-text-input"]',
     searchResult: '//div[@class="products-header"]',
-    product: '//p/a[@class="product-link"]',
+    product: '//div[@class="product-inner"]',
     productDescription: '//a//span[@class="product-title equal-height-cell"]',
-    productBrand: '//span[@class="product-brand"]',
+    productBrand: '//a/span[@class="product-brand"]', //array
     productLink: '//a[@class="product-link"]',
     strikePrice: '//span[@class="strike"]',
     price: '//span[@class="discounted-price  "]',
@@ -32,18 +32,20 @@ describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
         browser.url(url);
         browser.maximizeWindow();
+        browser.refresh();
+
         browser.pause(1000);
    });
 
-   it('should verify that logo is displayed', () => {
+   it('should open the main page and verify that logo is displayed', () => {
        expect($(selector.logo).isDisplayed()).true;
     });
 
-    it('should verify that search field is displayed', () => {
+    it('should verify that search field is displayed on the main page', () => {
         expect($(selector.searchField).isDisplayed()).true;
     });
 
-    let test = it('should enter text in search field', () => {
+    let test = it('should type text in search field', () => {
         $(selector.searchField).setValue(data.search);
         browser.keys('Enter');
     });
@@ -64,7 +66,12 @@ describe('TJMAXX - Search field -  functionality', () => {
         expect(productLinksCount).equal(+countOfResults);
     });
 
-    it('should verify that first product description contains key search words', () => {
+    it('should find count of brands and verify that it = count of results', () => {
+        const allBrands = $$(selector.productBrand).length;
+        expect(allBrands).equal(+countOfResults);
+    });
+
+   it('should verify that first product description contains key search words', () => {
         const productDescriptionText = $$(selector.productDescription)[0].getText().toLowerCase();
         let k = 0;
         for (let i = 0; i < arrayOfKeyWords.length; i++){
@@ -73,12 +80,7 @@ describe('TJMAXX - Search field -  functionality', () => {
         expect(k).equal(arrayOfKeyWords.length);
     });
 
-    it('should find count of product brands and verify that it = count of results', () => {
-        const productBrandCount = $$(selector.productBrand).length;
-        expect(productBrandCount).equal(+countOfResults);
-    });
-
-    it('should get name of product brand and old and new price', () => {
+    it('should get name of product text and old and new price', () => {
         nameOfBrand = $(selector.productBrand).getText();
         oldPrice = $(selector.strikePrice).getText();
         const strikeAndNewPrice = $(selector.price).getText();
