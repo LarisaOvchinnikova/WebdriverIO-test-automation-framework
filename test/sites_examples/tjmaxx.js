@@ -27,7 +27,7 @@ let nameOfBrand;
 let oldPrice;
 let newPrice;
 let oldPriceOfProduct;
-
+let k = 0;
 
 describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
@@ -95,18 +95,22 @@ describe('TJMAXX - Search field -  functionality', () => {
     });
 
     it('should find names of brands in the loop', () => {
+
         const allBrandsCount = $$(selector.productBrand).length;
         const allBrands = $$(selector.productBrand);
         for(let i = 0; i < allBrandsCount; i++) {
-            const name = $$(selector.productBrand)[i].getText();
-
-            console.log('=+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=')
-            console.log(name);
-            console.log('=++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++=')
+          const name = $$(selector.productBrand)[i].getText();
+          $$(selector.productBrand)[i].click();
+          browser.pause(1500);
+          const actualH1 = $(selector.h1Product).getText();
+          if (actualH1 === name) k++;
+          browser.back();
+          browser.pause(1500);
         }
+        expect(k).equal(+countOfResults);
     });
 
-
+    /*
     it('should verify that click on first product brand redirect to product page', () => {
         const product = $(selector.productLink).click();
         browser.pause(600);
@@ -131,4 +135,6 @@ describe('TJMAXX - Search field -  functionality', () => {
         const h1actual = $(selector.h1).getText();
         expect(h1actual).includes(data.search);
     });
+    */
+
 });
