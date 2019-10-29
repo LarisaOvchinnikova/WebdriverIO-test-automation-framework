@@ -13,6 +13,7 @@ const selector = {
     productLink: '//a[@class="product-link"]',
     strikePrice: '//span[@class="strike"]',
     price: '//span[@class="discounted-price  "]',
+    productPrice: '//span[@class="product-price"]',
     h1Product: '//h1[@class="product-brand"]',
 
 };
@@ -80,7 +81,7 @@ describe('TJMAXX - Search field -  functionality', () => {
         }
         expect(k).equal(arrayOfKeyWords.length);
     });
-
+/*
     it('should get name of product text and old and new price', () => {
         nameOfBrand = $(selector.productBrand).getText();
         oldPrice = $(selector.strikePrice).getText();
@@ -93,7 +94,7 @@ describe('TJMAXX - Search field -  functionality', () => {
         console.log(newPrice);
         console.log('=============================================================')
     });
-
+*/
     it('should find names of brands in the loop', () => {
 
         const allBrandsCount = $$(selector.productBrand).length;
@@ -108,6 +109,21 @@ describe('TJMAXX - Search field -  functionality', () => {
           browser.pause(1500);
         }
         expect(k).equal(+countOfResults);
+    });
+
+    it('should check product prices in the loop', () => {
+        k = 0;
+        const allBrandsCount = $$(selector.productBrand).length;
+        for(let i = 0; i < allBrandsCount; i++) {
+            const price = $$(selector.productPrice)[i].getText();
+            $$(selector.productBrand)[i].click();
+            browser.pause(1500);
+            const productPrice = $(selector.productPrice).getText();
+            if (productPrice === price) k++;
+            browser.back();
+            browser.pause(1500);
+        }
+        expect(k).equal(allBrandsCount);
     });
 
     /*
