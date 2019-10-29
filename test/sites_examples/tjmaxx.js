@@ -59,18 +59,18 @@ describe('TJMAXX - Search field -  functionality', () => {
 
     it('should find count of results and verify count > 0', () => {
         const text = $(selector.searchResult).getText();
-        countOfResults = text.match(/\d/g).join('');
-        expect(+countOfResults > 0).to.be.true;
+        countOfResults = +text.match(/\d/g).join('');
+        expect(countOfResults > 0).to.be.true;
     });
 
     it('should find count of product links and verify that it = count of results', () => {
         const productLinksCount = $$(selector.product).length;
-        expect(productLinksCount).equal(+countOfResults);
+        expect(productLinksCount).equal(countOfResults);
     });
 
     it('should find count of brands and verify that it = count of results', () => {
         const allBrands = $$(selector.productBrand).length;
-        expect(allBrands).equal(+countOfResults);
+        expect(allBrands).equal(countOfResults);
     });
 
    it('should verify that first product description contains key search words', () => {
@@ -95,37 +95,49 @@ describe('TJMAXX - Search field -  functionality', () => {
         console.log('=============================================================')
     });
 */
+
+    it('should count the amount of products on results page', () => {
+        const count = $$(selector.productBrand).length;
+        expect(count).equal(countOfResults);
+    });
+
     it('should find names of brands in the loop', () => {
 
-        const allBrandsCount = $$(selector.productBrand).length;
-        const allBrands = $$(selector.productBrand);
-        for(let i = 0; i < allBrandsCount; i++) {
+   //     const allBrandsCount = $$(selector.productBrand).length;
+    //    const allBrands = $$(selector.productBrand);
+        for(let i = 0; i < countOfResults; i++) {
           const name = $$(selector.productBrand)[i].getText();
           $$(selector.productBrand)[i].click();
-          browser.pause(1500);
+          browser.pause(6000);
           const actualH1 = $(selector.h1Product).getText();
           if (actualH1 === name) k++;
           browser.back();
-          browser.pause(1500);
+      //    browser.pause(3000);
         }
-        expect(k).equal(+countOfResults);
+        expect(k).equal(countOfResults);
     });
-
+/*
     it('should check product prices in the loop', () => {
         k = 0;
         const allBrandsCount = $$(selector.productBrand).length;
         for(let i = 0; i < allBrandsCount; i++) {
             const price = $$(selector.productPrice)[i].getText();
             $$(selector.productBrand)[i].click();
-            browser.pause(1500);
+            browser.pause(3000);
             const productPrice = $(selector.productPrice).getText();
             if (productPrice === price) k++;
+            else {
+                console.log('===================== ' + i + '==============================');
+                console.log(price);
+                console.log(productPrice);
+                console.log('______________________________________________________________');
+            }
             browser.back();
-            browser.pause(1500);
+            browser.pause(3000);
         }
         expect(k).equal(allBrandsCount);
     });
-
+*/
     /*
     it('should verify that click on first product brand redirect to product page', () => {
         const product = $(selector.productLink).click();
