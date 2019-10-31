@@ -14,6 +14,7 @@ const selector = {
     strikePrice: '//span[@class="strike"]',
     price: '//span[@class="discounted-price  "]',
     productPrice: '//span[@class="product-price"]',
+    comparePrice: '//span[@class="price-comparison"]',
     h1Product: '//h1[@class="product-brand"]',
 
 };
@@ -81,7 +82,7 @@ describe('TJMAXX - Search field -  functionality', () => {
         }
         expect(k).equal(arrayOfKeyWords.length);
     });
-/*
+
     it('should get name of product text and old and new price', () => {
         nameOfBrand = $(selector.productBrand).getText();
         oldPrice = $(selector.strikePrice).getText();
@@ -94,13 +95,16 @@ describe('TJMAXX - Search field -  functionality', () => {
         console.log(newPrice);
         console.log('=============================================================')
     });
-*/
 
     it('should count the amount of products on results page', () => {
         const count = $$(selector.productBrand).length;
         expect(count).equal(countOfResults);
     });
-
+    it('should find compare price of product on results page', () => {
+        const comparePriceCount = $$(selector.comparePrice).length;
+        expect(comparePriceCount).equal(countOfResults);
+    });
+/*
     it('should find names of brands in the loop', () => {
 
    //     const allBrandsCount = $$(selector.productBrand).length;
@@ -137,8 +141,9 @@ describe('TJMAXX - Search field -  functionality', () => {
         }
         expect(k).equal(allBrandsCount);
     });
-*/
     /*
+
+ */
     it('should verify that click on first product brand redirect to product page', () => {
         const product = $(selector.productLink).click();
         browser.pause(600);
@@ -163,6 +168,5 @@ describe('TJMAXX - Search field -  functionality', () => {
         const h1actual = $(selector.h1).getText();
         expect(h1actual).includes(data.search);
     });
-    */
 
 });
