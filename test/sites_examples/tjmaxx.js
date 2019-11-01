@@ -30,6 +30,8 @@ let oldPrice;
 let newPrice;
 let oldPriceOfProduct;
 let k = 0;
+let comparePriceText;
+let comparePrice;
 
 describe('TJMAXX - Search field -  functionality', () => {
     before (() => {
@@ -104,6 +106,16 @@ describe('TJMAXX - Search field -  functionality', () => {
         const comparePriceCount = $$(selector.comparePrice).length;
         expect(comparePriceCount).equal(countOfResults);
     });
+
+    it('should verify compare price of product on results page', () => {
+        comparePriceText = $(selector.comparePrice).getText();
+        const index = comparePriceText.indexOf('$');
+        const comparePrice = comparePriceText.substring(index+1);
+        console.log('=======================' + comparePriceText +'===================================')
+        console.log('=======================' + index +'===================================')
+        console.log('=======================' + comparePrice +'===================================')
+    });
+
 /*
     it('should find names of brands in the loop', () => {
         for(let i = 0; i < countOfResults; i++) {
