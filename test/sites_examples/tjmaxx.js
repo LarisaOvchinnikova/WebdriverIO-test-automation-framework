@@ -167,6 +167,11 @@ describe('TJMAXX - Search field -  functionality', () => {
         expect(newPriceOfProduct).equal(newPrice);
     });
 
+    it('should verify that compare price on product page is the same as compare price on the results page ', () => {
+        const comparePriceString = $(selector.comparePrice).getText();
+        expect(comparePriceString).includes(comparePriceText);
+    });
+
     it('should navigate back to result page ', () => {
         browser.back();
         browser.pause(6000);
