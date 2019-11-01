@@ -20,7 +20,7 @@ const selector = {
 };
 
 const data = {
-    search: 'linen dress Italy',
+    search: 'linen dress italy',
 };
 
 let countOfResults;
@@ -106,21 +106,16 @@ describe('TJMAXX - Search field -  functionality', () => {
     });
 /*
     it('should find names of brands in the loop', () => {
-
-   //     const allBrandsCount = $$(selector.productBrand).length;
-    //    const allBrands = $$(selector.productBrand);
         for(let i = 0; i < countOfResults; i++) {
           const name = $$(selector.productBrand)[i].getText();
           $$(selector.productBrand)[i].click();
-          browser.pause(6000);
+          browser.pause(9000);
           const actualH1 = $(selector.h1Product).getText();
           if (actualH1 === name) k++;
           browser.back();
-      //    browser.pause(3000);
         }
         expect(k).equal(countOfResults);
     });
-/*
     it('should check product prices in the loop', () => {
         k = 0;
         const allBrandsCount = $$(selector.productBrand).length;
@@ -141,9 +136,7 @@ describe('TJMAXX - Search field -  functionality', () => {
         }
         expect(k).equal(allBrandsCount);
     });
-    /*
-
- */
+   */
     it('should verify that click on first product brand redirect to product page', () => {
         const product = $(selector.productLink).click();
         browser.pause(600);
@@ -165,7 +158,7 @@ describe('TJMAXX - Search field -  functionality', () => {
     it('should navigate back to result page ', () => {
         browser.back();
         browser.pause(6000);
-        const h1actual = $(selector.h1).getText();
+        const h1actual = $(selector.h1).getText().toLowerCase();
         expect(h1actual).includes(data.search);
     });
 
