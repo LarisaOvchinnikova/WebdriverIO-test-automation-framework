@@ -3,9 +3,9 @@ import { expect } from 'chai';
 const url = 'http://gymn22.minsk.edu.by/';
 
 const selector = {
-    h1: '//h1',
     minEdu: '//div[@id="wb_Text1"]',
     nameGymn: '//div[@id="wb_Image2"]//img[@id="Image1"]',
+    searchField: '//input[@type="search"]',
 
 };
 
@@ -27,4 +27,8 @@ describe('Gumnazia 22 Minsk - Design', () => {
         expect(titleIsDisplayed).true;
     });
 
+    it('should verify that search field is displayed', () => {
+        const searchIsDisplayed  = $(selector.searchField).isDisplayed();
+        expect(searchIsDisplayed).true;
+    });
 });
