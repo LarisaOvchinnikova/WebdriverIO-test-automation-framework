@@ -32,8 +32,17 @@ describe('Gumnazia 22 Minsk - Design', () => {
         const searchIsDisplayed  = $(selector.searchField).isDisplayed();
         expect(searchIsDisplayed).true;
     });
+
     it('should verify that loupe is displayed', () => {
         const loupeIsDisplayed  = $(selector.loupe).isDisplayed();
         expect(loupeIsDisplayed).true;
+    });
+
+    it('should enter  data in search field', () => {
+        $(selector.searchField).setValue('расписание');
+        $(selector.loupe).click();
+        browser.pause(1000);
+        const actualh2Head = $$('//h2').length;
+        expect(actualh2Head > 0).true;
     });
 });
