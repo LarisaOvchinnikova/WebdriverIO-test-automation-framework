@@ -12,7 +12,7 @@ const selector = {
 };
 
 
-describe('Gumnazia 22 Minsk - Design', () => {
+describe('Gymnazia 22 Minsk - Design', () => {
     before (() => {
         browser.url(url);
         browser.maximizeWindow();
@@ -52,4 +52,8 @@ describe('Gumnazia 22 Minsk - Design', () => {
         expect(actualh2Text).equal('поиск по сайту');
     });
 
+    it('should verify result contain word поиск', () => {
+        const actualResult = $('//body//yass-li[1]').getText().toLowerCase();
+        expect(actualResult).includes('расписание');
+    });
 });
