@@ -7,6 +7,7 @@ const selector = {
     nameGymn: '//div[@id="wb_Image2"]//img[@id="Image1"]',
     searchField: '//input[@type="search"]',
     loupe: '//input[@class="ya-site-form__submit"]',
+    h2: '//h2',
 
 };
 
@@ -42,7 +43,13 @@ describe('Gumnazia 22 Minsk - Design', () => {
         $(selector.searchField).setValue('расписание');
         $(selector.loupe).click();
         browser.pause(1000);
-        const actualh2Head = $$('//h2').length;
+        const actualh2Head = $$(selector.h2).length;
         expect(actualh2Head > 0).true;
     });
+
+    it('should verify redirect to page поиск', () => {
+        const actualh2Text = $(selector.h2).getText().toLowerCase();
+        expect(actualh2Text).equal('поиск по сайту');
+    });
+
 });
