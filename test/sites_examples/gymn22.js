@@ -8,6 +8,7 @@ const selector = {
     searchField: '//input[@type="search"]',
     loupe: '//input[@class="ya-site-form__submit"]',
     h2: '//h2',
+    teacherRoom: '//li[@class="parent"][3]',
 
 };
 
@@ -39,21 +40,25 @@ describe('Gymnazia 22 Minsk - Design', () => {
         expect(loupeIsDisplayed).true;
     });
 
-    it('should enter  data in search field', () => {
-        $(selector.searchField).setValue('расписание');
-        $(selector.loupe).click();
-        browser.pause(1000);
-        const actualh2Head = $$(selector.h2).length;
-        expect(actualh2Head > 0).true;
-    });
+    // it('should enter  data in search field', () => {
+    //     $(selector.searchField).setValue('расписание');
+    //     $(selector.loupe).click();
+    //     browser.pause(1000);
+    //     const actualh2Head = $$(selector.h2).length;
+    //     expect(actualh2Head > 0).true;
+    // });
+    //
+    // it('should verify redirect to page поиск', () => {
+    //     const actualh2Text = $(selector.h2).getText().toLowerCase();
+    //     expect(actualh2Text).equal('поиск по сайту');
+    // });
+    //
+    // it('should verify result contain word поиск', () => {
+    //     const actualResult = $('//body//yass-li[1]').getText().toLowerCase();
+    //     expect(actualResult).includes('расписание');
+    // });
 
-    it('should verify redirect to page поиск', () => {
-        const actualh2Text = $(selector.h2).getText().toLowerCase();
-        expect(actualh2Text).equal('поиск по сайту');
-    });
-
-    it('should verify result contain word поиск', () => {
-        const actualResult = $('//body//yass-li[1]').getText().toLowerCase();
-        expect(actualResult).includes('расписание');
+    it('should verify open menu Учительская', () => {
+        $(selector.teacherRoom).click();
     });
 });
