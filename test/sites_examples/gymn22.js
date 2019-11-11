@@ -60,5 +60,10 @@ describe('Gymnazia 22 Minsk - Design', () => {
 
     it('should verify open menu Учительская', () => {
         $(selector.teacherRoom).click();
+        browser.pause(600);
+        expect($('//h2').getText()).equal('Администрация');
+
+
+
     });
 });
