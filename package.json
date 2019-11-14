@@ -31,8 +31,8 @@
     "google:TED": "wdio wdio.conf.js --spec test/sites_examples/googleTED.js --inspect",
     "tjmaxx": "wdio wdio.conf.js --spec test/sites_examples/tjmaxx.js --inspect",
     "goodrx": "wdio wdio.conf.js --spec test/sites_examples/goodrx.js --inspect",
-    "gymn22": "wdio wdio.conf.js --spec test/sites_examples/gymn22.js --inspect"
-
+    "gymn22": "wdio wdio.conf.js --spec test/sites_examples/gymn22.js --inspect",
+    "walmart": "wdio wdio.conf.js --spec test/sites_examples/walmart.js --inspect"
   },
   "author": "",
   "license": "ISC",
