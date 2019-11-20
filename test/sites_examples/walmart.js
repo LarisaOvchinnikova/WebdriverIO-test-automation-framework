@@ -5,6 +5,7 @@ const url = 'https://www.walmart.com/';
 const selector = {
     logo: '//a[@id=\'vh-home-link\']//span[@class=\'g_a g_i\']',
     search: '//input[@id=\'global-search-input\']',
+    allDeparttmentsSearch: '//div[@id="search-category-bg"]',
 
 };
 
@@ -24,6 +25,9 @@ describe('Facebook - functionality', () => {
         const logoIsDisplayed = $(selector.logo).isDisplayed();
         expect(logoIsDisplayed).to.be.true;
     });
-
+    it('should verify All Departments drop menu is existing', () => {
+        const allDepIsExisting = $(selector.allDeparttmentsSearch).isExisting();
+        expect(allDepIsExisting).to.be.true;
+    });
 
 });
