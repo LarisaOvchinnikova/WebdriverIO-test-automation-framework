@@ -40,7 +40,7 @@ describe('Facebook - functionality', () => {
 
 
     it('should enter text in search field', () => {
-        $(selector.search).setValue('vitamin C');
+        $(selector.search).setValue('shampoo');
         browser.pause(10000);
 
     });
