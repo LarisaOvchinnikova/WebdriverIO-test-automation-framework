@@ -33,6 +33,12 @@ describe('Facebook - functionality', () => {
         expect(allDepIsExisting).to.be.true;
     });
 
+    it('should verify lupa is displaying', () => {
+        const lupaIsDisplayed = $(selector.lupa).isDisplayed();
+        expect(lupaIsDisplayed).to.be.true;
+    });
+
+
     it('should enter text in search field', () => {
         $(selector.search).setValue('vitamin C');
         browser.pause(10000);
