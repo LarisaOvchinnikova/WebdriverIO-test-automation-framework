@@ -7,6 +7,7 @@ const selector = {
     searchField: '//div[@class="KeySearch"]',
     buttonSignIn: '//button[@id="yourAccount"]',
     buttonJoinForFree: '//button[@class="button-secondary"]',
+    frame: '//div[@id="modalIframe"]',
 };
 
 describe('Kmart - Search field -  functionality', () => {
@@ -28,7 +29,6 @@ describe('Kmart - Search field -  functionality', () => {
        $(selector.buttonSignIn).click();
     });
 
-
     it('should verify that button Join For Free is displayed', () => {
         expect($(selector.buttonJoinForFree).isDisplayed()).true;
     });
@@ -37,5 +37,10 @@ describe('Kmart - Search field -  functionality', () => {
         $(selector.buttonJoinForFree).click();
         browser.pause(2000)
     });
+
+    it('should verify that frame is displayed', () => {
+        expect($(selector.frame).isDisplayed()).true;
+    });
+
 
 });
