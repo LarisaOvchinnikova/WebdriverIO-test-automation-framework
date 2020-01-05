@@ -7,7 +7,8 @@ const selector = {
     searchField: '//div[@class="KeySearch"]',
     buttonSignIn: '//button[@id="yourAccount"]',
     menuHealthBeauty: '//a[@class="gnf_tree_junction"][contains(text(),"Health & Beauty")]',
-};
+    beautyHealth_beauty: '//div[@class="parsys par1"]//div[1]//ul[1]//li[1]//ul[1]//li[1]//a[1]',
+}
 
 describe('Kmart - Search field -  functionality', () => {
     before (() => {
@@ -30,7 +31,10 @@ describe('Kmart - Search field -  functionality', () => {
 
     it('should click menu Health and Beauty', () => {
         $(selector.menuHealthBeauty).click();
+        browser.pause(1000)
     });
-
+    it('should click menu Beauty', () => {
+        $(selector.beautyHealth_beauty).click();
+    });
 
 });
