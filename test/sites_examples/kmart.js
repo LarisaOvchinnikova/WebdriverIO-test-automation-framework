@@ -6,6 +6,7 @@ const selector = {
     logo: '//a[@class="ribbon-kmart-logo"]',
     searchField: '//div[@class="KeySearch"]',
     buttonSignIn: '//button[@id="yourAccount"]',
+    buttonJoinForFree: '//button[@class="button-secondary"]',
 };
 
 describe('Kmart - Search field -  functionality', () => {
@@ -25,6 +26,16 @@ describe('Kmart - Search field -  functionality', () => {
 
     it('should sign in', () => {
        $(selector.buttonSignIn).click();
+    });
+
+
+    it('should verify that button Join For Free is displayed', () => {
+        expect($(selector.buttonJoinForFree).isDisplayed()).true;
+    });
+
+    it('should click button Join For Free', () => {
+        $(selector.buttonJoinForFree).click();
+        browser.pause(2000)
     });
 
 });
