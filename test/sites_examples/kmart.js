@@ -4,10 +4,11 @@ const url = 'https://www.kmart.com/';
 
 const selector = {
     logo: '//a[@class="ribbon-kmart-logo"]',
-    searchField: '//div[@class="KeySearch"]'
+    searchField: '//div[@class="KeySearch"]',
+    buttonSignIn: '//button[@id="yourAccount"]',
 };
 
-describe('TJMAXX - Search field -  functionality', () => {
+describe('Kmart - Search field -  functionality', () => {
     before (() => {
         browser.url(url);
         browser.maximizeWindow();
@@ -22,5 +23,8 @@ describe('TJMAXX - Search field -  functionality', () => {
         expect($(selector.searchField).isDisplayed()).true;
     });
 
+    it('should sign in', () => {
+       $(selector.buttonSignIn).click();
+    });
 
 });
