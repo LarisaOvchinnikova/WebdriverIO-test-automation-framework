@@ -44,4 +44,6 @@ describe('Facebook - functionality', () => {
         browser.pause(10000);
 
     });
+
+
 });
