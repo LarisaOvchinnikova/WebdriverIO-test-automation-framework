@@ -6,8 +6,7 @@ const selector = {
     logo: '//a[@class="ribbon-kmart-logo"]',
     searchField: '//div[@class="KeySearch"]',
     buttonSignIn: '//button[@id="yourAccount"]',
-    buttonJoinForFree: '//button[@class="button-secondary"]',
-    frame: '//div[@id="modalIframe"]',
+    menuHealthBeauty: '//a[@class="gnf_tree_junction"][contains(text(),"Health & Beauty")]',
 };
 
 describe('Kmart - Search field -  functionality', () => {
@@ -25,21 +24,12 @@ describe('Kmart - Search field -  functionality', () => {
         expect($(selector.searchField).isDisplayed()).true;
     });
 
-    it('should sign in', () => {
-       $(selector.buttonSignIn).click();
+    it('should verify sign in button is displayed', () => {
+       expect($(selector.buttonSignIn).isDisplayed()).true;
     });
 
-    it('should verify that button Join For Free is displayed', () => {
-        expect($(selector.buttonJoinForFree).isDisplayed()).true;
-    });
-
-    it('should click button Join For Free', () => {
-        $(selector.buttonJoinForFree).click();
-        browser.pause(2000)
-    });
-
-    it('should verify that frame is displayed', () => {
-        expect($(selector.frame).isDisplayed()).true;
+    it('should click menu Health and Beauty', () => {
+        $(selector.menuHealthBeauty).click();
     });
 
 
