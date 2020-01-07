@@ -10,6 +10,7 @@ const selector = {
     beautyHealth_beauty: '//div[@class="parsys par1"]//div[1]//ul[1]//li[1]//ul[1]//li[1]//a[1]',
     vitamins: '//div[@id=\'scene7Img-71762b7d-713e-4a65-b625-6611646da5da\']//a//img',
     vitamins_vitamins: '//div[@class=\'KWSR_return ng-scope\']//div[1]//a[1]//img[1]',
+    standardMultivit: '//div[@id=\'mercadoBanner\']//img[@alt=\'Standard Multivitamins\']',
 };
 
 describe('Kmart - Search field -  functionality', () => {
@@ -45,6 +46,10 @@ describe('Kmart - Search field -  functionality', () => {
     });
     it('should click Vitamins', () => {
         $(selector.vitamins_vitamins).click();
+        browser.pause(1000)
+    });
+    it('should click Standard Miltivitamins', () => {
+        $(selector.standardMultivit).click();
         browser.pause(1000)
     });
 
