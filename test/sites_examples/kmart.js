@@ -9,6 +9,7 @@ const selector = {
     menuHealthBeauty: '//a[@class="gnf_tree_junction"][contains(text(),"Health & Beauty")]',
     beautyHealth_beauty: '//div[@class="parsys par1"]//div[1]//ul[1]//li[1]//ul[1]//li[1]//a[1]',
     vitamins: '//div[@id=\'scene7Img-71762b7d-713e-4a65-b625-6611646da5da\']//a//img',
+    vitamins_vitamins: '//div[@class=\'KWSR_return ng-scope\']//div[1]//a[1]//img[1]',
 };
 
 describe('Kmart - Search field -  functionality', () => {
@@ -40,6 +41,10 @@ describe('Kmart - Search field -  functionality', () => {
     // });
     it('should click Vitamins and Supplements', () => {
         $(selector.vitamins).click();
+        browser.pause(1000)
+    });
+    it('should click Vitamins', () => {
+        $(selector.vitamins_vitamins).click();
         browser.pause(1000)
     });
 
