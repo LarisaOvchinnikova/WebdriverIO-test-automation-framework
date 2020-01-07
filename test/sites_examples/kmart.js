@@ -8,7 +8,8 @@ const selector = {
     buttonSignIn: '//button[@id="yourAccount"]',
     menuHealthBeauty: '//a[@class="gnf_tree_junction"][contains(text(),"Health & Beauty")]',
     beautyHealth_beauty: '//div[@class="parsys par1"]//div[1]//ul[1]//li[1]//ul[1]//li[1]//a[1]',
-}
+    vitamins: '//div[@id=\'scene7Img-71762b7d-713e-4a65-b625-6611646da5da\']//a//img',
+};
 
 describe('Kmart - Search field -  functionality', () => {
     before (() => {
@@ -31,10 +32,15 @@ describe('Kmart - Search field -  functionality', () => {
 
     it('should click menu Health and Beauty', () => {
         $(selector.menuHealthBeauty).click();
-        browser.pause(1000)
+        browser.pause(1000);
     });
-    it('should click menu Beauty', () => {
-        $(selector.beautyHealth_beauty).click();
+    // it('should click menu Beauty', () => {
+    //     $(selector.beautyHealth_beauty).click();
+    //     browser.pause(1000);
+    // });
+    it('should click Vitamins and Supplements', () => {
+        $(selector.vitamins).click();
+        browser.pause(1000)
     });
 
 });
