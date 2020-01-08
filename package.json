@@ -33,7 +33,8 @@
     "goodrx": "wdio wdio.conf.js --spec test/sites_examples/goodrx.js --inspect",
     "gymn22": "wdio wdio.conf.js --spec test/sites_examples/gymn22.js --inspect",
     "walmart": "wdio wdio.conf.js --spec test/sites_examples/walmart.js --inspect",
-    "kmart": "wdio wdio.conf.js --spec test/sites_examples/kmart.js --inspect"
+    "kmart": "wdio wdio.conf.js --spec test/sites_examples/kmart.js --inspect",
+    "kmartDesign": "wdio wdio.conf.js --spec test/sites_examples/kmartDesign.js --inspect"
   },
   "author": "",
   "license": "ISC",
