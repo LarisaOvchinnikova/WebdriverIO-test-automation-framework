@@ -6,11 +6,13 @@ const selector = {
     emailField: '//input[@name="email"]',
     emailLabel: '//label[@for="email"]',
     passwordField: '//input[@name="password"]',
+    passwordLabel: '//label[@for="password"]',
     submitButton: '//button[@type="submit"]',
 };
 const expected = {
     h1: 'User Login',
-    labelText: 'Email',
+    emailLabelText: 'Email',
+    passwordLabelText: 'Password',
 };
 
 describe('Login form', () => {
@@ -50,7 +52,11 @@ describe('Login form', () => {
 
     it('should verify text of email label', ()=>{
         const actualLabelText = $(selector.emailLabel).getText();
-        expect (actualLabelText).equal(expected.labelText);
+        expect (actualLabelText).equal(expected.emailLabelText);
     });
 
+    it('should verify text of password label', ()=>{
+        const actualLabelText = $(selector.passwordLabel).getText();
+        expect (actualLabelText).equal(expected.passwordLabelText);
+    });
 });
