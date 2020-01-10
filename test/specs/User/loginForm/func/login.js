@@ -4,11 +4,13 @@ const selector = {
     loginButton: '//a[@qa="login-link"]',
     h1: '//h1',
     emailField: '//input[@name="email"]',
+    emailLabel: '//label[@for="email"]',
     passwordField: '//input[@name="password"]',
     submitButton: '//button[@type="submit"]',
 };
 const expected = {
     h1: 'User Login',
+    labelText: 'Email',
 };
 
 describe('Login form', () => {
@@ -45,4 +47,10 @@ describe('Login form', () => {
     it('should verify submit button is disabled', () => {
         expect($(selector.submitButton).getAttribute('class')).includes('disabled');
     });
+
+    it('should verify text of email label', ()=>{
+        const actualLabelText = $(selector.emailLabel).getText();
+        expect (actualLabelText).equal(expected.labelText);
+    });
+
 });
