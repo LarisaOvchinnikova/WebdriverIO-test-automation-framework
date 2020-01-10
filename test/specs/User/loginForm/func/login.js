@@ -1,6 +1,7 @@
 import {expect} from "chai";
 
 const selector = {
+    siteName: '//span[@id="site-name"]',
     loginButton: '//a[@qa="login-link"]',
     h1: '//h1',
     emailField: '//input[@name="email"]',
@@ -11,6 +12,7 @@ const selector = {
     forgotPasswordLink: '//a[@qa="forgot-password-link"]',
 };
 const expected = {
+    siteName: 'Progress Monitor',
     h1: 'User Login',
     emailLabelText: 'Email',
     passwordLabelText: 'Password',
@@ -19,6 +21,11 @@ const expected = {
 describe('Login form', () => {
     before (() => {
       browser.url('https://stage.pasv.us');
+    });
+
+    it('should verify site name is correct', () => {
+        const actual = $(selector.siteName).getText();
+        expect (actual).equal(expected.siteName);
     });
 
     it('should click login button', () => {
