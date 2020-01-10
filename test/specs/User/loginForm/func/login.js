@@ -37,9 +37,12 @@ describe('Login form', () => {
     });
 
     it('should verify submit button is disabled', () => {
-      // expect($(selector.submitButton).getAttribute('class')).includes('disabled');
         const submitButton = $(selector.submitButton);
         const isEnabled = submitButton.isEnabled();
         expect(isEnabled).equal(false);
+    });
+
+    it('should verify submit button is disabled', () => {
+        expect($(selector.submitButton).getAttribute('class')).includes('disabled');
     });
 });
