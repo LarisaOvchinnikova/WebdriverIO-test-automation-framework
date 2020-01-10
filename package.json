@@ -6,6 +6,7 @@
   "scripts": {
     "test": "wdio wdio.conf.js --inspect",
     "login": "wdio wdio.conf.js --spec test/specs/User/loginForm/func/login.js --inspect",
+    "registerNewDesign": "wdio wdio.conf.js --spec test/specs/User/registerNewDesign/firstNameFieldDesign.js --inspect",
     "userloginForm_func": "wdio wdio.conf.js --spec test/specs/User/loginForm/func/user_loginForm_func.js --inspect",
     "userloginFormDesign": "wdio wdio.conf.js --spec test/specs/User/loginForm/design/user_loginForm_design.js --inspect",
     "dayReport": "wdio wdio.conf.js --spec test/specs/diary/dayReportFromUserPage.js --inspect",

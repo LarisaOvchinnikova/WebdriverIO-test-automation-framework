@@ -23,34 +23,8 @@ describe('Kmart - Search field -  functionality', () => {
    it('should open the main page and verify that logo is displayed', () => {
        expect($(selector.logo).isDisplayed()).true;
     });
-
-    it('should verify that search field is displayed on the main page', () => {
-        expect($(selector.searchField).isDisplayed()).true;
-    });
-
-    it('should verify sign in button is displayed', () => {
-       expect($(selector.buttonSignIn).isDisplayed()).true;
-    });
-
-    it('should click menu Health and Beauty', () => {
-        $(selector.menuHealthBeauty).click();
-        browser.pause(1000);
-    });
-    // it('should click menu Beauty', () => {
-    //     $(selector.beautyHealth_beauty).click();
-    //     browser.pause(1000);
-    // });
-    it('should click Vitamins and Supplements', () => {
-        $(selector.vitamins).click();
-        browser.pause(1000)
-    });
-    it('should click Vitamins', () => {
-        $(selector.vitamins_vitamins).click();
-        browser.pause(1000)
-    });
-    it('should click Standard Miltivitamins', () => {
-        $(selector.standardMultivit).click();
-        browser.pause(1000)
+    it('should verify that `Password` field is displayed', () => {
+        expect($(passwordField).isDisplayed()).to.be.true;
     });
 
 });
