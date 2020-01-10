@@ -8,6 +8,7 @@ const selector = {
     passwordField: '//input[@name="password"]',
     passwordLabel: '//label[@for="password"]',
     submitButton: '//button[@type="submit"]',
+    forgotPasswordLink: '//a[@qa="forgot-password-link"]',
 };
 const expected = {
     h1: 'User Login',
@@ -59,4 +60,14 @@ describe('Login form', () => {
         const actualLabelText = $(selector.passwordLabel).getText();
         expect (actualLabelText).equal(expected.passwordLabelText);
     });
+
+    it('should verify text of password label', ()=>{
+        const actualLabelText = $(selector.passwordLabel).getText();
+        expect (actualLabelText).equal(expected.passwordLabelText);
+    });
+
+    it('should verify forgot pssword link is displayed', ()=>{
+       expect ($(selector.forgotPasswordLink).isDisplayed()).true;
+    });
+
 });
