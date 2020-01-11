@@ -4,6 +4,7 @@
   "description": "Super test",
   "main": "index.js",
   "scripts": {
+    "index_spec": "wdio wdio.conf.js --spec test/unitTests/index_spec.js --inspect",
     "test": "wdio wdio.conf.js --inspect",
     "login": "wdio wdio.conf.js --spec test/specs/User/loginForm/func/login.js --inspect",
     "registerNewDesign": "wdio wdio.conf.js --spec test/specs/User/registerNewDesign/firstNameFieldDesign.js --inspect",
