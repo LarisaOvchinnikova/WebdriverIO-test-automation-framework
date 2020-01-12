@@ -94,4 +94,13 @@ describe('function NaN', ()=>{
         expect(isNaN(a)).true;
     });
 
-})
+    it('shoud verify 2+"a" is not NaN', () => {
+        const a = 2 + 'a';
+        expect(isNaN(a)).false;
+    });
+
+    it('shoud verify 2 is not NaN', () => {
+        const b = 2;
+        expect(isNaN(b)).false;
+    });
+});
