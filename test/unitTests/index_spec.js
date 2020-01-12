@@ -85,8 +85,13 @@ describe('Function firstWord', () =>{
     });
 });
 describe('function NaN', ()=>{
-    it('shoul verify NaN is NaN', () => {
+    it('shoud verify NaN is NaN', () => {
         expect(isNaN(NaN)).true;
+    });
+
+    it('shoud verify 2*"a" is NaN', () => {
+        const a = 2 * 'a';
+        expect(isNaN(a)).true;
     });
 
 })
