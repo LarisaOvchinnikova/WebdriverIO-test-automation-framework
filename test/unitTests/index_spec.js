@@ -43,5 +43,8 @@ describe ('function newArray', () => {
     it('should create array [1]',() => {
         expect(newArray([1])).deep.equal([1]);
     });
+    it('should create array []',() => {
+        expect(newArray([0])).deep.equal([]);
+    });
 })
 
