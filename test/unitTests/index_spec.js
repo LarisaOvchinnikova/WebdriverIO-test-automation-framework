@@ -1,7 +1,7 @@
 const assert = require('assert');
 import { expect } from 'chai';
 
-const {sum, mult, indexOfFirstNegative, newArray} = require('./../index');
+const {sum, mult, indexOfFirstNegative, newArray, isAdult} = require('./../index');
 
 describe('function sum', () => {
     it('should sum equal 0', () => {
@@ -43,8 +43,16 @@ describe ('function newArray', () => {
     it('should create array [1]',() => {
         expect(newArray([1])).deep.equal([1]);
     });
+
     it('should create array []',() => {
         expect(newArray([0])).deep.equal([]);
     });
-})
 
+    it('should create array []',() => {
+        expect(newArray([-1])).deep.equal([]);
+    });
+});
+
+describe ('function isAdult', () => {
+
+})
