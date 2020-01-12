@@ -1,37 +1,39 @@
 const assert = require('assert');
+import { expect } from 'chai';
+
 const {sum, mult, indexOfFirstNegative} = require('./../index');
 
 describe('function sum', () => {
-        it('should sum equal 0', () => {
-                assert.equal(sum(-5, 5), 0)
-        });
+    it('should sum equal 0', () => {
+        expect(sum(-5, 5)).equal(0);
+    });
 
-        it('should sum equal 20', () => {
-                assert.equal(sum(5, 15), 20)
-        });
+    it('should sum equal 20', () => {
+        expect(sum(5, 15)).equal(20);
+    });
 
-        it('should sum not equal 20', () => {
-                assert.notEqual(sum(1, 15), 20)
-        });
+    it('should sum not equal 20', () => {
+        expect(sum(1, 15)).not.equal(20);
+    });
 });
 
 describe('function mult', () => {
-        it ("should verify function mult works correctly 2*0 =0", () => {
-                assert.equal(mult(2, 0), 0);
-        });
+    it("should verify function mult works correctly 2*0 =0", () => {
+        assert.equal(mult(2, 0), 0);
+    });
 
-        it ("should verify function mult works correctly", () => {
-                assert.equal(mult(2, 4), 8);
-        });
+    it("should verify function mult works correctly", () => {
+        assert.equal(mult(2, 4), 8);
+    });
 });
 
-describe ('Should verify function indexOfFirstNegative works correctly', () => {
-        it ('should find index 0', () => {
-                assert.equal(indexOfFirstNegative([-1,2,3,4,5,6]), 0);
-        });
-        it ('should find index 3', () => {
-                assert.equal(indexOfFirstNegative([0, 1, 2, -3, 4, -5]), 3);
-        })
+describe('Should verify function indexOfFirstNegative works correctly', () => {
+    it('should find index 0', () => {
+        assert.equal(indexOfFirstNegative([-1, 2, 3, 4, 5, 6]), 0);
+    });
+    it('should find index 3', () => {
+        assert.equal(indexOfFirstNegative([0, 1, 2, -3, 4, -5]), 3);
+    })
 });
 
 
