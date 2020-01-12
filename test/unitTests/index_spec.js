@@ -67,8 +67,12 @@ describe('function isAdult', () => {
     });
 });
 
-describe('Function firsWord', () =>{
+describe('Function firstWord', () =>{
     it('should return first word from "mama drink milk"', () => {
         expect(firstWord('mama drink milk')).equal('mama');
-    })
+    });
+    it('should return first word from "mama"', () => {
+        expect(firstWord('mama')).equal('mama');
+    });
+
 })
