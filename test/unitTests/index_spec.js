@@ -1,5 +1,5 @@
 const assert = require('assert');
-import { expect } from 'chai';
+import {expect} from 'chai';
 
 const {sum, mult, indexOfFirstNegative, newArray, isAdult} = require('./../index');
 
@@ -36,23 +36,33 @@ describe('function indexOfFirstNegative', () => {
     })
 });
 
-describe ('function newArray', () => {
-    it('should create array [1,2,3,4,5]',() => {
-        expect(newArray([5])).deep.equal([1,2,3,4,5]);
+describe('function newArray', () => {
+    it('should create array [1,2,3,4,5]', () => {
+        expect(newArray([5])).deep.equal([1, 2, 3, 4, 5]);
     });
-    it('should create array [1]',() => {
+    it('should create array [1]', () => {
         expect(newArray([1])).deep.equal([1]);
     });
 
-    it('should create array []',() => {
+    it('should create array []', () => {
         expect(newArray([0])).deep.equal([]);
     });
 
-    it('should create array []',() => {
+    it('should create array []', () => {
         expect(newArray([-1])).deep.equal([]);
     });
 });
 
-describe ('function isAdult', () => {
+describe('function isAdult', () => {
+    it('should verify 21 is adult', () => {
+        expect(isAdult(21)).true;
+    });
 
+    it('should verify 18 is adult', () => {
+        expect(isAdult(18)).true;
+    });
+
+    it('should verify 17 is not adult', () => {
+        expect(isAdult(17)).false;
+    });
 })
