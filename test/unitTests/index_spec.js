@@ -65,4 +65,5 @@ describe('function isAdult', () => {
     it('should verify 17 is not adult', () => {
         expect(isAdult(17)).false;
     });
-})
+});
+

@@ -24,4 +24,10 @@ function isAdult(age){
     return age >= 18;
 }
 
-module.exports = {sum, mult, indexOfFirstNegative, newArray, isAdult};
+function firstWord(str){
+    let ind = str.indexOf(' ');
+    if (ind === -1) return (str);
+    else return str.slice(0,ind);
+}
+
+module.exports = {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord};
