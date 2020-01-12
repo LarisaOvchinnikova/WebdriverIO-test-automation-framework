@@ -31,4 +31,8 @@ function firstWord(str){
     else return str.slice(0,ind);
 }
 
-module.exports = {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord};
+function isNaN(n){
+    return n !== n;
+}
+
+module.exports = {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN};

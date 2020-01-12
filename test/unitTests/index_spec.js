@@ -68,8 +68,8 @@ describe('function isAdult', () => {
 });
 
 describe('Function firstWord', () =>{
-    it('should return first word from "mama drink milk"', () => {
-        expect(firstWord('mama drink milk')).equal('mama');
+    it('should return first word from "mama is kind"', () => {
+        expect(firstWord('mama is kind')).equal('mama');
     });
 
     it('should return first word from "mama"', () => {
@@ -83,4 +83,10 @@ describe('Function firstWord', () =>{
     it('should return first word from "mama "', () => {
         expect(firstWord(' mama ')).equal('mama');
     });
+});
+describe('function NaN', ()=>{
+    it('shoul verify NaN is NaN', () => {
+        expect(isNaN(NaN)).true;
+    });
+
 })
