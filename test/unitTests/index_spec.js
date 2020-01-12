@@ -15,4 +15,8 @@ it('should sum not equal 20', () => {
 
 it ("should product equal 0", () => {
         assert.equal(mult(2, 0), 0);
-})
+});
+
+it ("should veryfy function mult works correctly", () => {
+        assert.equal(mult(2, 4), 8);
+});
