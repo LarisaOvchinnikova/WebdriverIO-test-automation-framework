@@ -1,5 +1,5 @@
 const assert = require('assert');
-const {sum, mult} = require('./../index');
+const {sum, mult, indexOfFirstNegative} = require('./../index');
 
 describe('function sum', () => {
         it('should sum equal 0', () => {
@@ -25,5 +25,13 @@ describe('function mult', () => {
         });
 });
 
+describe ('Should verify function indexOfFirstNegative works correctly', () => {
+        it ('should find index 0', () => {
+                assert.equal(indexOfFirstNegative([-1,2,3,4,5,6]), 0);
+        });
+        it ('should find index 3', () => {
+                assert.equal(indexOfFirstNegative([0, 1, 2, -3, 4, -5]), 3);
+        })
+});
 
 
