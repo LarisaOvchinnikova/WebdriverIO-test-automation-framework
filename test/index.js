@@ -20,5 +20,8 @@ function newArray(n){
     return arr;
 }
 
+function isAdult(age){
+    return age >= 18;
+}
 
-module.exports = {sum, mult, indexOfFirstNegative, newArray};
+module.exports = {sum, mult, indexOfFirstNegative, newArray, isAdult};
