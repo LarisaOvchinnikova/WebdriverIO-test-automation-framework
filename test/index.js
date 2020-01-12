@@ -25,6 +25,7 @@ function isAdult(age){
 }
 
 function firstWord(str){
+    str = str.trim();
     let ind = str.indexOf(' ');
     if (ind === -1) return (str);
     else return str.slice(0,ind);

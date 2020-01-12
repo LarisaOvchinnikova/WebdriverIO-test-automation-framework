@@ -71,8 +71,16 @@ describe('Function firstWord', () =>{
     it('should return first word from "mama drink milk"', () => {
         expect(firstWord('mama drink milk')).equal('mama');
     });
+
     it('should return first word from "mama"', () => {
         expect(firstWord('mama')).equal('mama');
     });
 
+    it('should return first word from ""', () => {
+        expect(firstWord('')).equal('');
+    });
+
+    it('should return first word from "mama "', () => {
+        expect(firstWord(' mama ')).equal('mama');
+    });
 })
