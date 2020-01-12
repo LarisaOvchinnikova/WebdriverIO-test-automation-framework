@@ -1,7 +1,7 @@
 const assert = require('assert');
 import {expect} from 'chai';
 
-const {sum, mult, indexOfFirstNegative, newArray, isAdult} = require('./../index');
+const {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord} = require('./../index');
 
 describe('function sum', () => {
     it('should sum equal 0', () => {
@@ -67,3 +67,8 @@ describe('function isAdult', () => {
     });
 });
 
+describe('Function firsWord', () =>{
+    it('should return first word from "mama drink milk"', () => {
+        expect(firstWord('mama drink milk')).equal('mama');
+    })
+})
