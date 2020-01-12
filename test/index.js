@@ -12,4 +12,13 @@ function indexOfFirstNegative(arr){
     }
 }
 
-module.exports = {sum, mult, indexOfFirstNegative};
+function newArray(n){
+    let arr = [];
+    for (let i = 1; i <= n; i++){
+       arr.push(i);
+    }
+    return arr;
+}
+
+
+module.exports = {sum, mult, indexOfFirstNegative, newArray};
