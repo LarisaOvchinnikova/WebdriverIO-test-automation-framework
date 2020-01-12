@@ -39,6 +39,9 @@ describe('function indexOfFirstNegative', () => {
 describe ('function newArray', () => {
     it('should create array [1,2,3,4,5]',() => {
         expect(newArray([5])).deep.equal([1,2,3,4,5]);
-    })
+    });
+    it('should create array [1]',() => {
+        expect(newArray([1])).deep.equal([1]);
+    });
 })
 
