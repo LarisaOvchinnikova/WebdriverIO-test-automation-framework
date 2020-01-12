@@ -5,4 +5,11 @@ function sum (a, b){
 function mult(a, b){
     return a * b;
 }
-module.exports = {sum, mult};
+
+function indexOfFirstNegative(arr){
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] < 0) return i;
+    }
+}
+
+module.exports = {sum, mult, indexOfFirstNegative};
