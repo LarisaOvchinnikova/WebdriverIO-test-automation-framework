@@ -109,4 +109,9 @@ describe('Function max in array',()=>{
     it('shoulf find max in [1,4,2]',()=>{
         expect(maxArr([1,4,2])).equal(4);
     });
+
+    it('shoulf find max in [-1,-3,-4]',()=>{
+        expect(maxArr([-1, -3, -4])).equal(-1);
+    });
+
 });
