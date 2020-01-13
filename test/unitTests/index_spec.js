@@ -1,7 +1,7 @@
 const assert = require('assert');
 import {expect} from 'chai';
 
-const {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN} = require('./../index');
+const {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN, maxArr} = require('./../index');
 
 describe('function sum', () => {
     it('should sum equal 0', () => {
@@ -102,5 +102,11 @@ describe('function NaN', ()=>{
     it('shoud verify 2 is not NaN', () => {
         const b = 2;
         expect(isNaN(b)).false;
+    });
+});
+
+describe('Function max in array',()=>{
+    it('shoulf find max in [1,4,2]',()=>{
+        expect(maxArr([1,4,2])).equal(4);
     });
 });
