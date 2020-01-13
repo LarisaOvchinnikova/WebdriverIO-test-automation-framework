@@ -114,4 +114,9 @@ describe('Function max in array',()=>{
         expect(maxArr([-1, -3, -4])).equal(-1);
     });
 
+    it('shoulf find max in [',()=>{
+        expect(maxArr([])).equal(-Infinity);
+    });
+
+
 });
