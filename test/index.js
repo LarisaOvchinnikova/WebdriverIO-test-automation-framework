@@ -43,4 +43,8 @@ function maxArr(arr){
     }
     return max;
 }
-module.exports = {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN, maxArr};
+
+function password(str){
+    return str.length <=15 && str.length >= 3 && str.match(/[0-9a-zA-Z]/g).length === str.length;
+}
+module.exports = {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN, maxArr, password};

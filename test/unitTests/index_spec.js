@@ -1,7 +1,7 @@
 const assert = require('assert');
 import {expect} from 'chai';
 
-const {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN, maxArr} = require('./../index');
+const {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN, maxArr, password} = require('./../index');
 
 describe('function sum', () => {
     it('should sum equal 0', () => {
@@ -118,5 +118,14 @@ describe('Function max in array',()=>{
         expect(maxArr([])).equal(-Infinity);
     });
 
-
+    it('shoulf find max in [0]',()=>{
+        expect(maxArr([0])).equal(0);
+    });
 });
+
+describe('function password - password (3-15 symbols) includes olny letters and digits', ()=>{
+    it('should verify password 123 is ok', () => {
+        expect(password('123')).true;
+    })
+
+})
