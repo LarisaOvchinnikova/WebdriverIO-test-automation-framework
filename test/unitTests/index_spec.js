@@ -126,6 +126,10 @@ describe('Function max in array',()=>{
 describe('function password - password (3-15 symbols) includes olny letters and digits', ()=>{
     it('should verify password 123 is ok', () => {
         expect(password('123')).true;
-    })
+    });
 
-})
+    it('should verify password 12 is fail', () => {
+        expect(password('12')).false;
+    });
+
+});
