@@ -140,4 +140,8 @@ describe('function password - password (3-15 symbols) includes olny letters and 
         expect(password('abcdeQWERTY')).true;
     });
 
+    it('should verify password 0!@#4 is fail', () => {
+        expect(password('0!@#4')).false;
+    });
+
 });
