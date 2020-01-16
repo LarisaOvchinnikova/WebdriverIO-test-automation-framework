@@ -1,7 +1,7 @@
 const assert = require('assert');
 import {expect} from 'chai';
 
-const {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN, maxArr, password} = require('./../index');
+const {sum, mult, indexOfFirstNegative, newArray, isAdult, firstWord, isNaN, maxArr, password, name} = require('./../index');
 
 describe('function sum', () => {
     it('should sum equal 0', () => {
@@ -143,5 +143,12 @@ describe('function password - password (3-15 symbols) includes olny letters and 
     it('should verify password 0!@#4 is fail', () => {
         expect(password('0!@#4')).false;
     });
-
 });
+
+describe('Function name - name should consist only with letters, first in Uppercase and length>=2', ()=> {
+    it('should verify name "A" is wrong', ()=>{
+        expect(name("A")).false;
+    });
+
+
+})
