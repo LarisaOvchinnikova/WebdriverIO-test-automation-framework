@@ -145,7 +145,7 @@ describe('function password - password (3-15 symbols) includes olny letters and 
     });
 });
 
-describe('Function name - name should consist only with letters, first in Uppercase and length>=2', ()=> {
+describe('Function name - name should consist only with letters, first in Uppercase, others in lowercase and length>=2', ()=> {
     it('should verify name "A" is wrong', ()=>{
         expect(name("A")).false;
     });
@@ -154,4 +154,12 @@ describe('Function name - name should consist only with letters, first in Upperc
         expect(name("Aa")).true;
     });
 
-})
+    it('should verify name "A1" is wrong', ()=>{
+        expect(name("A1")).false;
+    });
+
+    it('should verify name "aa" is wrong', ()=>{
+        expect(name("aa")).false;
+    });
+
+});
