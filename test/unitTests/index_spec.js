@@ -150,5 +150,8 @@ describe('Function name - name should consist only with letters, first in Upperc
         expect(name("A")).false;
     });
 
+    it('should verify name "Aa" is right', ()=>{
+        expect(name("Aa")).true;
+    });
 
 })
